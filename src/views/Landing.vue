@@ -23,6 +23,12 @@
           principles to ensure our solutions are intuitive, performant, and
           deliver the best user experience.
         </p>
+        <a
+          class="github-button"
+          href="https://github.com/Code-4-Community"
+          aria-label="Follow @Code-4-Community on GitHub"
+          >Follow C4C on GitHub</a
+        >
       </div>
     </section>
 
