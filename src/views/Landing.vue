@@ -45,7 +45,7 @@
     <section>
       <div class="parallax-four">
         <h2>MEET THE TEAM</h2>
-        <router-link to="/board">
+        <router-link to="/eboard">
           <button class="btn board">
             <pb>Our Executive Board</pb>
           </button>
