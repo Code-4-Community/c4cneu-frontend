@@ -6,7 +6,9 @@
         alt="Member"
         style="width:100%"
       />
-      <p>{{ person.name }}</p>
+      <p>
+        <strong>{{ person.name }}</strong>
+      </p>
       <p class="title">{{ person.position }}</p>
       <p>{{ person.bio }}</p>
     </div>
@@ -51,6 +53,9 @@ export default {
   width: 375px;
   text-align: left;
   margin: auto;
+  border-style: solid;
+  border-width: 4px;
+  height: 400px;
 }
 
 @media only screen and (max-width: 768px) {
