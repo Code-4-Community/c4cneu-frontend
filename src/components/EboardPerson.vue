@@ -1,11 +1,7 @@
 <template>
   <div>
     <div class="container">
-      <img
-        src="'../assets/Eboard/' + 'person.imageUrl'"
-        alt="Member"
-        style="width:100%"
-      />
+      <img :src="person.imageUrl" alt="Member" style="width:100%" />
       <p>
         <strong>{{ person.name }}</strong>
       </p>
@@ -54,8 +50,7 @@ export default {
   text-align: left;
   margin: auto;
   border-style: solid;
-  border-width: 4px;
-  height: 400px;
+  border-width: 1px;
 }
 
 @media only screen and (max-width: 768px) {
