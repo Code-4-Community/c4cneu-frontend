@@ -5,7 +5,6 @@
       <router-link to="/auth">Sign In</router-link>
       <router-link to="/checkin">Check In</router-link>
       <router-link to="/eboard">Eboard</router-link>
-      <router-link to="/test">TEST LINK</router-link>
     </div>
     <router-view />
   </div>
