@@ -1,6 +1,14 @@
 <template>
   <div>
-    <h1>The Eboard</h1>
+    <section>
+      <div class="parallax-one">
+        <h1>
+          Executive <br />
+          Board
+        </h1>
+      </div>
+    </section>
+
     <EboardPeople v-bind:eboard="eboard" />
   </div>
 </template>
@@ -33,7 +41,7 @@ export default {
         },
 
         {
-          name: "Jack Blanc (aka Hypebeast",
+          name: "Jack Blanc",
           imageUrl: "../assets/Eboard/jack_blanc.jpg",
           position: "VP of Testing and Security",
           bio:
@@ -81,9 +89,23 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+.parallax-one {
+  padding-top: 200px;
+  padding-bottom: 200px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-image: url("../assets/p5.png");
+  background-attachment: fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
 h1 {
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 32px;
+  font-size: 128px;
   font-weight: 600;
   color: white;
   padding: 20px;

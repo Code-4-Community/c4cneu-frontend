@@ -31,7 +31,7 @@ h1 {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 32px;
   font-weight: 600;
-  color: white;
+  color: black;
   padding: 20px;
   margin: 0;
 }
@@ -41,7 +41,7 @@ h2 {
   font-weight: 600;
   line-height: 120px;
   letter-spacing: -4px;
-  color: white;
+  color: black;
   padding: 20px;
   margin: 0;
 }
@@ -49,14 +49,14 @@ h3 {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 22px;
   font-weight: 400;
-  color: white;
+  color: black;
   padding: 20px;
   margin: 0;
 }
 p {
   font-family: "Merriweather", serif;
   font-weight: 400;
-  color: white;
+  color: black;
   font-size: 16px;
   line-height: 32px;
   margin-right: 15%;
@@ -65,7 +65,7 @@ p {
 pb {
   font-family: "Merriweather", serif;
   font-weight: 700;
-  color: white;
+  color: black;
   font-size: 16px;
   line-height: 32px;
 }
@@ -84,6 +84,7 @@ pb {
 
 .flexWrapper {
   margin: 15px;
+  justify-content: center;
 }
 
 .row {
@@ -91,12 +92,14 @@ pb {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  justify-content: center;
 }
 
 .column {
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
+  justify-content: center;
 }
 
 @media screen and (min-width: 800px) {

@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <img
-        src="src/assets/Eboard/stephen_alt.jpg"
+        src="'../assets/Eboard/' + 'person.imageUrl'"
         alt="Member"
         style="width:100%"
       />
@@ -62,6 +62,8 @@ export default {
 }
 
 .container {
-  width: 400px;
+  width: 375px;
+  text-align: left;
+  margin: auto;
 }
 </style>
