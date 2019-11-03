@@ -3,24 +3,7 @@
     <div class="flexWrapper">
       <div class="row">
         <div class="column">
-          <div class="blue-column">Some Text in Column One</div>
-        </div>
-        <div class="column">
-          <div class="green-column">Some Text in Column Two</div>
-        </div>
-        <div class="column">
-          <div class="orange-column">Some Text in Column Two</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="column">
-          <div class="blue-column">Some Text in Column One</div>
-        </div>
-        <div class="column">
-          <div class="green-column">Some Text in Column Two</div>
-        </div>
-        <div class="column">
-          <div class="orange-column">Some Text in Column Two</div>
+          <div><Person v-bind:eboard="eboard" /></div>
         </div>
       </div>
     </div>
@@ -28,8 +11,12 @@
 </template>
 
 <script>
+import Person from "./EboardPerson";
 export default {
   name: "people",
+  components: {
+    Person
+  },
   props: ["eboard"]
 };
 </script>

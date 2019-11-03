@@ -4,6 +4,7 @@ import Landing from "../views/Landing.vue";
 import Auth from "../views/Auth.vue";
 import CheckIn from "../views/CheckIn.vue";
 import Eboard from "../views/Eboard.vue";
+import test from "../components/EboardPerson";
 
 Vue.use(VueRouter);
 
@@ -29,6 +30,12 @@ const routes = [
     path: "/checkin",
     name: "checkin",
     component: CheckIn
+  },
+
+  {
+    path: "/test",
+    name: "test",
+    component: test
   }
 ];
 
