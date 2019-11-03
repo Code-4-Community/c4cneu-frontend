@@ -95,7 +95,7 @@ pb {
   font-size: 16px;
   line-height: 32px;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1303px) {
   h2 {
     font-size: 48px;
     letter-spacing: 0px;
@@ -131,7 +131,7 @@ pb {
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
-@media (max-width: 800px) {
+@media (max-width: 1303px) {
   .column {
     flex: 48%;
     max-width: 48%;
@@ -139,7 +139,7 @@ pb {
 }
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   .column {
     flex: 100%;
     max-width: 100%;

@@ -23,14 +23,12 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
-.p {
+p {
   font-family: "Merriweather", serif;
   font-weight: 400;
   color: black;
   font-size: 16px;
-  line-height: 32px;
-  margin-right: 15%;
-  margin-left: 15%;
+  line-height: 25px;
 }
 .pb {
   font-family: "Merriweather", serif;
@@ -38,6 +36,11 @@ export default {
   color: black;
   font-size: 16px;
   line-height: 32px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
 }
 
 .title {
@@ -49,11 +52,12 @@ export default {
   width: 375px;
   text-align: left;
   margin: auto;
-  border-style: solid;
-  border-width: 1px;
+  height: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1303px) {
   .h2 {
     font-size: 48px;
     letter-spacing: 0px;
