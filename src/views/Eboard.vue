@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>The Eboard</h1>
-
     <EboardPeople v-bind:eboard="eboard" />
   </div>
 </template>

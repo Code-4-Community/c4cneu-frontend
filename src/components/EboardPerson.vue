@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div v-bind:key="person.id" v-for="person in eboard">
+    <div class="container">
       <img
         src="src/assets/Eboard/stephen_alt.jpg"
         alt="Member"
         style="width:100%"
       />
       <div class="container">
-        <pb>{{ person.name }}</pb>
+        <p>{{ person.name }}</p>
         <p class="title">{{ person.position }}</p>
         <p>{{ person.bio }}</p>
       </div>
@@ -18,7 +18,7 @@
 <script>
 export default {
   name: "person",
-  props: ["eboard"]
+  props: ["person"]
 };
 </script>
 
@@ -59,5 +59,9 @@ export default {
 .title {
   color: grey;
   font-style: italic;
+}
+
+.container {
+  width: 400px;
 }
 </style>

@@ -2,8 +2,10 @@
   <div>
     <div class="flexWrapper">
       <div class="row">
-        <div class="column">
-          <div><Person v-bind:eboard="eboard" /></div>
+        <div class="column" v-bind:key="person.id" v-for="person in eboard">
+          <div>
+            <Person v-bind:person="person" />
+          </div>
         </div>
       </div>
     </div>
@@ -82,7 +84,6 @@ pb {
 
 .flexWrapper {
   margin: 15px;
-  background-color: red;
 }
 
 .row {
@@ -96,16 +97,6 @@ pb {
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
-}
-
-.blue-column {
-  background-color: blue;
-  height: 100px;
-}
-
-.green-column {
-  height: 100px;
-  background-color: green;
 }
 
 @media screen and (min-width: 800px) {
