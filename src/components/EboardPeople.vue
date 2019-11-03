@@ -2,7 +2,33 @@
   <div>
     <div class="flexWrapper">
       <div class="row">
-        <div class="column" v-bind:key="person.id" v-for="person in eboard">
+        <div
+          class="column"
+          v-bind:key="person.id"
+          v-for="person in eboard.slice(0, 3)"
+        >
+          <div>
+            <Person v-bind:person="person" />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="column"
+          v-bind:key="person.id"
+          v-for="person in eboard.slice(3, 6)"
+        >
+          <div>
+            <Person v-bind:person="person" />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="column"
+          v-bind:key="person.id"
+          v-for="person in eboard.slice(6, 7)"
+        >
           <div>
             <Person v-bind:person="person" />
           </div>
@@ -82,29 +108,41 @@ pb {
 @media only screen and (min-width: 769px) {
 }
 
-.flexWrapper {
-  margin: 15px;
-  justify-content: center;
-}
-
 .row {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
+  padding: 0 4px;
   justify-content: center;
+  padding-bottom: 40px;
 }
 
+/* Create four equal columns that sits next to each other */
 .column {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
+  flex: 30%;
+  max-width: 30%;
+  padding: 0 4px;
   justify-content: center;
 }
 
-@media screen and (min-width: 800px) {
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  justify-content: center;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 800px) {
   .column {
-    flex: 1;
+    flex: 48%;
+    max-width: 48%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
   }
 }
 </style>

@@ -6,11 +6,9 @@
         alt="Member"
         style="width:100%"
       />
-      <div class="container">
-        <p>{{ person.name }}</p>
-        <p class="title">{{ person.position }}</p>
-        <p>{{ person.bio }}</p>
-      </div>
+      <p>{{ person.name }}</p>
+      <p class="title">{{ person.position }}</p>
+      <p>{{ person.bio }}</p>
     </div>
   </div>
 </template>
@@ -43,18 +41,6 @@ export default {
   font-size: 16px;
   line-height: 32px;
 }
-@media only screen and (max-width: 768px) {
-  .h2 {
-    font-size: 48px;
-    letter-spacing: 0px;
-  }
-  .p {
-    margin-right: 2vh;
-    margin-left: 2vh;
-  }
-}
-@media only screen and (min-width: 769px) {
-}
 
 .title {
   color: grey;
@@ -65,5 +51,23 @@ export default {
   width: 375px;
   text-align: left;
   margin: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .h2 {
+    font-size: 48px;
+    letter-spacing: 0px;
+  }
+  .p {
+    margin-right: 2vh;
+    margin-left: 2vh;
+  }
+
+  .container {
+    width: 340px;
+  }
+}
+
+@media only screen and (min-width: 769px) {
 }
 </style>

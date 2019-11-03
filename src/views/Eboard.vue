@@ -3,13 +3,14 @@
     <section>
       <div class="parallax-one">
         <h1>
-          Executive <br />
-          Board
+          Executive
+          <br />Board
         </h1>
       </div>
     </section>
-
-    <EboardPeople v-bind:eboard="eboard" />
+    <div class="ePeeps">
+      <EboardPeople v-bind:eboard="eboard" />
+    </div>
   </div>
 </template>
 
@@ -138,15 +139,21 @@ p {
   margin-right: 15%;
   margin-left: 15%;
 }
-pb {
+.pb {
   font-family: "Merriweather", serif;
   font-weight: 700;
   color: white;
   font-size: 16px;
   line-height: 32px;
 }
+
+.ePeeps {
+  margin: auto;
+  padding-top: 100px;
+}
+
 @media only screen and (max-width: 768px) {
-  h2 {
+  h1 {
     font-size: 48px;
     letter-spacing: 0px;
   }
