@@ -1,13 +1,20 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/auth">Sign In</router-link>
-      <router-link to="/checkin">Check In</router-link>
-    </div>
+    <the-navigation />
     <router-view />
   </div>
 </template>
+
+<script>
+import TheNavigation from "./views/TheNavigation";
+
+export default {
+  name: "App",
+  components: {
+    TheNavigation
+  }
+};
+</script>
 
 <style>
 #app {
