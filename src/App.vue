@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link>
       <router-link to="/auth">Sign In</router-link>
       <router-link to="/checkin">Check In</router-link>
+      <router-link to="/events">Event Manager</router-link>
     </div>
     <router-view />
   </div>

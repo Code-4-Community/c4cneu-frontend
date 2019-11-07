@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Landing from "../views/Landing.vue";
 import Auth from "../views/Auth.vue";
 import CheckIn from "../views/CheckIn.vue";
+import Events from "../views/Events.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes = [
     path: "/checkin",
     name: "checkin",
     component: CheckIn
+  },
+  {
+    path: "/events",
+    name: "events",
+    component: Events
   }
 ];
 
