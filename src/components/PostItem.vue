@@ -57,6 +57,8 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Merriweather:400,700|Source+Sans+Pro:300&display=swap");
 
 .post-item {
+  display: flex;
+  height: 50vh;
   width: 80%;
   margin: 50px auto;
 }
@@ -67,17 +69,14 @@ export default {
 
 .post-item-image {
   display: inline-block;
-  height: 100%;
-
-  border: 1px solid black;
+  flex: 1, 0, 100%;
 }
 
 .post-item-content {
   display: inline-block;
-  height: 100%;
+  flex: 1;
 
-  border: 1px solid black;
-  padding: 10px;
+  padding: 0px;
 }
 
 .post-title,
@@ -87,5 +86,7 @@ export default {
 
 .post-desc {
   font-family: "Merriweather", serif;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 </style>
