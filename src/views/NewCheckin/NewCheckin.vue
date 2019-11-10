@@ -84,6 +84,7 @@ export default {
     submitCheckin() {
       var submittedEvent = this.events[this.activeEventIndex];
       submittedEvent["code"] = this.code;
+      submittedEvent["checkin-time"] = Date.now();
     }
   }
 };
