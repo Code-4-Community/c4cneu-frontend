@@ -62,6 +62,10 @@
         use12-hour
         placeholder="Create Date"
       ></datetime>
+      <input v-model="newCode" placeholder="Enter Code Here" />
+      <br />
+      <br />
+      <br />
       <button @click="addEvent()">Submit</button>
     </div>
 
@@ -76,21 +80,49 @@
         </tr>
         <tr v-for="event in events" v-bind:key="event">
           <td>
-            <input v-model="event.id" v-bind:disabled="isUpdate === false" />
+            <input
+              v-model="event.id"
+              v-bind:disabled="isUpdate === false"
+              v-bind:class="{
+                tableInputDisabled: isUpdate === false,
+                tableInput: isUpdate === true
+              }"
+            />
           </td>
           <td>
-            <input v-model="event.name" v-bind:disabled="isUpdate === false" />
+            <input
+              v-model="event.name"
+              v-bind:disabled="isUpdate === false"
+              v-bind:class="{
+                tableInputDisabled: isUpdate === false,
+                tableInput: isUpdate === true
+              }"
+            />
           </td>
           <td>
-            <input v-model="event.date" v-bind:disabled="isUpdate === false" />
+            <input
+              v-model="event.date"
+              v-bind:disabled="isUpdate === false"
+              v-bind:class="{
+                tableInputDisabled: isUpdate === false,
+                tableInput: isUpdate === true
+              }"
+            />
           </td>
           <td>
-            <input v-model="event.code" v-bind:disabled="isUpdate === false" />
+            <input
+              v-model="event.code"
+              v-bind:disabled="isUpdate === false"
+              v-bind:class="{
+                tableInputDisabled: isUpdate === false,
+                tableInput: isUpdate === true
+              }"
+            />
           </td>
           <td v-show="isDelete === true">
-            <a @click="deleteEvent()">
+            <button @click="deleteEvent()">
               <font-awesome-icon class="faForTable" icon="trash-alt" />
-            </a>
+            </button>
           </td>
         </tr>
       </tbody>
@@ -113,6 +145,7 @@ export default {
       isAdd: false,
       datetimeEmpty: null,
       newName: "",
+      newCode: null,
 
       events: [
         {
@@ -158,14 +191,13 @@ export default {
   methods: {
     //es-lint is complaing that I can use the name and date so I'm gonna leave it out
     addEvent: function() {
-      //createEvent(name,date)
+      //createEvent(name,date,code)
       this.isAdd = false;
       this.newName = "";
       this.datetimeEmpty = null;
+      this.newCode = null;
     },
-    deleteEvent: function() {
-      this.test = "now";
-    },
+    deleteEvent: function() {},
     addActive: function() {
       this.isAdd = !this.isAdd;
     },
@@ -211,6 +243,23 @@ th {
   border: 2px solid #dddddd;
   padding: 5px;
   text-align: center;
+}
+
+.tableInputDisabled {
+  border: 2px solid #dddddd;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  width: auto;
+  background: rgba(187, 193, 199, 0.336);
+}
+
+.tableInput {
+  border: 2px solid #dddddd;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  width: auto;
 }
 
 .actionBar {
