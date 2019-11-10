@@ -15,17 +15,18 @@
         <h1>{{ events[activeEventIndex].title }}</h1>
         <p>Enter your code:</p>
         <input v-model.number="code" maxlength="4" input-code />
+        <br />
+        <button
+          v-bind:disabled="!codeIsValid"
+          v-on:click="submitCheckin()"
+          class="submit"
+        >
+          Submit
+        </button>
         <p v-if="!codeIsValid" class="error" error-code>
           Please enter valid 4 digit code
         </p>
       </div>
-      <button
-        v-bind:disabled="!codeIsValid"
-        v-on:click="submitCheckin()"
-        class="submit"
-      >
-        Submit
-      </button>
     </div>
   </div>
 </template>
@@ -90,12 +91,34 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap");
+
 button {
   background-color: whitesmoke;
   margin-top: 1em;
   border-radius: 2px;
   border: 2px solid rgb(112, 231, 235);
+}
+
+h1 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+  padding: 5px;
+  margin: 0;
+}
+
+p {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  color: black;
+  font-size: 16px;
+  line-height: 32px;
+  margin-right: 5%;
+  margin-left: 5%;
 }
 
 .error {
