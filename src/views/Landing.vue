@@ -62,7 +62,13 @@
     <footer class="footer">
       <a href="https://www.facebook.com/c4cneu/" class="fa fa-facebook"></a>
       <a href="https://www.instagram.com/c4cneu/" class="fa fa-instagram"></a>
-      <a href="mailto:c4cneu@gmail.com" class="fa fa-google"></a>
+      <a
+        href="https://www.linkedin.com/company/code-4-community/about/"
+        class="fa fa-linkedin"
+      ></a>
+      <a href="https://c4cneu.slack.com/" class="fa fa-slack"></a>
+      <a href="https://github.com/Code-4-Community" class="fa fa-github"></a>
+      <a href="mailto:c4cneu@gmail.com" class="fa fa-envelope-o"></a>
     </footer>
   </div>
 </template>
@@ -226,7 +232,19 @@ a:hover {
   color: black;
   background-color: white;
 }
-.fa-google {
+.fa-linkedin {
+  color: black;
+  background-color: white;
+}
+.fa-slack {
+  color: black;
+  background-color: white;
+}
+.fa-github {
+  color: black;
+  background-color: white;
+}
+.fa-envelope-o {
   color: black;
   background-color: white;
 }
