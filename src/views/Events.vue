@@ -5,6 +5,7 @@
       <button
         class="actionButton"
         v-bind:disabled="isDelete === true || isUpdate === true"
+        @click="addActive()"
       >
         Add
       </button>
@@ -45,6 +46,14 @@
         Cancel
       </button>
     </div>
+
+    <div v-show="isAdd === true" class="addForm">
+      <h1>Add A New Event</h1>
+      <input v-model="newName" placeholder="Name of Event" />
+      <datetime type="datetime" v-model="datetimeEmpty" use12-hour></datetime>
+      <button @click="addEvent()">Submit</button>
+    </div>
+
     <table class="center">
       <tbody>
         <tr>
@@ -60,8 +69,8 @@
           <td>{{ event.date }}</td>
           <td>{{ event.code }}</td>
           <td v-show="isDelete === true">
-            <a @click="deleteEvent()"
-              ><font-awesome-icon class="faForTable" icon="trash-alt" />
+            <a @click="deleteEvent()">
+              <font-awesome-icon class="faForTable" icon="trash-alt" />
             </a>
           </td>
         </tr>
@@ -71,7 +80,11 @@
 </template>
 
 <script>
+import { Datetime } from "vue-datetime";
 export default {
+  components: {
+    datetime: Datetime
+  },
   data() {
     return {
       isDelete: false,
@@ -79,7 +92,7 @@ export default {
       isCancel: false,
       isUpdate: false,
       isAdd: false,
-      test: "hey",
+      datetimeEmpty: "",
 
       events: [
         {
@@ -127,6 +140,9 @@ export default {
     deleteEvent: function() {
       this.test = "now";
     },
+    addActive: function() {
+      this.isAdd = !this.isAdd;
+    },
     deleteActive: function() {
       this.isDelete = !this.isDelete;
     },
@@ -148,6 +164,7 @@ export default {
 </script>
 
 <style scoped>
+@import "~vue-datetime/dist/vue-datetime.css";
 table {
   border-collapse: collapse;
   width: 75%;
@@ -183,5 +200,15 @@ th {
   padding: 10px;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.addForm {
+  padding: 10px;
+  font-size: 10px;
+  border: solid;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
 }
 </style>
