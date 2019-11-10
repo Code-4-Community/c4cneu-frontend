@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1 class="page-header">Media</h1>
     <div v-for="post in mediaPosts" :key="post.id">
       <post-item
         :id="post.id"

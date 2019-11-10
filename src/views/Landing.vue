@@ -84,10 +84,11 @@
         class="fa fa-linkedin hvr-grow"
       ></a>
       <a href="https://c4cneu.slack.com/" class="fa fa-slack hvr-grow"></a>
-      <a
+      <!-- Felt this was redundant given the existing GitHub link. -->
+      <!--<a
         href="https://github.com/Code-4-Community"
         class="fa fa-github hvr-grow"
-      ></a>
+      ></a>-->
       <a href="mailto:c4cneu@gmail.com" class="fa fa-envelope-o hvr-grow"></a>
     </footer>
   </div>
@@ -241,7 +242,6 @@ a:hover {
 .fa {
   padding: 12px;
   font-size: 20px;
-  width: 20px;
   text-align: center;
   text-decoration: none;
   margin: 3vh 5px;

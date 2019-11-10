@@ -1,13 +1,23 @@
 <template>
   <div class="post-item" @click="handleOnClick()">
-    <div class="post-item-image">
-      <img :src="imageUrl" />
-    </div>
-    <div class="post-item-content">
-      <h2 class="post-title">{{ title }}</h2>
-      <h3 class="post-date">{{ dateString }}</h3>
-      <p class="post-desc">{{ desc }}</p>
-    </div>
+    <section>
+      <div class="container">
+        <div class="card">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card-block">
+                <h3 class="card-title">{{ title }}</h3>
+                <h4 class="post-date">{{ dateString }}</h4>
+                <p class="card-text">{{ desc }}</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <img :src="imageUrl" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -61,21 +71,19 @@ export default {
   margin: 50px auto;
 }
 
-.post-item:hover {
+.card-title:hover {
   cursor: pointer;
 }
 
 .post-item-image {
   display: inline-block;
   height: 100%;
-
   border: 1px solid black;
 }
 
 .post-item-content {
   display: inline-block;
   height: 100%;
-
   border: 1px solid black;
   padding: 10px;
 }
