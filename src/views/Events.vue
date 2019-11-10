@@ -50,7 +50,12 @@
     <div v-show="isAdd === true" class="addForm">
       <h1>Add A New Event</h1>
       <input v-model="newName" placeholder="Name of Event" />
-      <datetime type="datetime" v-model="datetimeEmpty" use12-hour></datetime>
+      <datetime
+        type="datetime"
+        v-model="datetimeEmpty"
+        use12-hour
+        placeholder="Create Date"
+      ></datetime>
       <button @click="addEvent()">Submit</button>
     </div>
 
@@ -92,7 +97,8 @@ export default {
       isCancel: false,
       isUpdate: false,
       isAdd: false,
-      datetimeEmpty: "",
+      datetimeEmpty: null,
+      newName: "",
 
       events: [
         {
@@ -136,7 +142,13 @@ export default {
   },
 
   methods: {
-    addEvent: function() {},
+    //es-lint is complaing that I can use the name and date so I'm gonna leave it out
+    addEvent: function() {
+      //createEvent(name,date)
+      this.isAdd = false;
+      this.newName = "";
+      this.datetimeEmpty = null;
+    },
     deleteEvent: function() {
       this.test = "now";
     },
