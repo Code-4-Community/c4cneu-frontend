@@ -5,15 +5,19 @@
       <button
         class="actionButton"
         v-bind:disabled="isDelete === true || isUpdate === true"
+        v-if="isAdd === false"
         @click="addActive()"
       >
         Add
+      </button>
+      <button class="actionButton" @click="addActive()" v-if="isAdd === true">
+        Scrap
       </button>
       <button
         class="actionButton"
         @click="deleteActive()"
         v-if="isDelete === false"
-        v-bind:disabled="isUpdate === true"
+        v-bind:disabled="isUpdate === true || isAdd === true"
       >
         Delete
       </button>
@@ -26,7 +30,9 @@
       </button>
       <button
         class="actionButton"
-        v-bind:disabled="isDelete === true || isUpdate === true"
+        v-bind:disabled="
+          isDelete === true || isUpdate === true || isAdd === true
+        "
         @click="updateActive()"
       >
         Update
@@ -69,10 +75,18 @@
           <th v-show="isDelete === true">Actions</th>
         </tr>
         <tr v-for="event in events" v-bind:key="event">
-          <td>{{ event.id }}</td>
-          <td>{{ event.name }}</td>
-          <td>{{ event.date }}</td>
-          <td>{{ event.code }}</td>
+          <td>
+            <input v-model="event.id" v-bind:disabled="isUpdate === false" />
+          </td>
+          <td>
+            <input v-model="event.name" v-bind:disabled="isUpdate === false" />
+          </td>
+          <td>
+            <input v-model="event.date" v-bind:disabled="isUpdate === false" />
+          </td>
+          <td>
+            <input v-model="event.code" v-bind:disabled="isUpdate === false" />
+          </td>
           <td v-show="isDelete === true">
             <a @click="deleteEvent()">
               <font-awesome-icon class="faForTable" icon="trash-alt" />
