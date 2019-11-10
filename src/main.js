@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { Datetime } from "vue-datetime";
 import { Settings } from "luxon";
 
-Settings.defaultLocale = "es";
+Settings.defaultLocale = "en";
 
 library.add(faUserSecret, faTrashAlt, faPencilAlt);
 
