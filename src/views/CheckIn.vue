@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="frame">
-      <h1>Descriptive header checkin</h1>
+      <h1>Check Into C4C Meeting</h1>
       <p>Enter your email:</p>
       <input v-model="checkinSubmission.email" input-email />
       <p v-if="!emailIsValid" class="error" error-email>

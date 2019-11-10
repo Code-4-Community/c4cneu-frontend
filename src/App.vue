@@ -1,9 +1,13 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/auth">Sign In</router-link>
-      <router-link to="/checkin">Check In</router-link>
+      <router-link class="hvr-underline-from-center" to="/">Home</router-link>
+      <router-link class="hvr-underline-from-center" to="/auth"
+        >Sign In</router-link
+      >
+      <router-link class="hvr-underline-from-center" to="/checkin"
+        >Check In</router-link
+      >
     </div>
     <router-view />
   </div>
@@ -20,6 +24,13 @@
 
 #nav {
   padding: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.hvr-underline-from-center {
+  text-decoration: none;
+  font-size: 2em;
 }
 
 #nav a {

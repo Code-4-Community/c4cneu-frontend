@@ -23,6 +23,17 @@
           principles to ensure our solutions are intuitive, performant, and
           deliver the best user experience.
         </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="parallax-three">
+        <h1>OUR PROJECTS</h1>
+        <p>
+          Code 4 Community is an organization on GitHub with over 20 developers.
+          Here, you can find the source code to our project frontends and
+          backends (such as this website!)
+        </p>
         <a
           class="github-button"
           href="https://github.com/Code-4-Community"
@@ -33,7 +44,7 @@
     </section>
 
     <section>
-      <div class="parallax-three">
+      <div class="parallax-four">
         <h1>Get involved today!</h1>
         <p>
           Interested in making an impact with Code4Community? Anyone is welcome
@@ -49,10 +60,10 @@
     </section>
 
     <section>
-      <div class="parallax-four">
+      <div class="parallax-five">
         <h2>MEET THE TEAM</h2>
         <router-link to="/board">
-          <button class="btn board">
+          <button class="hvr-grow">
             <pb>Our Executive Board</pb>
           </button>
         </router-link>
@@ -60,15 +71,24 @@
     </section>
 
     <footer class="footer">
-      <a href="https://www.facebook.com/c4cneu/" class="fa fa-facebook"></a>
-      <a href="https://www.instagram.com/c4cneu/" class="fa fa-instagram"></a>
+      <a
+        href="https://www.facebook.com/c4cneu/"
+        class="fa fa-facebook hvr-grow"
+      ></a>
+      <a
+        href="https://www.instagram.com/c4cneu/"
+        class="fa fa-instagram hvr-grow"
+      ></a>
       <a
         href="https://www.linkedin.com/company/code-4-community/about/"
-        class="fa fa-linkedin"
+        class="fa fa-linkedin hvr-grow"
       ></a>
-      <a href="https://c4cneu.slack.com/" class="fa fa-slack"></a>
-      <a href="https://github.com/Code-4-Community" class="fa fa-github"></a>
-      <a href="mailto:c4cneu@gmail.com" class="fa fa-envelope-o"></a>
+      <a href="https://c4cneu.slack.com/" class="fa fa-slack hvr-grow"></a>
+      <a
+        href="https://github.com/Code-4-Community"
+        class="fa fa-github hvr-grow"
+      ></a>
+      <a href="mailto:c4cneu@gmail.com" class="fa fa-envelope-o hvr-grow"></a>
     </footer>
   </div>
 </template>
@@ -151,7 +171,7 @@ pb {
   overflow: hidden;
   position: relative;
   width: 100%;
-  background-image: url("../assets/p2.png");
+  background-image: url("../assets/p3.png");
   background-attachment: fixed;
   background-size: cover;
   -moz-background-size: cover;
@@ -165,7 +185,7 @@ pb {
   overflow: hidden;
   position: relative;
   width: 100%;
-  background-image: url("../assets/p3.png");
+  background-image: url("../assets/p2.png");
   background-attachment: fixed;
   background-size: cover;
   -moz-background-size: cover;
@@ -187,21 +207,27 @@ pb {
   background-repeat: no-repeat;
   background-position: center center;
 }
+.parallax-five {
+  padding-top: 50vh;
+  padding-bottom: 50vh;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-image: url("../assets/p5.png");
+  background-attachment: fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
 .footer {
   height: 20vh;
   background-color: #3b342b;
 }
-.btn {
-  border: line;
-  background-color: inherit;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  display: inline-block;
-  border-radius: 40%;
-}
-.btn:hover {
-  background: #eee;
+.hvr-grow {
+  background: rgb(204, 102, 0);
+  border-radius: 50px;
 }
 a:link {
   color: #cc6600;
@@ -220,31 +246,6 @@ a:hover {
   text-decoration: none;
   margin: 3vh 5px;
   border-radius: 50%;
-}
-.fa:hover {
-  opacity: 0.7;
-}
-.fa-facebook {
-  color: black;
-  background-color: white;
-}
-.fa-instagram {
-  color: black;
-  background-color: white;
-}
-.fa-linkedin {
-  color: black;
-  background-color: white;
-}
-.fa-slack {
-  color: black;
-  background-color: white;
-}
-.fa-github {
-  color: black;
-  background-color: white;
-}
-.fa-envelope-o {
   color: black;
   background-color: white;
 }
