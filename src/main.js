@@ -9,6 +9,9 @@ import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { Datetime } from "vue-datetime";
 import { Settings } from "luxon";
+import TextareaAutosize from "vue-textarea-autosize";
+
+Vue.use(TextareaAutosize);
 
 Settings.defaultLocale = "en";
 

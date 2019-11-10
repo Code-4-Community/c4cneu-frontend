@@ -80,17 +80,19 @@
         </tr>
         <tr v-for="event in events" v-bind:key="event">
           <td>
-            <input
+            <TextareaAutosize
               v-model="event.id"
               v-bind:disabled="isUpdate === false"
               v-bind:class="{
                 tableInputDisabled: isUpdate === false,
                 tableInput: isUpdate === true
               }"
+              :min-height="1"
+              :max-height="350"
             />
           </td>
           <td>
-            <input
+            <TextareaAutosize
               v-model="event.name"
               v-bind:disabled="isUpdate === false"
               v-bind:class="{
@@ -100,7 +102,7 @@
             />
           </td>
           <td>
-            <input
+            <TextareaAutosize
               v-model="event.date"
               v-bind:disabled="isUpdate === false"
               v-bind:class="{
@@ -110,7 +112,7 @@
             />
           </td>
           <td>
-            <input
+            <TextareaAutosize
               v-model="event.code"
               v-bind:disabled="isUpdate === false"
               v-bind:class="{
