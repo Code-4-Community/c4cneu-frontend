@@ -4,6 +4,7 @@ import Landing from "../views/Landing.vue";
 import Auth from "../views/Auth.vue";
 import CheckIn from "../views/CheckIn.vue";
 import NewCheckin from "../views/NewCheckin/NewCheckin.vue";
+import Donations from "../views/Donations.vue";
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
     path: "/newcheckin",
     name: "newcheckin",
     component: NewCheckin
+  },
+  {
+    path: "/donations",
+    name: "donations",
+    component: Donations
   }
 ];
 

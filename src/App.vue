@@ -5,6 +5,7 @@
       <router-link to="/auth">Sign In</router-link>
       <router-link to="/checkin">Check In</router-link>
       <router-link to="/newcheckin">New Check In</router-link>
+      <router-link to="/donations">Donations</router-link>
     </div>
     <router-view />
   </div>
