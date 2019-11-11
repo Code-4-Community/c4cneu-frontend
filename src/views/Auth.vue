@@ -1,10 +1,6 @@
 <template>
   <div class="signin">
-    <button @click="openSignin">Sign in</button>
-    <button @click="openSignup">Sign up</button>
-
     <form v-if="isSigningIn" @submit.prevent="handleSignin">
-      <h1>Sign in</h1>
       <label>Email address</label>
       <input
         ref="first"
@@ -14,7 +10,8 @@
       />
       <label>Password</label>
       <input type="text" v-model="user.password" @focus="clearStatus" />
-      <button>Sign in!</button>
+      <button @click="openSignin">Sign in</button>
+      <button @click="openSignup">Sign up</button>
     </form>
 
     <form v-if="!isSigningIn" @submit.prevent="handleSignup">
