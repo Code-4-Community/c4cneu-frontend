@@ -5,7 +5,7 @@
       <button v-on:click="newCode()" class="enable">New Code</button>
       <br />
       <button
-        v-bind:disabled="code === null"
+        v-bind:disabled="!code"
         v-on:click="disableCode()"
         class="disable"
       >

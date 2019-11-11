@@ -4,6 +4,9 @@ import Landing from "../views/Landing.vue";
 import Auth from "../views/Auth.vue";
 import CheckIn from "../views/CheckIn.vue";
 import Eboard from "../views/Eboard.vue";
+import NewCheckin from "../views/NewCheckin/NewCheckin.vue";
+import Media from "../views/Media.vue";
+import Post from "../views/Post.vue";
 
 Vue.use(VueRouter);
 
@@ -20,8 +23,8 @@ const routes = [
   },
 
   {
-    path: "/eboard",
-    name: "eboard",
+    path: "/board",
+    name: "board",
     component: Eboard
   },
 
@@ -29,6 +32,21 @@ const routes = [
     path: "/checkin",
     name: "checkin",
     component: CheckIn
+  },
+  {
+    path: "/newcheckin",
+    name: "newcheckin",
+    component: NewCheckin
+  },
+  {
+    path: "/media",
+    name: "media",
+    component: Media
+  },
+  {
+    path: "/post/:id",
+    name: "post",
+    component: Post
   }
 ];
 
