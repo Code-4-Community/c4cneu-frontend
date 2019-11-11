@@ -1,60 +1,84 @@
 <template>
   <div>
-    <div class="frame">
-      <h1>Check Into C4C Meeting</h1>
-      <p>Enter your email:</p>
-      <input v-model="checkinSubmission.email" input-email />
-      <p v-if="!emailIsValid" class="error" error-email>
-        Please enter valid email
+    <form class="form" @submit.prevent="handleCheckin">
+      <h1>Check in</h1>
+
+      <div>
+        <select @change="changeEvent($event)">
+          <option value selected disabled>Select an event</option>
+          <option
+            v-for="event in validEvents"
+            :value="event.id"
+            :key="event.id"
+            >{{ event.name }}</option
+          >
+        </select>
+      </div>
+
+      <p v-if="eventSelected">Code</p>
+      <input
+        v-if="eventSelected"
+        @focus="clearStatus"
+        maxlength="4"
+        v-model="submission.code"
+      />
+      <p v-if="eventSelected && error" class="error">
+        Please enter a 4 digit code
       </p>
-      <p>Enter your code:</p>
-      <input v-model.number="checkinSubmission.code" maxlength="4" input-code />
-      <p v-if="!codeIsValid" class="error" error-code>
-        Please enter valid 4 digit code
-      </p>
+      <br />
       <button
-        v-bind:disabled="!emailIsValid || !codeIsValid"
-        v-on:click="checkin(JSON.stringify(checkinSubmission))"
-        class="submit"
+        v-on:click="handleCheckin(JSON.stringify(submission))"
+        v-if="eventSelected"
       >
-        Submit
+        Check in
       </button>
-    </div>
+    </form>
   </div>
 </template>
 
 <script>
+import { isNull } from "util";
 export default {
   data() {
     return {
-      checkinSubmission: {
-        email: "",
-        code: null,
-        date: Date.now() //current UNIX timestamp
-      }
+      submission: {
+        event: this.selectedEvent,
+        code: null
+      },
+      validEvents: [
+        { id: 1, name: "Event 1", eventDate: "Date 1", eventCode: 1111 },
+        { id: 2, name: "Event 2", eventDate: "Date 2", eventCode: 2222 },
+        { id: 3, name: "Event 3", eventDate: "Date 3", eventCode: 3333 },
+        { id: 4, name: "Event 4", eventDate: "Date 4", eventCode: 4444 }
+      ],
+      selectedEvent: null,
+      error: false,
+      submitting: false
     };
   },
+
   computed: {
-    emailIsValid() {
-      // Checks that the structure of the given email is correct. Taken from Vue.js website
-      // eslint-disable-next-line no-useless-escape
-      var emailChar = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return emailChar.test(this.checkinSubmission.email);
+    validCode() {
+      //is it a valid code?
+      return this.submission.code >= 1000 && this.submission.code <= 9999;
     },
-    codeIsValid() {
-      // In future use regex to prevent leading zeros?
-      return (
-        !isNaN(this.checkinSubmission.code) &&
-        this.checkinSubmission.code >= 1000 &&
-        this.checkinSubmission.code <= 9999
-      );
+    eventSelected() {
+      return !isNull(this.selectedEvent);
     }
   },
 
   methods: {
-    checkin(submission) {
+    handleCheckin(submission) {
+      this.submitting = true;
+      this.clearStatus();
+
+      if (!this.validCode) {
+        this.error = true;
+        return;
+      }
+
       // An attempt at pushing JSON body to a custom JSON server
-      /* const checkinIsValid = this.emailIsValid && this.codeIsValid;
+      /* const checkinIsValid = this.validCode;
         if (checkinIsValid) {
           axios.post('https://my-json-server.typicode.com/willmt80/demo/checkins', {
             data: this.submission,
@@ -67,16 +91,47 @@ export default {
         */
 
       return submission;
+    },
+    clearStatus() {
+      this.error = false;
+    },
+    changeEvent(event) {
+      this.selectedEvent =
+        event.target.options[event.target.options.selectedIndex].text;
+    },
+    fetchEvents() {
+      // An attempt at fetching the data from the server
+      /*
+      newEvents = axios
+        .get("/event", {
+          params: {
+            eventDate: Date.now(), //not sure about format of date
+          }
+        })
+        .then(function (response) {
+          // add the retrieved events to the valid events list
+          console.log(response);
+        })
+        .catch(function (error) {
+          // throw exception
+          console.log (error);
+        })
+        
+       for (int i = 0; i < newEvents.length; i++) {
+         if ((Date.now() - this.validEvents[i].eventDate) < 0) {
+           newEvents[i].pop();
+         }
+       }
+       */
     }
   }
 };
 </script>
 
 <style scoped>
-.frame {
+.form {
   width: 20%;
   margin: auto;
-  background-color: rgb(245, 245, 255);
 }
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
