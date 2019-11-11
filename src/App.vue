@@ -11,6 +11,9 @@
       <router-link class="hvr-underline-from-center" to="/checkin"
         >Check In</router-link
       >
+      <router-link class="hvr-underline-from-center" to="/board"
+        >Board</router-link
+      >
     </div>
     <router-view />
   </div>

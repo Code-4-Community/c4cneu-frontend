@@ -5,7 +5,12 @@
       <form>
         <div class="form-item">
           <label for="form-name">Name:</label>
-          <input type="text" id="form-name" v-model="name" placeholder="Enter your name" />
+          <input
+            type="text"
+            id="form-name"
+            v-model="name"
+            placeholder="Enter your name"
+          />
         </div>
         <div class="form-item">
           <p>Year:</p>
@@ -27,14 +32,26 @@
         </div>
         <div class="form-item">
           <label for="form-major">Major:</label>
-          <input type="text" id="form-major" v-model="major" placeholder="CS, English ..." />
+          <input
+            type="text"
+            id="form-major"
+            v-model="major"
+            placeholder="CS, English ..."
+          />
         </div>
         <div class="form-item">
           <label for="form-resume">Upload your resume here:</label>
-          <input type="file" id="form-resume" ref="resume" v-on:change="handleFileUpload()" />
+          <input
+            type="file"
+            id="form-resume"
+            ref="resume"
+            v-on:change="handleFileUpload()"
+          />
         </div>
         <div class="form-item">
-          <label for="form-why-join">Why do you want to join Code 4 Community?</label>
+          <label for="form-why-join"
+            >Why do you want to join Code 4 Community?</label
+          >
           <br />
           <textarea id="form-why-join" v-model="whyJoin" />
         </div>

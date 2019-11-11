@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Landing from "../views/Landing.vue";
 import Auth from "../views/Auth.vue";
 import CheckIn from "../views/CheckIn.vue";
+import Eboard from "../views/Eboard.vue";
 import NewCheckin from "../views/NewCheckin/NewCheckin.vue";
 import Media from "../views/Media.vue";
 import Post from "../views/Post.vue";
@@ -20,6 +21,13 @@ const routes = [
     name: "auth",
     component: Auth
   },
+
+  {
+    path: "/board",
+    name: "board",
+    component: Eboard
+  },
+
   {
     path: "/checkin",
     name: "checkin",
