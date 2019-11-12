@@ -2,11 +2,12 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Landing from "../views/Landing.vue";
 import Auth from "../views/Auth.vue";
-import CheckIn from "../views/CheckIn.vue";
-import Eboard from "../views/Eboard.vue";
-import NewCheckin from "../views/NewCheckin/NewCheckin.vue";
-import Media from "../views/Media.vue";
+import Events from "../views/Events.vue";
+import EventsAdmin from "../views/EventsAdmin.vue";
+import Board from "../views/Board.vue";
+import News from "../views/News.vue";
 import Post from "../views/Post.vue";
+import Apply from "../views/Apply.vue";
 
 Vue.use(VueRouter);
 
@@ -25,28 +26,33 @@ const routes = [
   {
     path: "/board",
     name: "board",
-    component: Eboard
+    component: Board
   },
 
   {
-    path: "/checkin",
-    name: "checkin",
-    component: CheckIn
+    path: "/events",
+    name: "events",
+    component: Events
   },
   {
-    path: "/newcheckin",
-    name: "newcheckin",
-    component: NewCheckin
+    path: "/eventsadmin",
+    name: "eventsadmin",
+    component: EventsAdmin
   },
   {
-    path: "/media",
-    name: "media",
-    component: Media
+    path: "/news",
+    name: "news",
+    component: News
   },
   {
     path: "/post/:id",
     name: "post",
     component: Post
+  },
+  {
+    path: "/apply",
+    name: "apply",
+    component: Apply
   }
 ];
 

@@ -26,7 +26,7 @@ export default {
     return {
       eboard: [
         {
-          name: "Stephen Alt (aka Dad)",
+          name: "Stephen Alt",
           imageUrl: require("@/assets/Eboard/stephen_alt.jpg"),
           position: "President",
           bio:

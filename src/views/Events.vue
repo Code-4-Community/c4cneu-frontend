@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import CheckinEvent from "./CheckinEvent.vue";
+import CheckinEvent from "../components/CheckinEvent.vue";
 import axios from "axios";
 
 export default {
