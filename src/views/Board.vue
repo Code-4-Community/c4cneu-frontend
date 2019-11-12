@@ -1,16 +1,11 @@
 <template>
   <div>
     <section>
-      <div class="parallax-one">
-        <h1>
-          Executive
-          <br />Board
-        </h1>
+      <div class="parallax" id="plax_1">
+        <h1>Executive Board</h1>
       </div>
     </section>
-    <div class="ePeeps">
-      <EboardPeople v-bind:eboard="eboard" />
-    </div>
+    <EboardPeople class="eboard" :eboard="eboard" />
   </div>
 </template>
 
@@ -19,9 +14,11 @@ import EboardPeople from "../components/EboardPeople";
 
 export default {
   name: "eboard",
+
   components: {
     EboardPeople
   },
+
   data() {
     return {
       eboard: [
@@ -87,81 +84,8 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
-.parallax-one {
-  padding-top: 200px;
-  padding-bottom: 200px;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
+/*SETS BACKGROUND IMAGE OF HEADER*/
+#plax_1 {
   background-image: url("../assets/p5.png");
-  background-attachment: fixed;
-  background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
-}
-h1 {
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 128px;
-  font-weight: 600;
-  color: white;
-  padding: 20px;
-  margin: 0;
-}
-h2 {
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 128px;
-  font-weight: 600;
-  line-height: 120px;
-  letter-spacing: -4px;
-  color: white;
-  padding: 20px;
-  margin: 0;
-}
-h3 {
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 22px;
-  font-weight: 400;
-  color: white;
-  padding: 20px;
-  margin: 0;
-}
-p {
-  font-family: "Merriweather", serif;
-  font-weight: 400;
-  color: white;
-  font-size: 16px;
-  line-height: 32px;
-  margin-right: 15%;
-  margin-left: 15%;
-}
-.pb {
-  font-family: "Merriweather", serif;
-  font-weight: 700;
-  color: white;
-  font-size: 16px;
-  line-height: 32px;
-}
-
-.ePeeps {
-  margin: auto;
-  padding-top: 100px;
-}
-
-@media only screen and (max-width: 768px) {
-  h1 {
-    font-size: 48px;
-    letter-spacing: 0px;
-  }
-  p {
-    margin-right: 2vh;
-    margin-left: 2vh;
-  }
-}
-@media only screen and (min-width: 769px) {
 }
 </style>

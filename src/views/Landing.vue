@@ -1,7 +1,7 @@
 <template>
   <div>
     <section>
-      <div class="parallax-one">
+      <div class="parallax" id="plax_1">
         <img
           src="../assets/c4c-banner-logo.png"
           style="width:80%;height:100%;"
@@ -11,7 +11,7 @@
     </section>
 
     <section>
-      <div class="parallax-two">
+      <div class="parallax" id="plax_2">
         <h1>MISSION STATEMENT</h1>
         <p>
           Code 4 Community (C4C) is a student organization at Northeastern
@@ -27,7 +27,7 @@
     </section>
 
     <section>
-      <div class="parallax-three">
+      <div class="parallax" id="plax_3">
         <h1>OUR PROJECTS</h1>
         <p>
           Code 4 Community is an organization on GitHub with over 20 developers.
@@ -44,7 +44,7 @@
     </section>
 
     <section>
-      <div class="parallax-four">
+      <div class="parallax" id="plax_4">
         <h1>Get involved today!</h1>
         <p>
           Interested in making an impact with Code4Community? Anyone is welcome
@@ -60,12 +60,10 @@
     </section>
 
     <section>
-      <div class="parallax-five">
+      <div class="parallax" id="plax_5">
         <h2>MEET THE TEAM</h2>
         <router-link to="/board">
-          <button class="hvr-grow">
-            <pb>Our Executive Board</pb>
-          </button>
+          <button>Our Executive Board</button>
         </router-link>
       </div>
     </section>
@@ -84,172 +82,30 @@
         class="fa fa-linkedin hvr-grow"
       ></a>
       <a href="https://c4cneu.slack.com/" class="fa fa-slack hvr-grow"></a>
-      <!-- Felt this was redundant given the existing GitHub link. -->
-      <!--<a
+      <a
         href="https://github.com/Code-4-Community"
         class="fa fa-github hvr-grow"
-      ></a>-->
+      ></a>
       <a href="mailto:c4cneu@gmail.com" class="fa fa-envelope-o hvr-grow"></a>
     </footer>
   </div>
 </template>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
-h1 {
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 32px;
-  font-weight: 600;
-  color: white;
-  padding: 20px;
-  margin: 0;
-}
-h2 {
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 128px;
-  font-weight: 600;
-  line-height: 120px;
-  letter-spacing: -4px;
-  color: white;
-  padding: 20px;
-  margin: 0;
-}
-h3 {
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 22px;
-  font-weight: 400;
-  color: white;
-  padding: 20px;
-  margin: 0;
-}
-p {
-  font-family: "Merriweather", serif;
-  font-weight: 400;
-  color: white;
-  font-size: 16px;
-  line-height: 32px;
-  margin-right: 15%;
-  margin-left: 15%;
-}
-pb {
-  font-family: "Merriweather", serif;
-  font-weight: 700;
-  color: white;
-  font-size: 16px;
-  line-height: 32px;
-}
-@media only screen and (max-width: 768px) {
-  h2 {
-    font-size: 48px;
-    letter-spacing: 0px;
-  }
-  p {
-    margin-right: 2vh;
-    margin-left: 2vh;
-  }
-}
-@media only screen and (min-width: 769px) {
-}
-.parallax-one {
-  padding-top: 50vh;
-  padding-bottom: 50vh;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
+/*SETS BACKGROUND IMAGES FOR ALL PARALLAX DIVS*/
+#plax_1 {
   background-image: url("../assets/p1.png");
-  background-attachment: fixed;
-  background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
 }
-.parallax-two {
-  padding-top: 50vh;
-  padding-bottom: 50vh;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
+#plax_2 {
   background-image: url("../assets/p3.png");
-  background-attachment: fixed;
-  background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
 }
-.parallax-three {
-  padding-top: 50vh;
-  padding-bottom: 50vh;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
+#plax_3 {
   background-image: url("../assets/p2.png");
-  background-attachment: fixed;
-  background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
 }
-.parallax-four {
-  padding-top: 50vh;
-  padding-bottom: 50vh;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
+#plax_4 {
   background-image: url("../assets/p4.png");
-  background-attachment: fixed;
-  background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
 }
-.parallax-five {
-  padding-top: 50vh;
-  padding-bottom: 50vh;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
+#plax_5 {
   background-image: url("../assets/p5.png");
-  background-attachment: fixed;
-  background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-.footer {
-  height: 20vh;
-  background-color: #3b342b;
-}
-.hvr-grow {
-  background: rgb(204, 102, 0);
-  border-radius: 50px;
-}
-a:link {
-  color: #cc6600;
-}
-a:visited {
-  color: #cc6600;
-}
-a:hover {
-  color: #804000;
-}
-.fa {
-  padding: 12px;
-  font-size: 20px;
-  text-align: center;
-  text-decoration: none;
-  margin: 3vh 5px;
-  border-radius: 50%;
-  color: black;
-  background-color: white;
-}
-.board {
-  color: white;
 }
 </style>
