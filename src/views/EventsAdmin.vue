@@ -1,82 +1,291 @@
 <template>
   <div>
-    <div class="frame">
-      <h1>Descriptive header checkinAdmin</h1>
-      <button v-on:click="newCode()" class="enable">New Code</button>
-      <br />
+    <h1>Events Manager Admin</h1>
+    <div class="actionBar">
       <button
-        v-bind:disabled="!code"
-        v-on:click="disableCode()"
-        class="disable"
+        class="actionButton"
+        v-bind:disabled="isDelete === true || isUpdate === true"
+        v-if="isAdd === false"
+        @click="addActive()"
       >
-        Disable Code
+        Add
       </button>
-      <p v-if="code === null" class="codeMessage">No Live Code</p>
-      <p v-else class="codeMessage">Live Code: {{ code }}</p>
-      <p class="error" v-if="error !== null">ERROR: {{ error }}</p>
+      <button class="actionButton" @click="addActive()" v-if="isAdd === true">
+        Scrap
+      </button>
+      <button
+        class="actionButton"
+        @click="deleteActive()"
+        v-if="isDelete === false"
+        v-bind:disabled="isUpdate === true || isAdd === true"
+      >
+        Delete
+      </button>
+      <button
+        class="actionButton"
+        @click="deleteActive()"
+        v-if="isDelete === true"
+      >
+        Done
+      </button>
+      <button
+        class="actionButton"
+        v-bind:disabled="
+          isDelete === true || isUpdate === true || isAdd === true
+        "
+        @click="updateActive()"
+      >
+        Update
+      </button>
+      <button
+        class="actionButton"
+        v-bind:disabled="isDelete === true || isUpdate === false"
+        @click="saveActive()"
+      >
+        Save
+      </button>
+      <button
+        class="actionButton"
+        v-bind:disabled="isDelete === true || isUpdate === false"
+        @click="saveActive()"
+      >
+        Cancel
+      </button>
     </div>
+
+    <div v-show="isAdd === true" class="addForm">
+      <h1>Add A New Event</h1>
+      <input v-model="newName" placeholder="Name of Event" />
+      <datetime
+        type="datetime"
+        v-model="datetimeEmpty"
+        use12-hour
+        placeholder="Create Date"
+      ></datetime>
+      <input v-model="newCode" placeholder="Enter Code Here" />
+      <br />
+      <br />
+      <br />
+      <button @click="addEvent()">Submit</button>
+    </div>
+
+    <table class="center">
+      <tbody>
+        <tr>
+          <th>ID</th>
+          <th>Name of Event</th>
+          <th>Date of Event</th>
+          <th>Event Code</th>
+          <th v-show="isDelete === true">Actions</th>
+        </tr>
+        <tr v-for="event in events" v-bind:key="event">
+          <td>
+            <TextareaAutosize
+              v-model="event.id"
+              v-bind:disabled="isUpdate === false"
+              v-bind:class="{
+                tableInputDisabled: isUpdate === false,
+                tableInput: isUpdate === true
+              }"
+              :min-height="1"
+              :max-height="350"
+            />
+          </td>
+          <td>
+            <TextareaAutosize
+              v-model="event.name"
+              v-bind:disabled="isUpdate === false"
+              v-bind:class="{
+                tableInputDisabled: isUpdate === false,
+                tableInput: isUpdate === true
+              }"
+            />
+          </td>
+          <td>
+            <TextareaAutosize
+              v-model="event.date"
+              v-bind:disabled="isUpdate === false"
+              v-bind:class="{
+                tableInputDisabled: isUpdate === false,
+                tableInput: isUpdate === true
+              }"
+            />
+          </td>
+          <td>
+            <TextareaAutosize
+              v-model="event.code"
+              v-bind:disabled="isUpdate === false"
+              v-bind:class="{
+                tableInputDisabled: isUpdate === false,
+                tableInput: isUpdate === true
+              }"
+            />
+          </td>
+          <td v-show="isDelete === true">
+            <button @click="deleteEvent()">
+              <font-awesome-icon class="faForTable" icon="trash-alt" />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script>
+import { Datetime } from "vue-datetime";
 export default {
-  props: {},
+  components: {
+    datetime: Datetime
+  },
   data() {
     return {
-      code: null,
-      error: null
+      isDelete: false,
+      isSave: false,
+      isCancel: false,
+      isUpdate: false,
+      isAdd: false,
+      datetimeEmpty: null,
+      newName: "",
+      newCode: null,
+
+      events: [
+        {
+          id: 1,
+          name: "Jack gives his first presentation",
+          date: "305-917-1301",
+          code: 1234
+        },
+        {
+          id: 2,
+          name: "Stephen's address to team",
+          date: "210-684-8953",
+          code: 4369
+        },
+        {
+          id: 3,
+          name: "Vue",
+          date: "765-338-0312",
+          code: 3345
+        },
+        {
+          id: 4,
+          name: "idk anymore",
+          date: "714-541-3336",
+          code: 9999
+        },
+        {
+          id: 5,
+          name: "Wayfair",
+          date: "972-297-6037",
+          code: 8592
+        },
+        {
+          id: 6,
+          name: "L's",
+          date: "760-318-8376",
+          code: 2344
+        }
+      ]
     };
   },
+
   methods: {
-    newCode: function() {
-      this.error = null;
-      this.code = Math.floor(1000 + Math.random() * 9000);
+    //es-lint is complaing that I can use the name and date so I'm gonna leave it out
+    addEvent: function() {
+      //createEvent(name,date,code)
+      this.isAdd = false;
+      this.newName = "";
+      this.datetimeEmpty = null;
+      this.newCode = null;
     },
-    disableCode: function() {
-      // This may be redundant as the button will be disabled is there is no live code
-      // but it is good to ensure that if this method somehow got called nothing would happen
-      // to the live code
-      if (this.code === null) {
-        this.error = "No active live code";
-      } else {
-        this.code = null;
-      }
+    deleteEvent: function() {},
+    addActive: function() {
+      this.isAdd = !this.isAdd;
+    },
+    deleteActive: function() {
+      this.isDelete = !this.isDelete;
+    },
+    saveActive: function() {
+      this.isSave = !this.isSave;
+      this.isCancel = !this.isCancel;
+      this.isUpdate = !this.isUpdate;
+    },
+    cancelActive: function() {
+      this.isCancel = !this.isCancel;
+      this.isSave = !this.isSave;
+      this.isUpdate = !this.isUpdate;
+    },
+    updateActive: function() {
+      this.isUpdate = !this.isUpdate;
     }
   }
 };
 </script>
 
 <style scoped>
-button {
-  width: 5em;
-  margin-top: 1em;
-  border-radius: 0.5em;
-  border: none;
+@import "~vue-datetime/dist/vue-datetime.css";
+table {
+  border-collapse: collapse;
+  width: 75%;
 }
-.frame {
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.faForTable {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+td,
+th {
+  border: 2px solid #dddddd;
+  padding: 5px;
+  text-align: center;
+}
+
+.tableInputDisabled {
+  border: 2px solid #dddddd;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  width: auto;
+  background: rgba(187, 193, 199, 0.336);
+}
+
+.tableInput {
+  border: 2px solid #dddddd;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  width: auto;
+}
+
+.actionBar {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: solid;
+  width: 30%;
+  margin-left: 180px;
+  margin-bottom: 20px;
+}
+
+.actionButton {
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.addForm {
+  padding: 10px;
+  font-size: 10px;
+  border: solid;
   width: 20%;
-  margin: auto;
-  background-color: rgb(245, 245, 255);
-}
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  [class="frame"] {
-    width: 100%;
-  }
-}
-@media only screen and (max-width: 1200px) and (min-width: 769px) {
-  /* For mobile phones: */
-  [class="frame"] {
-    width: 40%;
-  }
-}
-.enable {
-  background-color: rgb(112, 231, 235);
-}
-.disable {
-  background-color: rgb(240, 187, 187);
-}
-.error {
-  color: red;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
 }
 </style>
