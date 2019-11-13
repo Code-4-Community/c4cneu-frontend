@@ -102,9 +102,10 @@
 </template>
 
 <script>
-//TICKET: Make the table display <p> instead of <input> when editing is disabled
-//TICKET: Make the table autosave when a user clicks outside of input, and remove "update" and "save" buttons
-//TICKET: Have delete button in each row to delete events, and remove "delete" button at top
+//TODO: Make the table display <p> instead of <input> when editing is disabled
+//TODO: Make the <p> in the table become inputs when clicked on, and remove "update" button
+//TODO: Make the table autosave when a user clicks outside of input, and remove "save" button
+//TODO: Have delete button in each row to delete events, and remove "delete" button at top
 import { Datetime } from "vue-datetime";
 export default {
   components: {
@@ -122,6 +123,7 @@ export default {
       newName: "",
       newCode: null,
 
+      //TODO: move this to Vuex store https://trello.com/c/900i29B1
       events: [
         {
           id: 1,
@@ -167,7 +169,7 @@ export default {
     //addEvent: adds an event
     //Needs testing
     addEvent: function() {
-      //TICKET: Needs backend API implementation
+      //TODO: Needs backend API implementation
       this.isAdd = false;
       this.newName = "";
       this.datetimeEmpty = null;
@@ -177,8 +179,8 @@ export default {
     //deleteEvent: deletes an event
     //Needs testing
     deleteEvent: function() {
-      //TICKET: Needs backend API implementation
-      //TICKET: Needs to delete row in table
+      //TODO: Needs backend API implementation
+      //TODO: Needs to delete row in table
     },
 
     //toggleAdd: toggles isAdd

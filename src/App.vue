@@ -14,11 +14,15 @@ export default {
 </script>
 
 <style>
+/* GLOBAL IMPORTS */
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"); /* IMPORT FOR HVR-GROW CLASS, USED ON VARIOUS PAGES */
 
-/*IMPORT FOR HVR-GROW CLASS, USED ON VARIOUS PAGES*/
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+/**
+ * GLOBAL STYLING BEGINS HERE
+ * Note that "color: default" is merely a placeholder to avoid errors; remove it immediately when styling an element
+ */
 
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -28,7 +32,96 @@ export default {
   color: #2c3e50;
 }
 
-/*GENERALIZED PARALLAX CSS*/
+/*------------------------------------*\
+  #TEXT
+\*------------------------------------*/
+p {
+  color: default;
+}
+
+p.error {
+  color: red;
+}
+
+h1,
+h2,
+h3 {
+  color: default;
+}
+
+h1 {
+  color: default;
+}
+
+h2 {
+  color: default;
+}
+
+h3 {
+  color: default;
+}
+
+/* FORMS AND INPUT */
+form {
+  color: default;
+}
+
+form div.form-item {
+  color: default;
+}
+
+input {
+  color: default;
+}
+
+button {
+  color: default;
+}
+
+/* POST TEXT */
+.post-title,
+.post-date {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.post-desc {
+  font-family: "Merriweather", serif;
+}
+
+/*VIEWS/POST.VUE*/
+.post-content {
+  font-family: "Merriweather", serif;
+}
+
+/*------------------------------------*\
+  #LAYOUT
+\*------------------------------------*/
+
+.center {
+  margin: auto;
+}
+
+/* 3-div grid layout
+ * Check out: https://www.w3schools.com/css/css_grid.asp
+ */
+.grid-layout {
+  color: default;
+}
+
+/* TABLE */
+table {
+  border-collapse: collapse;
+  width: 75%;
+}
+
+td,
+th {
+  border: 2px solid #dddddd;
+  padding: 5px;
+  text-align: center;
+}
+
+/* PARALLAX, DO NOT TOUCH */
 .parallax {
   padding-top: 50vh;
   padding-bottom: 50vh;
@@ -44,85 +137,17 @@ export default {
   background-position: top center;
 }
 
-/*SETS P COLOR TO WHITE, TO MAKE TEXT VISIBLE ON DARK BACKGROUND IMAGES*/
 .parallax p {
   color: white;
 }
 
-/***********************/
-/***********************/
-/*PREVIOUSLY SCOPED CSS*/
-/*THE FOLLOWING CSS USED TO BE SCOPED AND IS NOW GENERALIZED. IT IS NOT FINAL AND SHOULD BE CHANGED BY WHOEVER COMPLETES THE GLOBAL STYLING TICKETS*/
-
-/*VIEWS/EVENTS.VUE*/
-.error {
-  color: red;
-}
-
-/*COMPONENTS/CHECKINEVENT.VUE*/
-.event-button {
-  background-color: whitesmoke;
-  margin-top: 1em;
-  border-radius: 2px;
-  border: 2px solid rgb(112, 231, 235);
-  width: 20em;
-}
-
-/*VIEWS/BOARD.VUE*/
-.eboard {
-  margin: auto;
-  padding-top: 100px;
-}
-
-/*COMPONENTS/EBOARDPEOPLE.VUE*/
-/*SHOULD BE IMPLEMENTED AS CSS GRID*/
-.grid-layout {
-  color: inherit; /*placeholder to remove warning, delete later*/
-}
-
-/*COMPONENTS/POSTITEM.VUE*/
-.post-item {
-  width: 80%;
-  margin: 50px auto;
-}
-
-.card-title:hover {
-  cursor: pointer;
-}
-
-.post-item-image {
-  display: inline-block;
-  height: 100%;
-  border: 1px solid black;
-}
-
-.post-item-content {
-  display: inline-block;
-  height: 100%;
-  border: 1px solid black;
-  padding: 10px;
-}
-
-.post-title,
-.post-date {
-  font-family: "Source Sans Pro", sans-serif;
-}
-
-.post-desc {
-  font-family: "Merriweather", serif;
-}
-
-/*VIEWS/POST.VUE*/
-.post-content {
-  font-family: "Merriweather", serif;
-}
-
-/*CURRENTLY IN VIEWS/LANDING.VUE, BUT WILL SOON BE COMPONENTS/FOOTER/FOOTER.VUE*/
+/* FOOTER */
 .footer {
   height: 20vh;
   background-color: #3b342b;
 }
 
+/* FOOTER LINKS, DO NOT TOUCH */
 .fa {
   padding: 12px;
   font-size: 20px;
@@ -134,7 +159,7 @@ export default {
   background-color: white;
 }
 
-/*COMPONENTS/NAV/NAVBAR.VUE*/
+/* NAV */
 #nav {
   padding: 30px;
   display: flex;
@@ -156,36 +181,26 @@ export default {
   color: #42b983;
 }
 
-/*VIEWS/EVENTSADMIN.VUE*/
-/*TABLES SHOULD BE STYLED GENERALLY*/
-table {
-  border-collapse: collapse;
-  width: 75%;
+/* POSTS */
+.post-item {
+  width: 80%;
+  margin: 50px auto;
 }
 
-td,
-th {
-  border: 2px solid #dddddd;
-  padding: 5px;
-  text-align: center;
+.card-title:hover {
+  cursor: pointer;
 }
 
-.action-bar {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border: solid;
-  width: 30%;
-  margin-left: 180px;
-  margin-bottom: 20px;
+.post-item-image {
+  display: inline-block;
+  height: 100%;
+  border: 1px solid black;
 }
 
-.action-bar button {
+.post-item-content {
+  display: inline-block;
+  height: 100%;
+  border: 1px solid black;
   padding: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.center {
-  margin: auto;
 }
 </style>

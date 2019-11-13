@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="event-button" v-on:click="eventClick">
+    <button v-on:click="eventClick">
       <h2>{{ eventTitle }}</h2>
       <p>Date: {{ getDate }}</p>
       <p>Time: {{ getTime }}</p>

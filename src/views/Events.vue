@@ -41,7 +41,7 @@ export default {
     };
   },
 
-  //TICKET: Implement API call to our own backend
+  //TODO: Implement API call to our own backend
   mounted() {
     axios
       .get("https://my-json-server.typicode.com/willmt80/demo/events")
@@ -53,33 +53,19 @@ export default {
   },
 
   computed: {
-    //filteredEvents: returns an array of event objects for which the date of the event is later than now
+    //filteredEvents: returns an array of event objects for which the date of the event is later than 24 hours ago
     //Needs testing
     filteredEvents() {
-      var currentEvents = [];
-      var ievent = null;
-      var todaysDate = new Date(Date.now());
-
-      for (var i = 0; i < this.events.length; i++) {
-        ievent = this.events[i];
-        var eventDate = new Date(ievent.date * 1000);
-
-        //The following code is difficult to read/understand. Needs clarification
-        if (eventDate.getTime() <= todaysDate.getTime()) {
-          eventDate.setHours(0, 0, 0, 0);
-          todaysDate.setHours(0, 0, 0, 0);
-          if (eventDate.getTime() === todaysDate.getTime()) {
-            currentEvents.push(ievent);
-          }
-        }
-      }
-      return currentEvents;
+      var dayInSeconds = 24 * 60 * 60;
+      return this.events.filter(
+        event => event.date > Date.now() - dayInSeconds
+      );
     },
 
     //codeIsValid: returns true iff the code is valid.
     //Needs testing
     codeIsValid() {
-      //TICKET: Use regex to prevent leading zeros?
+      //TODO: Use regex to prevent leading zeros?
       return !isNaN(this.code) && this.code >= 1000 && this.code <= 9999;
     }
   },
@@ -97,7 +83,7 @@ export default {
       submittedEvent["code"] = this.code;
       submittedEvent["checkin-time"] = Date.now();
 
-      //TICKET: API call needs implementation
+      //TODO: API call needs implementation
     }
   }
 };
