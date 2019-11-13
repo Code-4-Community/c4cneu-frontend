@@ -18,21 +18,22 @@ import PostItem from "../components/PostItem.vue";
 
 export default {
   name: "Media",
+
   components: {
     "post-item": PostItem
   },
+
   computed: {
+    //mediaPosts: grabs all posts.
+    //Needs testing
     mediaPosts: function() {
+      //Temporary:
       return this.$store.state.posts;
+
+      //API call needs to be implemented
     }
   }
 };
 </script>
 
-<style scoped>
-@import url("https://fonts.googleapis.com/css?family=Merriweather:400,700|Source+Sans+Pro:300&display=swap");
-
-.page-header {
-  font-family: "Source Sans Pro", sans-serif;
-}
-</style>
+<style scoped></style>

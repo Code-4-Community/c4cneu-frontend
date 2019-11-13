@@ -24,6 +24,7 @@
 <script>
 export default {
   name: "PostItem",
+
   props: {
     id: {
       type: String,
@@ -50,11 +51,15 @@ export default {
       required: true
     }
   },
+
   computed: {
+    //dateString: converts the date of the post to a readable date string.
+    //Needs testing.
     dateString: function() {
       return this.date.toLocaleDateString();
     }
   },
+
   methods: {
     handleOnClick() {
       this.$router.push(`/post/${this.id}`);
@@ -63,37 +68,4 @@ export default {
 };
 </script>
 
-<style scoped>
-@import url("https://fonts.googleapis.com/css?family=Merriweather:400,700|Source+Sans+Pro:300&display=swap");
-
-.post-item {
-  width: 80%;
-  margin: 50px auto;
-}
-
-.card-title:hover {
-  cursor: pointer;
-}
-
-.post-item-image {
-  display: inline-block;
-  height: 100%;
-  border: 1px solid black;
-}
-
-.post-item-content {
-  display: inline-block;
-  height: 100%;
-  border: 1px solid black;
-  padding: 10px;
-}
-
-.post-title,
-.post-date {
-  font-family: "Source Sans Pro", sans-serif;
-}
-
-.post-desc {
-  font-family: "Merriweather", serif;
-}
-</style>
+<style scoped></style>
