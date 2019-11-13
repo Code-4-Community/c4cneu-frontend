@@ -155,4 +155,37 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+/*VIEWS/EVENTSADMIN.VUE*/
+/*TABLES SHOULD BE STYLED GENERALLY*/
+table {
+  border-collapse: collapse;
+  width: 75%;
+}
+
+td,
+th {
+  border: 2px solid #dddddd;
+  padding: 5px;
+  text-align: center;
+}
+
+.action-bar {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: solid;
+  width: 30%;
+  margin-left: 180px;
+  margin-bottom: 20px;
+}
+
+.action-bar button {
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.center {
+  margin: auto;
+}
 </style>

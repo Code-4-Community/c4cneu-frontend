@@ -1,127 +1,96 @@
 <template>
   <div>
-    <h1>Events Manager Admin</h1>
-    <div class="actionBar">
+    <h1>Events Manager</h1>
+    <div class="action-bar">
       <button
-        class="actionButton"
-        v-bind:disabled="isDelete === true || isUpdate === true"
-        v-if="isAdd === false"
-        @click="addActive()"
+        v-if="!isAdd"
+        :disabled="isDelete || isUpdate"
+        @click="toggleAdd()"
       >
         Add
       </button>
-      <button class="actionButton" @click="addActive()" v-if="isAdd === true">
+
+      <button @click="toggleAdd()" v-if="isAdd">
         Scrap
       </button>
       <button
-        class="actionButton"
-        @click="deleteActive()"
-        v-if="isDelete === false"
-        v-bind:disabled="isUpdate === true || isAdd === true"
+        @click="toggleDelete()"
+        v-if="!isDelete"
+        v-bind:disabled="isUpdate || isAdd"
       >
         Delete
       </button>
-      <button
-        class="actionButton"
-        @click="deleteActive()"
-        v-if="isDelete === true"
-      >
+
+      <button @click="toggleDelete()" v-if="isDelete">
         Done
       </button>
-      <button
-        class="actionButton"
-        v-bind:disabled="
-          isDelete === true || isUpdate === true || isAdd === true
-        "
-        @click="updateActive()"
-      >
+
+      <button :disabled="isDelete || isUpdate || isAdd" @click="toggleUpdate()">
         Update
       </button>
-      <button
-        class="actionButton"
-        v-bind:disabled="isDelete === true || isUpdate === false"
-        @click="saveActive()"
-      >
+
+      <button :disabled="isDelete || !isUpdate" @click="saveActive()">
         Save
       </button>
-      <button
-        class="actionButton"
-        v-bind:disabled="isDelete === true || isUpdate === false"
-        @click="saveActive()"
-      >
+
+      <button :disabled="isDelete || !isUpdate" @click="saveActive()">
         Cancel
       </button>
     </div>
 
-    <div v-show="isAdd === true" class="addForm">
-      <h1>Add A New Event</h1>
-      <input v-model="newName" placeholder="Name of Event" />
+    <div v-show="isAdd">
+      <h1>Add an Event</h1>
+      <input v-model="newName" placeholder="Name" />
       <datetime
         type="datetime"
         v-model="datetimeEmpty"
         use12-hour
         placeholder="Create Date"
       ></datetime>
-      <input v-model="newCode" placeholder="Enter Code Here" />
-      <br />
-      <br />
-      <br />
+      <input v-model="newCode" placeholder="Code" />
       <button @click="addEvent()">Submit</button>
     </div>
 
     <table class="center">
       <tbody>
         <tr>
-          <th>ID</th>
-          <th>Name of Event</th>
-          <th>Date of Event</th>
-          <th>Event Code</th>
-          <th v-show="isDelete === true">Actions</th>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Code</th>
+          <th v-show="isDelete">Actions</th>
         </tr>
-        <tr v-for="event in events" v-bind:key="event">
+        <tr v-for="event in events" :key="event.id">
           <td>
-            <TextareaAutosize
-              v-model="event.id"
-              v-bind:disabled="isUpdate === false"
-              v-bind:class="{
-                tableInputDisabled: isUpdate === false,
-                tableInput: isUpdate === true
-              }"
-              :min-height="1"
-              :max-height="350"
-            />
-          </td>
-          <td>
-            <TextareaAutosize
+            <input
               v-model="event.name"
-              v-bind:disabled="isUpdate === false"
-              v-bind:class="{
-                tableInputDisabled: isUpdate === false,
-                tableInput: isUpdate === true
+              :disabled="!isUpdate"
+              :class="{
+                disabled: !isUpdate,
+                tableInput: isUpdate
               }"
             />
           </td>
           <td>
-            <TextareaAutosize
+            <input
               v-model="event.date"
-              v-bind:disabled="isUpdate === false"
-              v-bind:class="{
-                tableInputDisabled: isUpdate === false,
-                tableInput: isUpdate === true
+              :disabled="!isUpdate"
+              :class="{
+                disabled: !isUpdate,
+                tableInput: isUpdate
               }"
             />
           </td>
           <td>
-            <TextareaAutosize
+            <input
               v-model="event.code"
-              v-bind:disabled="isUpdate === false"
-              v-bind:class="{
-                tableInputDisabled: isUpdate === false,
-                tableInput: isUpdate === true
+              :disabled="!isUpdate"
+              :class="{
+                disabled: !isUpdate,
+                tableInput: isUpdate
               }"
             />
           </td>
-          <td v-show="isDelete === true">
+          <td v-show="isDelete">
             <button @click="deleteEvent()">
               <font-awesome-icon class="faForTable" icon="trash-alt" />
             </button>
@@ -133,11 +102,15 @@
 </template>
 
 <script>
+//TICKET: Make the table display <p> instead of <input> when editing is disabled
+//TICKET: Make the table autosave when a user clicks outside of input, and remove "update" and "save" buttons
+//TICKET: Have delete button in each row to delete events, and remove "delete" button at top
 import { Datetime } from "vue-datetime";
 export default {
   components: {
     datetime: Datetime
   },
+
   data() {
     return {
       isDelete: false,
@@ -191,101 +164,46 @@ export default {
   },
 
   methods: {
-    //es-lint is complaing that I can use the name and date so I'm gonna leave it out
+    //addEvent: adds an event
+    //Needs testing
     addEvent: function() {
-      //createEvent(name,date,code)
+      //TICKET: Needs backend API implementation
       this.isAdd = false;
       this.newName = "";
       this.datetimeEmpty = null;
       this.newCode = null;
     },
-    deleteEvent: function() {},
-    addActive: function() {
+
+    //deleteEvent: deletes an event
+    //Needs testing
+    deleteEvent: function() {
+      //TICKET: Needs backend API implementation
+      //TICKET: Needs to delete row in table
+    },
+
+    //toggleAdd: toggles isAdd
+    toggleAdd: function() {
       this.isAdd = !this.isAdd;
     },
-    deleteActive: function() {
+
+    //toggleDelete: toggles isDelete
+    toggleDelete: function() {
       this.isDelete = !this.isDelete;
     },
+
+    //toggleUpdate: toggles isUpdate
+    toggleUpdate: function() {
+      this.isUpdate = !this.isUpdate;
+    },
+
+    //saveActive: toggles isSave, isCancel, isUpdate. Used after saving updates
     saveActive: function() {
       this.isSave = !this.isSave;
       this.isCancel = !this.isCancel;
-      this.isUpdate = !this.isUpdate;
-    },
-    cancelActive: function() {
-      this.isCancel = !this.isCancel;
-      this.isSave = !this.isSave;
-      this.isUpdate = !this.isUpdate;
-    },
-    updateActive: function() {
       this.isUpdate = !this.isUpdate;
     }
   }
 };
 </script>
 
-<style scoped>
-@import "~vue-datetime/dist/vue-datetime.css";
-table {
-  border-collapse: collapse;
-  width: 75%;
-}
-
-table.center {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.faForTable {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-td,
-th {
-  border: 2px solid #dddddd;
-  padding: 5px;
-  text-align: center;
-}
-
-.tableInputDisabled {
-  border: 2px solid #dddddd;
-  border-radius: 5px;
-  padding: 5px;
-  text-align: center;
-  width: auto;
-  background: rgba(187, 193, 199, 0.336);
-}
-
-.tableInput {
-  border: 2px solid #dddddd;
-  border-radius: 5px;
-  padding: 5px;
-  text-align: center;
-  width: auto;
-}
-
-.actionBar {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border: solid;
-  width: 30%;
-  margin-left: 180px;
-  margin-bottom: 20px;
-}
-
-.actionButton {
-  padding: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.addForm {
-  padding: 10px;
-  font-size: 10px;
-  border: solid;
-  width: 20%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-}
-</style>
+<style scoped></style>
