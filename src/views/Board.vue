@@ -34,9 +34,9 @@ export default {
 
         {
           name: "Sadaf Khansalar",
+          imageUrl: require("@/assets/Eboard/sadaf_khansalar.jpg"),
           linkedinLink: "https://www.linkedin.com/in/sadafkhansalar/",
           email: "khansalar.s@husky.neu.edu",
-          imageUrl: require("@/assets/Eboard/sadaf_khansalar.jpg"),
           position: "VP of Outreach and Mentorship",
           bio:
             "Sadaf Khansalar is a third year Computer Science and Music Technology student. She is passionate about inclusion in design which is why her focus in her research is inclusive design in music tech; she wants to create tools and technologies to enable a wider range of people to create and enjoy music. One of her hobbies is teaching which is why she is a Calculus Tutor and an Instructor for Girls Who Code. A fun fact about Sadaf is that her name means seashell in Persian."
