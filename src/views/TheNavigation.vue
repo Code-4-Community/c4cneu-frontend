@@ -1,9 +1,14 @@
 <template>
   <div>
+    <div class="title">
+      <router-link to="/"><h3>Code 4 Community</h3></router-link>
+    </div>
+
     <div class="nav">
       <router-link to="/"><h1>Home</h1></router-link>
       <router-link to="/auth"><h1>Sign In</h1></router-link>
       <router-link to="/checkin"><h1>Check In</h1></router-link>
+      <router-link to="/donations"><h1>Donations</h1></router-link>
     </div>
 
     <div id="navbar" class="phoneScreen">
@@ -19,6 +24,9 @@
         >
         <router-link to="/checkin">
           <span v-on:click="close()"><h2>Check In</h2></span></router-link
+        >
+        <router-link to="/donations">
+          <span v-on:click="close()"><h2>Donations</h2></span></router-link
         >
       </div>
     </div>
@@ -59,7 +67,7 @@ function closeNavbar() {
 
 h1 {
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 20px;
+  font-size: 23px;
   font-weight: bold;
   margin: 0;
   padding: 0px;
@@ -72,6 +80,35 @@ h2 {
   margin: 0;
   padding: 0px;
   color: gray;
+}
+
+h3 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0px;
+}
+
+.title {
+  text-align: left;
+  text-decoration: none;
+
+  display: flex;
+  background-color: transparent;
+  padding: 0em 1.5em;
+  border-radius: 0.5em;
+}
+
+.title a {
+  text-decoration: none;
+  margin-right: 30px;
+  color: black;
+}
+
+.title a:hover {
+  color: gray;
+  cursor: pointer;
 }
 .nav {
   justify-content: flex-end;
@@ -94,7 +131,6 @@ h2 {
 }
 
 .phoneNav {
-  position: relative;
   top: 0%;
   width: 100%;
   text-align: left;
@@ -110,7 +146,6 @@ h2 {
   top: 0;
   left: 0;
   background-color: #3b342b;
-  overflow-x: hidden;
   transition: 0.5s;
 }
 
@@ -136,10 +171,15 @@ h2 {
   font-size: 30px;
   cursor: pointer;
   margin-right: 15px;
+  padding: 25px 25px 25px 25px;
 }
 
 @media only screen and (max-width: 768px) {
   .nav {
+    display: none;
+  }
+
+  .title {
     display: none;
   }
 }
