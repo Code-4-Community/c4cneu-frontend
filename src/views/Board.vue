@@ -24,6 +24,8 @@ export default {
       eboard: [
         {
           name: "Stephen Alt",
+          linkedinLink: "https://www.linkedin.com/in/stephenalt/",
+          email: "alt.s@husky.neu.edu",
           imageUrl: require("@/assets/Eboard/stephen_alt.jpg"),
           position: "President",
           bio:
@@ -33,6 +35,8 @@ export default {
         {
           name: "Sadaf Khansalar",
           imageUrl: require("@/assets/Eboard/sadaf_khansalar.jpg"),
+          linkedinLink: "https://www.linkedin.com/in/sadafkhansalar/",
+          email: "khansalar.s@husky.neu.edu",
           position: "VP of Outreach and Mentorship",
           bio:
             "Sadaf Khansalar is a third year Computer Science and Music Technology student. She is passionate about inclusion in design which is why her focus in her research is inclusive design in music tech; she wants to create tools and technologies to enable a wider range of people to create and enjoy music. One of her hobbies is teaching which is why she is a Calculus Tutor and an Instructor for Girls Who Code. A fun fact about Sadaf is that her name means seashell in Persian."
@@ -40,6 +44,8 @@ export default {
 
         {
           name: "Jack Blanc",
+          linkedinLink: "https://www.linkedin.com/in/blancjack/",
+          email: "blanc.ja@husky.neu.edu",
           imageUrl: require("@/assets/Eboard/jack_blanc.jpg"),
           position: "VP of Testing and Security",
           bio:
@@ -48,6 +54,8 @@ export default {
 
         {
           name: "Reine Nisheiwat",
+          linkedinLink: "https://www.linkedin.com/in/reinenish/",
+          email: "nisheiwat.r@husky.neu.edu",
           imageUrl: require("@/assets/Eboard/reine_nisheiwat.jpg"),
           position: "VP of Design",
           bio:
@@ -56,6 +64,8 @@ export default {
 
         {
           name: "Liam Moynihan",
+          linkedinLink: "https://www.linkedin.com/in/liam-moynihan-b75806123/",
+          email: "moynihan.li@husky.neu.edu",
           imageUrl: require("@/assets/Eboard/liam_moynihan.jpg"),
           position: "VP of Development",
           bio:
@@ -64,6 +74,8 @@ export default {
 
         {
           name: "Jack Tonina",
+          linkedinLink: "https://www.linkedin.com/in/jack-tonina-6328b9147/",
+          email: "tonina.j@husky.neu.edu",
           imageUrl: require("@/assets/Eboard/jack_tonina.jpg"),
           position: "VP of Treasury",
           bio:
@@ -72,6 +84,8 @@ export default {
 
         {
           name: "Tina Noorani",
+          linkedinLink: "https://www.linkedin.com/in/tinan415/",
+          email: "noorani.t@husky.neu.edu",
           imageUrl: require("@/assets/Eboard/tina_noorani.jpg"),
           position: "Advisor",
           bio:
