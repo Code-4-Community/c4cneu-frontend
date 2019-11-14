@@ -30,6 +30,7 @@ export default {
 }
 
 h2 {
+  width: 100%;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 25px;
 }

@@ -1,9 +1,14 @@
 <template>
-  <div>
+  <div class="page">
     <div class="container">
       <img :src="person.imageUrl" alt="Member" style="width:100%" />
       <p>
         <strong>{{ person.name }}</strong>
+      </p>
+      <p class="linkedin">
+        <a v-bind:href="`mailto:${person.email}`"> {{ person.email }} </a>
+        <br />
+        <a v-bind:href="person.linkedinLink"> LinkedIn </a>
       </p>
       <p class="title">{{ person.position }}</p>
       <p>{{ person.bio }}</p>
@@ -22,6 +27,10 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.page {
+  padding: 1em;
+}
 
 p {
   font-family: "Merriweather", serif;

@@ -5,7 +5,9 @@
     </div>
 
     <div class="nav">
-      <router-link to="/"><h1>Home</h1></router-link>
+      <router-link class="hvr-underline-from-center" to="/"
+        ><h1>Home</h1></router-link
+      >
       <router-link class="hvr-underline-from-center" to="/news"
         ><h1>News</h1></router-link
       >
@@ -21,14 +23,16 @@
       <router-link class="hvr-underline-from-center" to="/auth">
         <h1>Sign In</h1>
       </router-link>
-      <router-link to="/donations"><h1>Donations</h1></router-link>
+      <router-link class="hvr-underline-from-center" to="/donations"
+        ><h1>Donations</h1></router-link
+      >
     </div>
 
     <div id="navbar" class="phoneScreen">
       <a href="javascript:void(0)" class="xButton" v-on:click="close()"
         >&times;</a
       >
-      <div class="phoneNav">
+      <div class="phoneNav" id="phoenNav">
         <router-link to="/">
           <span v-on:click="close()"><h2>Home</h2></span></router-link
         >
@@ -73,11 +77,12 @@ export default {
 
 function openNavbar() {
   document.getElementById("navbar").style.width = "100%";
+  document.getElementById("navbar").style.display = "block";
 }
 
 function closeNavbar() {
+  document.getElementById("navbar").style.display = "none";
   document.getElementById("navbar").style.width = "0%";
-  //document.getElementById("navbar").style.height = "0%";
 }
 </script>
 
@@ -153,15 +158,14 @@ h3 {
 
 .phoneNav {
   top: 0%;
-  width: 100%;
-  text-align: left;
   left: 4vh;
   margin-top: 30px;
 }
 
 .phoneScreen {
+  width: 0%;
+  display: none;
   height: 100%;
-  width: 0;
   position: fixed;
   z-index: 1000;
   top: 0;
@@ -199,9 +203,11 @@ h3 {
   .nav {
     display: none;
   }
-
   .title {
-    display: none;
+    margin-top: 1em;
+  }
+  .menu {
+    padding: 0.1em 0em;
   }
 }
 @media only screen and (min-width: 769px) {
