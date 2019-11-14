@@ -6,8 +6,21 @@
 
     <div class="nav">
       <router-link to="/"><h1>Home</h1></router-link>
-      <router-link to="/auth"><h1>Sign In</h1></router-link>
-      <router-link to="/checkin"><h1>Check In</h1></router-link>
+      <router-link class="hvr-underline-from-center" to="/news"
+        ><h1>News</h1></router-link
+      >
+      <router-link class="hvr-underline-from-center" to="/events">
+        <h1>Events</h1>
+      </router-link>
+      <router-link class="hvr-underline-from-center" to="/board">
+        <h1>Board</h1>
+      </router-link>
+      <router-link class="hvr-underline-from-center" to="/apply">
+        <h1>Apply</h1>
+      </router-link>
+      <router-link class="hvr-underline-from-center" to="/auth">
+        <h1>Sign In</h1>
+      </router-link>
       <router-link to="/donations"><h1>Donations</h1></router-link>
     </div>
 
@@ -19,11 +32,20 @@
         <router-link to="/">
           <span v-on:click="close()"><h2>Home</h2></span></router-link
         >
+        <router-link to="/news">
+          <span v-on:click="close()"><h2>News</h2></span></router-link
+        >
+        <router-link to="/events">
+          <span v-on:click="close()"><h2>Events</h2></span></router-link
+        >
+        <router-link to="/board">
+          <span v-on:click="close()"><h2>Board</h2></span></router-link
+        >
+        <router-link to="/apply">
+          <span v-on:click="close()"><h2>Apply</h2></span></router-link
+        >
         <router-link to="/auth">
           <span v-on:click="close()"><h2>Sign In</h2></span></router-link
-        >
-        <router-link to="/checkin">
-          <span v-on:click="close()"><h2>Check In</h2></span></router-link
         >
         <router-link to="/donations">
           <span v-on:click="close()"><h2>Donations</h2></span></router-link
@@ -115,8 +137,7 @@ h3 {
   width: 100%;
   display: flex;
   background-color: transparent;
-  padding: 0em 1.5em;
-  border-radius: 0.5em;
+  padding: 1em 1em;
 }
 
 .nav a {

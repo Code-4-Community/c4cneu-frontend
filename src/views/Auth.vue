@@ -1,33 +1,48 @@
 <template>
-  <div class="signin">
-    <button @click="openSignin">Sign in</button>
-    <button @click="openSignup">Sign up</button>
-
-    <form v-if="isSigningIn" @submit.prevent="handleSignin">
+  <div>
+    <button @click="openSignIn">Sign in</button>
+    <button @click="openSignUp">Sign up</button>
+    <form v-if="isSigningIn">
       <h1>Sign in</h1>
-      <label>Email address</label>
-      <input
-        ref="first"
-        type="text"
-        v-model="user.emailAddress"
-        @focus="clearStatus"
-      />
-      <label>Password</label>
-      <input type="text" v-model="user.password" @focus="clearStatus" />
-      <button>Sign in!</button>
+      <div class="form-item">
+        <label>Email address</label>
+        <input
+          ref="first"
+          type="text"
+          v-model="user.emailAddress"
+          @focus="clearStatus"
+        />
+      </div>
+      <div class="form-item">
+        <label>Password</label>
+        <input type="text" v-model="user.password" @focus="clearStatus" />
+      </div>
+      <button @click="handleSignIn">Sign in</button>
     </form>
 
-    <form v-if="!isSigningIn" @submit.prevent="handleSignup">
+    <form v-if="!isSigningIn">
       <h1>Sign up</h1>
-      <label>Name</label>
-      <input type="text" v-model="newUser.name" @focus="clearStatus" />
-      <label>Email address</label>
-      <input type="text" v-model="newUser.emailAddress" @focus="clearStatus" />
-      <label>Password</label>
-      <input type="text" v-model="newUser.password" @focus="clearStatus" />
-      <label>Confirm password</label>
-      <input type="text" v-model="newUser.cPassword" @focus="clearStatus" />
-      <button>Sign up!</button>
+      <div class="form-item">
+        <label>Name</label>
+        <input type="text" v-model="newUser.name" @focus="clearStatus" />
+      </div>
+      <div class="form-item">
+        <label>Email address</label>
+        <input
+          type="text"
+          v-model="newUser.emailAddress"
+          @focus="clearStatus"
+        />
+      </div>
+      <div class="form-item">
+        <label>Password</label>
+        <input type="text" v-model="newUser.password" @focus="clearStatus" />
+      </div>
+      <div class="form-item">
+        <label>Confirm password</label>
+        <input type="text" v-model="newUser.cPassword" @focus="clearStatus" />
+      </div>
+      <button @click="handleSignUp">Sign up!</button>
     </form>
 
     <p v-if="error">
@@ -37,7 +52,6 @@
 </template>
 
 <script>
-import axios from "axios";
 export default {
   name: "signin",
   data() {
@@ -54,32 +68,37 @@ export default {
       },
       submitting: false,
       error: false,
-      success: false
+      success: false,
+      isSigningIn: true
     };
   },
-  props: {
-    isSigningIn: {
-      type: Boolean,
-      default: true
-    }
-  },
+
   methods: {
-    handleSignin() {
+    //handleSignIn: processes submission of sign in form.
+    //Needs testing
+    handleSignIn() {
       this.submitting = true;
       this.clearStatus();
+
       if (this.invalidEmail || this.invalidPassword) {
         this.error = true;
         return;
       }
-      //signin()
+
+      this.signIn(this.user);
+
       this.user = {
         emailAddress: "",
         password: ""
       };
     },
-    handleSignup() {
+
+    //handleSignUp: processes submission of sign up form.
+    //Needs testing
+    handleSignUp() {
       this.submitting = true;
       this.clearStatus();
+
       if (
         this.invalidNewEmail ||
         this.invalidNewName ||
@@ -88,7 +107,9 @@ export default {
         this.error = true;
         return;
       }
-      //signup()
+
+      this.signUp(this.newUser);
+
       this.newUser = {
         name: "",
         emailAddress: "",
@@ -96,32 +117,44 @@ export default {
         cPassword: ""
       };
     },
+
+    //clearStatus: clears status of form; sets error and success to false
     clearStatus() {
       this.error = false;
       this.success = false;
     },
-    openSignin() {
+
+    //openSignIn: opens sign in form
+    openSignIn() {
       this.isSigningIn = true;
       this.clearStatus();
     },
-    openSignup() {
+
+    //openSignUp: opens sign up form
+    openSignUp() {
       this.isSigningIn = false;
       this.clearStatus();
     },
-    signin() {
-      axios.post("given url", {
-        emailAddress: this.user.emailAddress,
-        password: this.user.password
-      });
+
+    //signIn: sends sign-in request to backend
+    //Needs testing
+    signIn(user) {
+      //Temporary:
+      user;
+
+      //TODO: implement backend API call
     },
-    signup() {
-      axios.post("given url", {
-        name: this.newUser.name,
-        emailAddress: this.newUser.emailAddress,
-        password: this.newUser.password
-      });
+
+    //signUp: sends sign up request to backend
+    //Needs testing
+    signUp(newUser) {
+      //Temporary:
+      newUser;
+
+      //TODO: implement backend API call
     }
   },
+
   computed: {
     invalidEmail() {
       return this.user.emailAddress === "";
@@ -145,11 +178,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.signin {
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  text-align: center;
-}
-</style>
+<style scoped></style>
