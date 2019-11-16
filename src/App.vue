@@ -203,4 +203,19 @@ th {
   border: 1px solid black;
   padding: 10px;
 }
+
+/* SIGN IN/SIGN UP/ BASICALLY FORMS LMAO */
+form {
+  margin: auto;
+}
+
+form,
+button {
+  margin: 20px;
+}
+
+form,
+label {
+  margin-right: 20px;
+}
 </style>
