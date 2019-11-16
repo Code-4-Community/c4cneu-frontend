@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <h1>Apply for Code 4 Community!</h1>
     <form>
       <div class="form-item">

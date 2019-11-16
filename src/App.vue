@@ -205,8 +205,21 @@ th {
 }
 
 /* SIGN IN/SIGN UP/ BASICALLY FORMS LMAO */
-form {
+.container {
   margin: auto;
+  border: solid;
+  width: 450px;
+}
+
+form {
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
+  border: solid;
+  border-width: 2px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 form,

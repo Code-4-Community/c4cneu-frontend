@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <button @click="openSignIn">Sign in</button>
-    <button @click="openSignUp">Sign up</button>
+  <div class="container">
     <form v-if="isSigningIn">
       <h1>Sign in</h1>
       <div class="form-item">
@@ -48,6 +46,9 @@
     <p v-if="error">
       Please fill out all required fields and ensure everything is correct
     </p>
+
+    <button @click="openSignIn">Sign in</button>
+    <button @click="openSignUp">Sign up</button>
   </div>
 </template>
 
