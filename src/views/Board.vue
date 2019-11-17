@@ -1,7 +1,7 @@
 <template>
   <div>
     <section>
-      <div class="parallax" id="plax_1">
+      <div class="parallax" id="plax_5">
         <h1>Executive Board</h1>
       </div>
     </section>
@@ -99,7 +99,7 @@ export default {
 
 <style scoped>
 /*SETS BACKGROUND IMAGE OF HEADER*/
-#plax_1 {
+/*#plax_1 {
   background-image: url("../assets/p5.png");
-}
+}*/
 </style>

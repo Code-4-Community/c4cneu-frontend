@@ -1,23 +1,17 @@
 <template>
   <div class="post-item" @click="handleOnClick()">
-    <section>
-      <div class="container">
-        <div class="card">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card-block">
-                <h3 class="card-title">{{ title }}</h3>
-                <h4 class="post-date">{{ dateString }}</h4>
-                <p class="card-text">{{ desc }}</p>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <img :src="imageUrl" />
-            </div>
-          </div>
-        </div>
+    <div class="card">
+      <div class="card-date">
+        <h4 class="post-date">{{ dateString }}</h4>
       </div>
-    </section>
+      <div class="card-block">
+        <h3 class="card-title">{{ title }}</h3>
+        <p class="card-text">{{ desc }}</p>
+      </div>
+      <div>
+        <img :src="imageUrl" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -56,7 +50,8 @@ export default {
     //dateString: converts the date of the post to a readable date string.
     //Needs testing.
     dateString: function() {
-      return this.date.toLocaleDateString();
+      var options = { year: "numeric", month: "short", day: "numeric" };
+      return this.date.toLocaleDateString("en-US", options);
     }
   },
 
