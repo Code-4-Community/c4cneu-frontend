@@ -93,6 +93,10 @@ export default {
         }
       ]
     };
+  },
+  //makes it so that when taken to page from router, it goes to the top
+  mounted() {
+    window.scrollTo(0, 0);
   }
 };
 </script>
