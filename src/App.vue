@@ -205,16 +205,15 @@ th {
 }
 
 /* SIGN IN/SIGN UP/ BASICALLY FORMS LMAO */
-.container {
-  margin: auto;
-  border: solid;
-  width: 450px;
-}
 
 form {
   margin-left: auto;
   margin-right: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
   align-self: center;
+  width: 500px;
   border: solid;
   border-width: 2px;
   border-radius: 6px;
@@ -222,13 +221,42 @@ form {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-form,
-button {
-  margin: 20px;
+form > div > input[type="radio"] {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
-form,
-label {
-  margin-right: 20px;
+form > div > input[type="text"] {
+  margin-left: 30px;
+}
+
+form > button {
+  margin: 20px;
+  transition: 0.7s;
+}
+
+form > button:hover {
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
+form > h1 {
+  padding-bottom: 10px;
+}
+
+.buttonForm {
+  margin: 20px;
+  margin-top: 50px;
+  padding: 8px;
+  padding-right: 25px;
+  padding-left: 25px;
+  transition: 1s;
+}
+
+.buttonForm:hover {
+  box-shadow: 1px 1px #000000, 2px 2px #000000, 3px 3px #000000;
+  -webkit-transform: translateX(-3px);
+  transform: translateX(-3px);
 }
 </style>

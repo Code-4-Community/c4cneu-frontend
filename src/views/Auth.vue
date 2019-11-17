@@ -47,8 +47,8 @@
       Please fill out all required fields and ensure everything is correct
     </p>
 
-    <button @click="openSignIn">Sign in</button>
-    <button @click="openSignUp">Sign up</button>
+    <button class="buttonForm" @click="openSignIn">Sign in</button>
+    <button class="buttonForm" @click="openSignUp">Sign up</button>
   </div>
 </template>
 
