@@ -1,9 +1,15 @@
 <template>
   <div class="container">
+    <!-- TODO: MAKE TABS INSTEAD OF BUTTONS -->
+    <button @click="openSignIn">Sign in</button>
+    <button @click="openSignUp">Sign up</button>
+
+    <!-- TODO: ADD LABEL-FOR TO MAKE LABELS WORK -->
     <form v-if="isSigningIn">
       <h1>Sign in</h1>
       <div class="form-item">
-        <label>Email address</label>
+        <label>Email</label>
+        <br />
         <input
           ref="first"
           type="text"
@@ -13,6 +19,7 @@
       </div>
       <div class="form-item">
         <label>Password</label>
+        <br />
         <input type="text" v-model="user.password" @focus="clearStatus" />
       </div>
       <button @click="handleSignIn">Sign in</button>
@@ -22,10 +29,12 @@
       <h1>Sign up</h1>
       <div class="form-item">
         <label>Name</label>
+        <br />
         <input type="text" v-model="newUser.name" @focus="clearStatus" />
       </div>
       <div class="form-item">
-        <label>Email address</label>
+        <label>Email</label>
+        <br />
         <input
           type="text"
           v-model="newUser.emailAddress"
@@ -34,11 +43,21 @@
       </div>
       <div class="form-item">
         <label>Password</label>
-        <input type="text" v-model="newUser.password" @focus="clearStatus" />
+        <br />
+        <input
+          type="password"
+          v-model="newUser.password"
+          @focus="clearStatus"
+        />
       </div>
       <div class="form-item">
         <label>Confirm password</label>
-        <input type="text" v-model="newUser.cPassword" @focus="clearStatus" />
+        <br />
+        <input
+          type="password"
+          v-model="newUser.cPassword"
+          @focus="clearStatus"
+        />
       </div>
       <button @click="handleSignUp">Sign up!</button>
     </form>
@@ -46,9 +65,6 @@
     <p v-if="error">
       Please fill out all required fields and ensure everything is correct
     </p>
-
-    <button class="buttonForm" @click="openSignIn">Sign in</button>
-    <button class="buttonForm" @click="openSignUp">Sign up</button>
   </div>
 </template>
 

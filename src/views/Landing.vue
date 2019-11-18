@@ -34,12 +34,7 @@
           Here, you can find the source code to our project frontends and
           backends (such as this website!)
         </p>
-        <a
-          class="github-button"
-          href="https://github.com/Code-4-Community"
-          aria-label="Follow @Code-4-Community on GitHub"
-          >Follow C4C on GitHub</a
-        >
+        <a href="https://github.com/Code-4-Community">Follow C4C on GitHub</a>
       </div>
     </section>
 

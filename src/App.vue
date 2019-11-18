@@ -15,7 +15,7 @@ export default {
 
 <style>
 /* GLOBAL IMPORTS */
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Public+Sans:100,300,400,400i,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"); /* IMPORT FOR HVR-GROW CLASS, USED ON VARIOUS PAGES */
 
@@ -25,7 +25,7 @@ export default {
  */
 
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "Public Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -36,52 +36,88 @@ export default {
   #TEXT
 \*------------------------------------*/
 p {
-  color: default;
+  font-family: "Public Sans";
+  font-size: 16px;
+  margin: 10px auto 10px auto;
 }
 
 p.error {
   color: red;
 }
 
-h1,
-h2,
-h3 {
-  color: default;
-}
-
 h1 {
-  color: default;
+  font-size: 80px;
+  font-weight: 100;
 }
 
 h2 {
-  color: default;
+  font-size: 30px;
+  font-weight: 300;
 }
 
 h3 {
-  color: default;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+/* TODO: STYLE LINKS */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 /* FORMS AND INPUT */
 form {
-  color: default;
+  margin: 20px auto 20px auto;
 }
 
 form div.form-item {
-  color: default;
+  margin: 30px 0 30px 0;
 }
 
 input {
+  padding: 8px;
+  font-size: 18px;
+  border: 1px solid #bec2f7;
+}
+
+input[type="text"] {
+  width: 30%;
+}
+
+/*TODO: STYLE RADIO BUTTONS*/
+input[type="radio"] {
   color: default;
 }
 
+textarea {
+  border: 1px solid #bec2f7;
+  width: 60%;
+  height: 200px;
+}
+
+input[type="password"] {
+  font: small-caption;
+  padding: 0 8px 0 8px;
+  font-size: 30px;
+  width: 30%;
+}
+
 button {
-  color: default;
+  background-color: #bec2f7;
+  border: none;
+  padding: 10px 16px 10px 16px;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
 /* POST TEXT */
 .post-title,
 .post-date {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Public Sans";
 }
 
 .post-desc {
@@ -202,61 +238,5 @@ th {
   height: 100%;
   border: 1px solid black;
   padding: 10px;
-}
-
-/* SIGN IN/SIGN UP/ BASICALLY FORMS LMAO */
-
-form {
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  text-align: center;
-  align-self: center;
-  width: 500px;
-  border: solid;
-  border-width: 2px;
-  border-radius: 6px;
-  box-sizing: border-box;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-form > div > input[type="radio"] {
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-form > div > input[type="text"] {
-  margin-left: 30px;
-}
-
-form > button {
-  margin: 20px;
-  transition: 0.7s;
-}
-
-form > button:hover {
-  -webkit-transform: scale(1.3);
-  -ms-transform: scale(1.3);
-  transform: scale(1.3);
-}
-
-form > h1 {
-  padding-bottom: 10px;
-}
-
-.buttonForm {
-  margin: 20px;
-  margin-top: 50px;
-  padding: 8px;
-  padding-right: 25px;
-  padding-left: 25px;
-  transition: 1s;
-}
-
-.buttonForm:hover {
-  box-shadow: 1px 1px #000000, 2px 2px #000000, 3px 3px #000000;
-  -webkit-transform: translateX(-3px);
-  transform: translateX(-3px);
 }
 </style>

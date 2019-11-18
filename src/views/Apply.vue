@@ -1,9 +1,11 @@
 <template>
   <div class="container">
-    <h1>Apply for Code 4 Community!</h1>
+    <!-- TODO: ADD PARALLAX -->
+    <h1>Apply to Code 4 Community</h1>
     <form>
       <div class="form-item">
-        <label for="form-name">Name:</label>
+        <label for="form-name">Name</label>
+        <br />
         <input
           type="text"
           id="form-name"
@@ -12,7 +14,8 @@
         />
       </div>
       <div class="form-item">
-        <p>Year:</p>
+        Year
+        <br />
 
         <input type="radio" id="form-year-1" v-model="year" value="1" />
         <label for="form-year-1">1</label>
@@ -30,16 +33,13 @@
         <label for="form-year-5">5</label>
       </div>
       <div class="form-item">
-        <label for="form-major">Major:</label>
-        <input
-          type="text"
-          id="form-major"
-          v-model="major"
-          placeholder="CS, English ..."
-        />
+        <label for="form-major">Major</label>
+        <br />
+        <input type="text" id="form-major" v-model="major" />
       </div>
       <div class="form-item">
-        <label for="form-resume">Upload your resume here:</label>
+        <label for="form-resume">Resume</label>
+        <br />
         <input
           type="file"
           id="form-resume"
@@ -55,12 +55,13 @@
         <textarea id="form-why-join" v-model="whyJoin" />
       </div>
       <div class="form-item">
-        <input
+        <button
           type="submit"
-          :value="submitText"
           :disabled="!validForm()"
           v-on:click="handleSubmit($event)"
-        />
+        >
+          Apply
+        </button>
       </div>
     </form>
   </div>
@@ -93,9 +94,6 @@ export default {
     },
     validWhyJoin: function() {
       return this.whyJoin.trim() !== "";
-    },
-    submitText: function() {
-      return this.validForm() ? "Apply!" : "Please complete the form.";
     }
   },
   methods: {
