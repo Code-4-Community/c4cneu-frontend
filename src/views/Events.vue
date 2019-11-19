@@ -30,22 +30,15 @@
 
 <script>
 import CheckinEvent from "../components/CheckinEvent.vue";
-import axios from "axios";
+//import axios from "axios";
 
 export default {
   data() {
     return {
-      events: [],
+      events: this.$store.state.events,
       activeEventIndex: null,
       code: null
     };
-  },
-
-  //TODO: Implement API call to our own backend
-  mounted() {
-    axios
-      .get("https://my-json-server.typicode.com/willmt80/demo/events")
-      .then(response => (this.events = response.data));
   },
 
   components: {
