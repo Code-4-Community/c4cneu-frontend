@@ -229,7 +229,7 @@ figure figcaption {
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #5a4f94;
 }
 
 /* NEWS */
