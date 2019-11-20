@@ -91,21 +91,4 @@
   </div>
 </template>
 
-<style scoped>
-/*SETS BACKGROUND IMAGES FOR ALL PARALLAX DIVS*/
-#plax_1 {
-  background-image: url("../assets/p1.png");
-}
-#plax_2 {
-  background-image: url("../assets/p3.png");
-}
-#plax_3 {
-  background-image: url("../assets/p2.png");
-}
-#plax_4 {
-  background-image: url("../assets/p4.png");
-}
-#plax_5 {
-  background-image: url("../assets/p5.png");
-}
-</style>
+<style scoped></style>
