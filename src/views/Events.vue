@@ -1,30 +1,39 @@
 <template>
-  <div>
-    <h1>Active Events</h1>
-    <checkin-event
-      v-on:eventSelected="handleClickInParent"
-      v-for="fe in filteredEvents"
-      :eventTitle="fe.title"
-      :eventDate="fe.date"
-      :eventId="fe.id"
-      v-bind:key="fe.title"
-    ></checkin-event>
-    <div v-if="!(activeEventIndex === null)">
+  <div class="sidebar-layout">
+    <div class="events">
+      <h1>Active Events</h1>
+      <checkin-event
+        v-on:eventSelected="handleClickInParent"
+        v-for="fe in filteredEvents"
+        :eventTitle="fe.title"
+        :eventDate="fe.date"
+        :eventId="fe.id"
+        v-bind:key="fe.title"
+      ></checkin-event>
+    </div>
+    <form v-if="!(activeEventIndex === null)" class="form-layout">
       <h2>{{ events[activeEventIndex].title }}</h2>
-      <p>Enter your code:</p>
-      <input v-model.number="code" maxlength="4" input-code />
-      <br />
+      <div class="form-item">
+        <label>Enter your code:</label>
+        <input
+          type="text"
+          v-model.number="code"
+          maxlength="4"
+          input-code
+          placeholder="4 digit code"
+        />
+      </div>
       <button
+        class="form-item"
         v-bind:disabled="!codeIsValid"
         v-on:click="submitCheckIn()"
-        class="submit"
       >
         Submit
       </button>
       <p v-if="!codeIsValid" class="error" error-code>
         Please enter valid 4 digit code
       </p>
-    </div>
+    </form>
   </div>
 </template>
 

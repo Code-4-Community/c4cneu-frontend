@@ -52,8 +52,8 @@ export default new Vuex.Store({
         id: 4,
         title: "This has not started",
         date: 1637146980230
-      },
-    ],                       
+      }
+    ],
     eboard: [
       {
         name: "Stephen Alt",

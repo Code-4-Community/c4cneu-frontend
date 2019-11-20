@@ -65,7 +65,7 @@ h3 {
 .form-layout {
   margin: auto;
   background-color: rgb(250, 250, 250);
-  width: fit-content;
+  width: 25%;
   display: grid;
 }
 
@@ -73,6 +73,7 @@ form div.form-item {
   display: grid;
   text-align: left;
   padding: 20px;
+  overflow: hidden;
 }
 
 input {
@@ -118,7 +119,7 @@ button {
 
 .sidebar-layout {
   display: grid;
-  grid-template-columns: repeat(2, 2fr 1fr);
+  grid-template-columns: 1fr 2fr;
 }
 
 /* TABLE */
@@ -186,6 +187,14 @@ figure figcaption {
   text-align: center;
   color: #fff;
   padding: 10px;
+}
+
+/* EVENTS */
+
+.event {
+  width: 80%;
+  margin: 10px auto;
+  padding: 5px;
 }
 
 /* FOOTER */
