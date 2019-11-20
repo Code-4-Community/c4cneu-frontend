@@ -15,7 +15,7 @@
       <div class="form-item">
         <label>Password</label>
         <input
-          type="text"
+          type="password"
           v-model="user.password"
           @focus="clearStatus"
           placeholder="Password"
@@ -28,7 +28,12 @@
       <h1>Sign up</h1>
       <div class="form-item">
         <label>Name</label>
-        <input type="text" v-model="newUser.name" @focus="clearStatus" />
+        <input
+          type="text"
+          v-model="newUser.name"
+          @focus="clearStatus"
+          placeholder="Full Name"
+        />
       </div>
       <div class="form-item">
         <label>Email address</label>
@@ -36,15 +41,26 @@
           type="text"
           v-model="newUser.emailAddress"
           @focus="clearStatus"
+          placeholder="Email"
         />
       </div>
       <div class="form-item">
         <label>Password</label>
-        <input type="text" v-model="newUser.password" @focus="clearStatus" />
+        <input
+          type="password"
+          v-model="newUser.password"
+          @focus="clearStatus"
+          placeholder="Password"
+        />
       </div>
       <div class="form-item">
         <label>Confirm password</label>
-        <input type="text" v-model="newUser.cPassword" @focus="clearStatus" />
+        <input
+          type="password"
+          v-model="newUser.cPassword"
+          @focus="clearStatus"
+          placeholder="Retype Password"
+        />
       </div>
       <button class="form-item" @click="handleSignUp">Sign up!</button>
     </form>
