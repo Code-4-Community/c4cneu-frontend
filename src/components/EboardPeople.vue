@@ -1,8 +1,6 @@
 <template>
   <div class="grid-layout">
-    <template v-for="person in eboard">
-      <Person :key="person.id" :person="person" />
-    </template>
+    <Person v-for="person in eboard" :key="person.id" :person="person" />
   </div>
 </template>
 
