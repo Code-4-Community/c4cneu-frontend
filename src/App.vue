@@ -96,6 +96,10 @@ input[type="radio"] {
   color: default;
 }
 
+select {
+  padding: 10px;
+}
+
 textarea {
   border: 1px solid #bec2f7;
   width: 80%;
@@ -252,24 +256,58 @@ figure figcaption {
   padding: 30px;
   display: flex;
   justify-content: space-between;
-}
-
-.hvr-underline-from-center {
-  font-size: 2em;
-  color: aqua;
+  width: 90%;
+  margin: auto;
 }
 
 .home-nav {
-  max-width: 24em;
+  max-width: 300px;
 }
 
-#nav a {
-  font-weight: bold;
+.nav-item {
+  font-weight: 300;
+  margin: 10px 0 0 0;
+  text-transform: uppercase;
+  font-size: 28px;
   color: #2c3e50;
-  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  height: 50px;
 }
 
-#nav a.router-link-exact-active {
+.nav-item:hover {
+  color: #2c3e50;
+}
+
+.nav-item:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  background: #7a00cc;
+  height: 1px;
+  z-index: -1;
+  left: 51%;
+  right: 51%;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.nav-item:hover:before,
+.nav-item:focus:before,
+.nav-item:active:before {
+  left: 0;
+  right: 0;
+}
+
+.nav-item.router-link-exact-active {
   color: #5a4f94;
 }
 
