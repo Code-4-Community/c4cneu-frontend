@@ -1,24 +1,14 @@
 <template>
   <div id="nav">
-    <router-link to="/">
+    <router-link to="/" class="nav-home-link">
       <img src="../../assets/c4c-banner-logo.png" class="home-nav" />
     </router-link>
-    <router-link class="hvr-underline-from-center" to="/news">News</router-link>
-    <router-link class="hvr-underline-from-center" to="/gallery"
-      >Gallery</router-link
-    >
-    <router-link class="hvr-underline-from-center" to="/events"
-      >Events</router-link
-    >
-    <router-link class="hvr-underline-from-center" to="/board"
-      >Board</router-link
-    >
-    <router-link class="hvr-underline-from-center" to="/apply"
-      >Apply</router-link
-    >
-    <router-link class="hvr-underline-from-center" to="/auth"
-      >Sign In</router-link
-    >
+    <router-link to="/news" class="nav-item">News</router-link>
+    <router-link to="/gallery" class="nav-item">Gallery</router-link>
+    <router-link to="/events" class="nav-item">Events</router-link>
+    <router-link to="/board" class="nav-item">Board</router-link>
+    <router-link to="/apply" class="nav-item">Apply</router-link>
+    <router-link to="/auth" class="nav-item">Sign In</router-link>
   </div>
 </template>
 

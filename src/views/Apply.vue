@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <h1>Apply for Code 4 Community!</h1>
-    <form class="form-layout">
+  <div class="container">
+    <!-- TODO: ADD PARALLAX -->
+    <h1>Apply to Code 4 Community</h1>
+    <form>
       <div class="form-item">
-        <label for="form-name">Name:</label>
+        <label for="form-name">Name</label>
+        <br />
         <input
           type="text"
           id="form-name"
@@ -22,16 +24,13 @@
         </select>
       </div>
       <div class="form-item">
-        <label for="form-major">Major:</label>
-        <input
-          type="text"
-          id="form-major"
-          v-model="major"
-          placeholder="CS, English ..."
-        />
+        <label for="form-major">Major</label>
+        <br />
+        <input type="text" id="form-major" v-model="major" />
       </div>
       <div class="form-item">
-        <label for="form-resume">Upload your resume here:</label>
+        <label for="form-resume">Resume</label>
+        <br />
         <input
           type="file"
           id="form-resume"
@@ -40,18 +39,42 @@
         />
       </div>
       <div class="form-item">
-        <label for="form-why-join"
-          >Why do you want to join Code 4 Community?</label
-        >
+        <label for="areaInterests">
+          What part of Code 4 Community are you most interested in?
+        </label>
+        <br />
+        <select v-model="areaInterests" id="areaInterests">
+          <option value="frontend">Frontend</option>
+          <option value="backend">Backend</option>
+          <option value="testing">Testing</option>
+          <option value="security">Security</option>
+          <option value="design">Design</option>
+          <option value="outreach">Outreach</option>
+        </select>
+      </div>
+      <div class="form-item">
+        <label for="form-prior-involvement">
+          Have you had any prior involvement with C4C (e.g. attending
+          workshops)? If so, explain.
+        </label>
+        <br />
+        <textarea id="form-prior-involvement" v-model="priorInvolvement" />
+      </div>
+      <div class="form-item">
+        <label for="form-why-join">
+          Why do you want to join Code 4 Community?
+        </label>
+        <br />
         <textarea id="form-why-join" v-model="whyJoin" />
       </div>
       <div class="form-item">
-        <input
+        <button
           type="submit"
-          :value="submitText"
           :disabled="!validForm()"
           v-on:click="handleSubmit($event)"
-        />
+        >
+          Apply
+        </button>
       </div>
     </form>
   </div>
@@ -66,7 +89,9 @@ export default {
       year: "",
       major: "",
       resume: null,
-      whyJoin: ""
+      priorInvolvement: "",
+      whyJoin: "",
+      areaInterests: []
     };
   },
   computed: {
@@ -82,8 +107,14 @@ export default {
     validResume: function() {
       return this.resume instanceof File;
     },
+    validPriorInvolvement: function() {
+      return this.priorInvolvement.trim() !== "";
+    },
     validWhyJoin: function() {
       return this.whyJoin.trim() !== "";
+    },
+    validAreaInterests: function() {
+      return this.areaInterests.length > 0;
     },
     submitText: function() {
       return this.validForm() ? "Apply!" : "Please complete the form.";
@@ -99,7 +130,9 @@ export default {
         this.validYear &&
         this.validMajor &&
         this.validResume &&
-        this.validWhyJoin
+        this.validPriorInvolvement &&
+        this.validWhyJoin &&
+        this.validAreaInterests
       );
     },
     handleSubmit(event) {
@@ -110,7 +143,9 @@ export default {
         formData.append("year", this.year);
         formData.append("major", this.major);
         formData.append("resume", this.resume);
+        formData.append("priorInvolvement", this.priorInvolvement);
         formData.append("whyJoin", this.whyJoin);
+        formData.append("areaInterests", this.areaInterests);
       }
     }
   }
