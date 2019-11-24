@@ -72,9 +72,9 @@ a:hover {
 /* FORMS AND INPUT */
 form {
   margin: 20px auto 20px auto;
-  padding: 20px 0 20px 0;
-  width: 40%;
-  background-color: #f5f5f5;
+  padding: 20px 40px 20px 40px;
+  width: 60%;
+  background-color: #f8f8f8;
 }
 
 form div.form-item {
@@ -98,7 +98,7 @@ input[type="radio"] {
 
 textarea {
   border: 1px solid #bec2f7;
-  width: 60%;
+  width: 80%;
   height: 200px;
 }
 

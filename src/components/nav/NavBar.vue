@@ -3,7 +3,7 @@
     <router-link to="/">
       <img src="../../assets/c4c-banner-logo.png" class="home-nav" />
     </router-link>
-    <router-link class="hvr-underline-from-center" to="/news">News</router-link>
+    <router-link class="" to="/news">News</router-link>
     <router-link class="hvr-underline-from-center" to="/events"
       >Events</router-link
     >
