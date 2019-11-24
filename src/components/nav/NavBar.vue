@@ -3,6 +3,7 @@
     <router-link to="/" class="nav-home-link">
       <img src="../../assets/c4c-banner-logo.png" class="home-nav" />
     </router-link>
+    <router-link to="/gallery" class="nav-item">Gallery</router-link>
     <router-link to="/news" class="nav-item">News</router-link>
     <router-link to="/gallery" class="nav-item">Gallery</router-link>
     <router-link to="/events" class="nav-item">Events</router-link>
