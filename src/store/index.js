@@ -29,6 +29,28 @@ export default new Vuex.Store({
         date: new Date(2019, 10, 1),
         content:
           "Code 4 Community receives generous $1,000,00 grant from billionaire and philanthropist Zach Goldberg. Here is some more content."
+      },
+      {
+        id: "lucysLoveBus",
+        title: "Lucy's Love Bus",
+        imageUrl:
+          "https://cdn.firespring.com/images/9fd0bc29-3210-49c5-938b-a54bfcf5b9f1.png",
+        url: "",
+        desc: "Code 4 Community partners with Lucy's Love Bus",
+        date: new Date(2019, 11, 24),
+        content:
+          "Code 4 Community partners with Lucy's Love Bus, an organization to improve quality of life for children with cancer and life-threatening illness, to support their families, and to mobilize the next generation of cancer activists."
+      },
+      {
+        id: "speakForTheTrees",
+        title: "Speak For The Trees Boston",
+        imageUrl:
+          "https://secureservercdn.net/198.71.233.1/419.95e.myftpupload.com/wp-content/uploads/2018/07/speak-for-the-trees.png",
+        url: "",
+        desc: "Code 4 Community partners with Speak For The Trees Boston",
+        date: new Date(2019, 11, 24),
+        content:
+          "Code 4 Community partners with Speak For The Trees Boston, improve the size and health of the urban tree canopy in the greater Boston area."
       }
     ],
     //"https://my-json-server.typicode.com/willmt80/demo/events"
