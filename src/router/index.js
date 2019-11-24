@@ -8,6 +8,7 @@ import Board from "../views/Board.vue";
 import News from "../views/News.vue";
 import Post from "../views/Post.vue";
 import Apply from "../views/Apply.vue";
+import Gallery from "../views/Gallery.vue";
 
 Vue.use(VueRouter);
 
@@ -48,6 +49,11 @@ const routes = [
     path: "/post/:id",
     name: "post",
     component: Post
+  },
+  {
+    path: "/gallery",
+    name: "gallery",
+    component: Gallery
   },
   {
     path: "/apply",
