@@ -2,7 +2,7 @@
   <div>
     <section>
       <div class="parallax" id="plax_2">
-        <h1>Extra Extra!</h1>
+        <h1>Community News</h1>
       </div>
     </section>
     <div class="posts" v-for="post in mediaPosts" :key="post.id">

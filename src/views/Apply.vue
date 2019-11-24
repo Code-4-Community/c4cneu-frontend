@@ -14,8 +14,9 @@
         />
       </div>
       <div class="form-item">
-        <p>Year:</p>
-        <select v-model="year">
+        <label for="year">Year</label>
+        <br />
+        <select v-model="year" id="year">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
