@@ -40,9 +40,61 @@
         />
       </div>
       <div class="form-item">
-        <label for="form-why-join"
-          >Why do you want to join Code 4 Community?</label
-        >
+        Which parts of Code 4 Community are you interested in?
+        <input
+          id="form-area-frontend"
+          type="checkbox"
+          v-model="areaInterests"
+          value="frontend"
+        />
+        <label for="form-area-frontend">Frontend</label>
+        <input
+          id="form-area-backend"
+          type="checkbox"
+          v-model="areaInterests"
+          value="backend"
+        />
+        <label for="form-area-backend">Backend</label>
+        <input
+          id="form-area-testing"
+          type="checkbox"
+          v-model="areaInterests"
+          value="testing"
+        />
+        <label for="form-area-testing">Testing</label>
+        <input
+          id="form-area-security"
+          type="checkbox"
+          v-model="areaInterests"
+          value="security"
+        />
+        <label for="form-area-security">Security</label>
+        <input
+          id="form-area-design"
+          type="checkbox"
+          v-model="areaInterests"
+          value="design"
+        />
+        <label for="form-area-design">Design</label>
+        <input
+          id="form-area-outreach"
+          type="checkbox"
+          v-model="areaInterests"
+          value="outreach"
+        />
+        <label for="form-area-outreach">Outreach</label>
+      </div>
+      <div class="form-item">
+        <label for="form-prior-involvement">
+          Have you had any prior involvement with C4C (e.g. attending
+          workshops)? If so, explain.
+        </label>
+        <textarea id="form-prior-involvement" v-model="priorInvolvement" />
+      </div>
+      <div class="form-item">
+        <label for="form-why-join">
+          Why do you want to join Code 4 Community?
+        </label>
         <textarea id="form-why-join" v-model="whyJoin" />
       </div>
       <div class="form-item">
@@ -66,7 +118,9 @@ export default {
       year: "",
       major: "",
       resume: null,
-      whyJoin: ""
+      priorInvolvement: "",
+      whyJoin: "",
+      areaInterests: []
     };
   },
   computed: {
@@ -82,8 +136,14 @@ export default {
     validResume: function() {
       return this.resume instanceof File;
     },
+    validPriorInvolvement: function() {
+      return this.priorInvolvement.trim() !== "";
+    },
     validWhyJoin: function() {
       return this.whyJoin.trim() !== "";
+    },
+    validAreaInterests: function() {
+      return this.areaInterests.length > 0;
     },
     submitText: function() {
       return this.validForm() ? "Apply!" : "Please complete the form.";
@@ -99,7 +159,9 @@ export default {
         this.validYear &&
         this.validMajor &&
         this.validResume &&
-        this.validWhyJoin
+        this.validPriorInvolvement &&
+        this.validWhyJoin &&
+        this.validAreaInterests
       );
     },
     handleSubmit(event) {
@@ -110,7 +172,9 @@ export default {
         formData.append("year", this.year);
         formData.append("major", this.major);
         formData.append("resume", this.resume);
+        formData.append("priorInvolvement", this.priorInvolvement);
         formData.append("whyJoin", this.whyJoin);
+        formData.append("areaInterests", this.areaInterests);
       }
     }
   }
