@@ -1,24 +1,31 @@
 <template>
   <div class="gallery-container">
-    <!--https://bootstrap-vue.js.org/docs/components/carousel/-->
-    <div style="margin: auto;">
-      <b-carousel id="carousel-fade" fade controls>
-        <b-carousel-slide
-          caption="First slide"
-          img-src="https://picsum.photos/1024/480/?image=10"
-        ></b-carousel-slide>
-        <b-carousel-slide
-          caption="Second Slide"
-          img-src="https://picsum.photos/1024/480/?image=12"
-        ></b-carousel-slide>
-        <b-carousel-slide
-          caption="Third Slide"
-          img-src="https://picsum.photos/1024/480/?image=22"
-        ></b-carousel-slide>
-      </b-carousel>
+    <div class="gallery autoplay items-3">
+      <div id="item-1" class="control-operator"></div>
+      <div id="item-2" class="control-operator"></div>
+      <div id="item-3" class="control-operator"></div>
+
+      <figure class="item">
+        <img src="https://www.w3schools.com/bootstrap/chicago.jpg" />
+      </figure>
+
+      <figure class="item">
+        <img src="https://www.w3schools.com/bootstrap/la.jpg" />
+      </figure>
+
+      <figure class="item">
+        <img src="https://www.w3schools.com/bootstrap/ny.jpg" />
+      </figure>
+
+      <div class="controls">
+        <a href="#item-1" class="control-button">•</a>
+        <a href="#item-2" class="control-button">•</a>
+        <a href="#item-3" class="control-button">•</a>
+      </div>
     </div>
+
     <div>
-      <div class="gallery">
+      <div class="grid-gallery">
         <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
           <img
             src="https://www.w3schools.com/css/img_5terre.jpg"
@@ -30,7 +37,7 @@
         <div class="desc">Add a description of the image here</div>
       </div>
 
-      <div class="gallery">
+      <div class="grid-gallery">
         <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
           <img
             src="https://www.w3schools.com/css/img_5terre.jpg"
@@ -42,7 +49,7 @@
         <div class="desc">Add a description of the image here</div>
       </div>
 
-      <div class="gallery">
+      <div class="grid-gallery">
         <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
           <img
             src="https://www.w3schools.com/css/img_5terre.jpg"
@@ -54,7 +61,7 @@
         <div class="desc">Add a description of the image here</div>
       </div>
 
-      <div class="gallery">
+      <div class="grid-gallery">
         <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
           <img
             src="https://www.w3schools.com/css/img_5terre.jpg"
@@ -66,7 +73,7 @@
         <div class="desc">Add a description of the image here</div>
       </div>
 
-      <div class="gallery">
+      <div class="grid-gallery">
         <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
           <img
             src="https://www.w3schools.com/css/img_5terre.jpg"
@@ -78,7 +85,7 @@
         <div class="desc">Add a description of the image here</div>
       </div>
 
-      <div class="gallery">
+      <div class="grid-gallery">
         <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
           <img
             src="https://www.w3schools.com/css/img_5terre.jpg"
@@ -90,7 +97,7 @@
         <div class="desc">Add a description of the image here</div>
       </div>
 
-      <div class="gallery">
+      <div class="grid-gallery">
         <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
           <img
             src="https://www.w3schools.com/css/img_5terre.jpg"
@@ -102,7 +109,7 @@
         <div class="desc">Add a description of the image here</div>
       </div>
 
-      <div class="gallery">
+      <div class="grid-gallery">
         <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
           <img
             src="https://www.w3schools.com/css/img_5terre.jpg"
@@ -114,7 +121,7 @@
         <div class="desc">Add a description of the image here</div>
       </div>
 
-      <div class="gallery">
+      <div class="grid-gallery">
         <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
           <img
             src="https://www.w3schools.com/css/img_5terre.jpg"
@@ -126,7 +133,7 @@
         <div class="desc">Add a description of the image here</div>
       </div>
 
-      <div class="gallery">
+      <div class="grid-gallery">
         <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
           <img
             src="https://www.w3schools.com/css/img_5terre.jpg"
@@ -138,7 +145,7 @@
         <div class="desc">Add a description of the image here</div>
       </div>
 
-      <div class="gallery">
+      <div class="grid-gallery">
         <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
           <img
             src="https://www.w3schools.com/css/img_5terre.jpg"
@@ -154,21 +161,22 @@
 </template>
 
 <script>
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap-vue/dist/bootstrap-vue.css";
-
 export default {
   name: "Gallery"
 };
 </script>
 
 <style scoped>
-#carousel-fade {
-  text-shadow: 0px 0px 2px #000;
+@import url("https://s3.amazonaws.com/gallery-css/gallery.prefixed.css");
+
+.gallery {
+  width: 50%;
+  margin: auto;
+}
+
+.item img {
   width: 100%;
-  height: 480px;
-  display: flex;
-  justify-content: center;
+  height: 100%;
 }
 
 .gallery-container {
@@ -179,14 +187,14 @@ export default {
   padding: 1%;
 }
 
-div.gallery {
+div.grid-gallery {
   margin: 5px;
   border: 1px solid #ccc;
   float: left;
   width: 180px;
 }
 
-div.gallery img {
+div.grid-gallery img {
   width: 100%;
   height: auto;
 }
