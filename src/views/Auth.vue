@@ -20,6 +20,7 @@
       </div>
       <div class="form-item">
         <label>Password</label>
+        <br />
         <input
           type="password"
           v-model="user.password"
@@ -34,6 +35,7 @@
       <h1>Sign up</h1>
       <div class="form-item">
         <label>Name</label>
+        <br />
         <input
           type="text"
           v-model="newUser.name"
@@ -53,6 +55,7 @@
       </div>
       <div class="form-item">
         <label>Password</label>
+        <br />
         <input
           type="password"
           v-model="newUser.password"
@@ -62,6 +65,7 @@
       </div>
       <div class="form-item">
         <label>Confirm password</label>
+        <br />
         <input
           type="password"
           v-model="newUser.cPassword"
@@ -71,14 +75,6 @@
       </div>
       <button class="form-item" @click="handleSignUp">Sign up!</button>
     </form>
-
-    <p>or</p>
-    <div v-if="isSigningIn">
-      <button @click="openSignUp">Sign up</button>
-    </div>
-    <div v-else>
-      <button @click="openSignIn">Sign in</button>
-    </div>
 
     <p v-if="error">
       Please fill out all required fields and ensure everything is correct

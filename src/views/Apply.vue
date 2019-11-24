@@ -14,7 +14,6 @@
         />
       </div>
       <div class="form-item">
-        <br />
         <p>Year:</p>
         <select v-model="year">
           <option value="1">1</option>

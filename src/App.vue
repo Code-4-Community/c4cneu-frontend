@@ -72,6 +72,9 @@ a:hover {
 /* FORMS AND INPUT */
 form {
   margin: 20px auto 20px auto;
+  padding: 20px 0 20px 0;
+  width: 40%;
+  background-color: #f5f5f5;
 }
 
 form div.form-item {
@@ -85,7 +88,7 @@ input {
 }
 
 input[type="text"] {
-  width: 30%;
+  width: 60%;
 }
 
 /*TODO: STYLE RADIO BUTTONS*/
@@ -100,10 +103,9 @@ textarea {
 }
 
 input[type="password"] {
-  font: small-caption;
-  padding: 0 8px 0 8px;
-  font-size: 30px;
-  width: 30%;
+  padding: 8px;
+  font-size: 18px;
+  width: 60%;
 }
 
 button {
