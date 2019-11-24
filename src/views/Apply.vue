@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <h1>Apply for Code 4 Community!</h1>
-    <form class="form-layout">
+  <div class="container">
+    <!-- TODO: ADD PARALLAX -->
+    <h1>Apply to Code 4 Community</h1>
+    <form>
       <div class="form-item">
-        <label for="form-name">Name:</label>
+        <label for="form-name">Name</label>
+        <br />
         <input
           type="text"
           id="form-name"
@@ -22,16 +24,13 @@
         </select>
       </div>
       <div class="form-item">
-        <label for="form-major">Major:</label>
-        <input
-          type="text"
-          id="form-major"
-          v-model="major"
-          placeholder="CS, English ..."
-        />
+        <label for="form-major">Major</label>
+        <br />
+        <input type="text" id="form-major" v-model="major" />
       </div>
       <div class="form-item">
-        <label for="form-resume">Upload your resume here:</label>
+        <label for="form-resume">Resume</label>
+        <br />
         <input
           type="file"
           id="form-resume"
@@ -40,70 +39,42 @@
         />
       </div>
       <div class="form-item">
-        Which parts of Code 4 Community are you interested in?
-        <input
-          id="form-area-frontend"
-          type="checkbox"
-          v-model="areaInterests"
-          value="frontend"
-        />
-        <label for="form-area-frontend">Frontend</label>
-        <input
-          id="form-area-backend"
-          type="checkbox"
-          v-model="areaInterests"
-          value="backend"
-        />
-        <label for="form-area-backend">Backend</label>
-        <input
-          id="form-area-testing"
-          type="checkbox"
-          v-model="areaInterests"
-          value="testing"
-        />
-        <label for="form-area-testing">Testing</label>
-        <input
-          id="form-area-security"
-          type="checkbox"
-          v-model="areaInterests"
-          value="security"
-        />
-        <label for="form-area-security">Security</label>
-        <input
-          id="form-area-design"
-          type="checkbox"
-          v-model="areaInterests"
-          value="design"
-        />
-        <label for="form-area-design">Design</label>
-        <input
-          id="form-area-outreach"
-          type="checkbox"
-          v-model="areaInterests"
-          value="outreach"
-        />
-        <label for="form-area-outreach">Outreach</label>
+        <label for="areaInterests">
+          What part of Code 4 Community are you most interested in?
+        </label>
+        <br />
+        <select v-model="areaInterests" id="areaInterests">
+          <option value="frontend">Frontend</option>
+          <option value="backend">Backend</option>
+          <option value="testing">Testing</option>
+          <option value="security">Security</option>
+          <option value="design">Design</option>
+          <option value="outreach">Outreach</option>
+        </select>
       </div>
       <div class="form-item">
         <label for="form-prior-involvement">
           Have you had any prior involvement with C4C (e.g. attending
           workshops)? If so, explain.
         </label>
+        <br />
         <textarea id="form-prior-involvement" v-model="priorInvolvement" />
       </div>
       <div class="form-item">
         <label for="form-why-join">
           Why do you want to join Code 4 Community?
         </label>
+        <br />
         <textarea id="form-why-join" v-model="whyJoin" />
       </div>
       <div class="form-item">
-        <input
+        <button
           type="submit"
-          :value="submitText"
           :disabled="!validForm()"
           v-on:click="handleSubmit($event)"
-        />
+        >
+          Apply
+        </button>
       </div>
     </form>
   </div>
