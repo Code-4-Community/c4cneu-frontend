@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div v-for="post in mediaPosts" :key="post.id">
+    <section>
+      <div class="parallax" id="plax_2">
+        <h1>Extra Extra!</h1>
+      </div>
+    </section>
+    <div class="posts" v-for="post in mediaPosts" :key="post.id">
       <post-item
         :id="post.id"
         :title="post.title"

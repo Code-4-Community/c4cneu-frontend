@@ -1,16 +1,18 @@
 <template>
   <div class="page">
     <div class="container">
-      <img :src="person.imageUrl" alt="Member" style="width:100%" />
-      <p>
-        <strong>{{ person.name }}</strong>
-      </p>
+      <figure>
+        <img :src="person.imageUrl" alt="Member" style="width:100%" />
+        <figcaption>
+          <strong>{{ person.name }}</strong>
+        </figcaption>
+      </figure>
+      <p class="title">{{ person.position }}</p>
       <p class="linkedin">
         <a v-bind:href="`mailto:${person.email}`"> {{ person.email }} </a>
         <br />
         <a v-bind:href="person.linkedinLink"> LinkedIn </a>
       </p>
-      <p class="title">{{ person.position }}</p>
       <p>{{ person.bio }}</p>
     </div>
   </div>
@@ -39,6 +41,36 @@ p {
   font-size: 16px;
   line-height: 25px;
 }
+
+/*
+figure {
+  position: relative;
+}
+
+figure figcaption {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    text-align: center;
+    color: #fff; 
+    padding: 10px;
+} */
+
+.title {
+  color: grey;
+  font-style: italic;
+}
+
+.container {
+  width: auto;
+  text-align: left;
+  margin: auto;
+  height: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .pb {
   font-family: "Merriweather", serif;
   font-weight: 700;
@@ -50,20 +82,6 @@ p {
 img {
   width: 100%;
   height: 100%;
-}
-
-.title {
-  color: grey;
-  font-style: italic;
-}
-
-.container {
-  width: 375px;
-  text-align: left;
-  margin: auto;
-  height: auto;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 @media only screen and (max-width: 1303px) {

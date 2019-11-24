@@ -75,7 +75,10 @@ form {
 }
 
 form div.form-item {
-  margin: 30px 0 30px 0;
+  display: grid;
+  text-align: left;
+  padding: 20px;
+  overflow: hidden;
 }
 
 input {
@@ -141,7 +144,15 @@ button {
  * Check out: https://www.w3schools.com/css/css_grid.asp
  */
 .grid-layout {
-  color: default;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.sidebar-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }
 
 /* TABLE */
@@ -173,8 +184,50 @@ th {
   background-position: top center;
 }
 
+/*SETS BACKGROUND IMAGES FOR ALL PARALLAX DIVS*/
+#plax_1 {
+  background-image: url("assets/p1.png");
+}
+#plax_2 {
+  background-image: url("assets/p3.png");
+}
+#plax_3 {
+  background-image: url("assets/p2.png");
+}
+#plax_4 {
+  background-image: url("assets/p4.png");
+}
+#plax_5 {
+  background-image: url("assets/p5.png");
+}
+
 .parallax p {
   color: white;
+}
+
+/* BOARD */
+
+figure {
+  position: relative;
+}
+
+figure figcaption {
+  font-family: "Merriweather", serif;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  color: #fff;
+  padding: 10px;
+}
+
+/* EVENTS */
+
+.event {
+  width: 80%;
+  margin: 10px auto;
+  padding: 5px;
 }
 
 /* FOOTER */
@@ -199,12 +252,16 @@ th {
 #nav {
   padding: 30px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .hvr-underline-from-center {
   font-size: 2em;
   color: aqua;
+}
+
+.home-nav {
+  max-width: 24em;
 }
 
 #nav a {
@@ -214,29 +271,60 @@ th {
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #5a4f94;
 }
 
-/* POSTS */
+/* NEWS */
+
 .post-item {
   width: 80%;
-  margin: 50px auto;
+  margin: 30px auto;
 }
 
-.card-title:hover {
+.post-item .card:hover {
   cursor: pointer;
+  background: #eeeeee;
 }
 
-.post-item-image {
+.post-item img {
   display: inline-block;
-  height: 100%;
-  border: 1px solid black;
+  height: 150px;
 }
 
-.post-item-content {
-  display: inline-block;
+.card-title,
+.card-text {
+  text-align: left;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 3fr 2fr;
   height: 100%;
-  border: 1px solid black;
   padding: 10px;
+}
+
+/* POST */
+
+.post-layout {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+.post-header {
+  margin: 5px 5%;
+}
+
+.post-title,
+.post-date {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.post-date {
+  color: #666666;
+}
+
+.post-content {
+  text-align: left;
+  margin: 5%;
 }
 </style>

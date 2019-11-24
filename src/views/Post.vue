@@ -1,10 +1,14 @@
 <template>
   <div>
-    <div v-if="post">
-      <h1 class="post-title">{{ post.title }}</h1>
-      <h2 class="post-date">{{ post.date.toLocaleDateString() }}</h2>
-      <img :src="post.imageUrl" />
-      <p class="post-content">{{ post.content }}</p>
+    <div class="post-layout" v-if="post">
+      <div>
+        <div class="post-header">
+          <h1 class="post-title">{{ post.title }}</h1>
+          <h2 class="post-date">{{ post.date.toLocaleDateString() }}</h2>
+        </div>
+        <p class="post-content">{{ post.content }}</p>
+      </div>
+      <img class="post-image" :src="post.imageUrl" />
     </div>
     <div v-if="!post">
       <p class="error">

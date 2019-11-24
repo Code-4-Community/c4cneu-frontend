@@ -14,6 +14,7 @@
         />
       </div>
       <div class="form-item">
+        <!-- <<<<<<< HEAD -->
         Year
         <br />
 
@@ -31,6 +32,16 @@
 
         <input type="radio" id="form-year-5" v-model="year" value="5" />
         <label for="form-year-5">5</label>
+        <!-- ======= -->
+        <p>Year:</p>
+        <select v-model="year">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <!-- >>>>>>> master -->
       </div>
       <div class="form-item">
         <label for="form-major">Major</label>
@@ -51,7 +62,6 @@
         <label for="form-why-join"
           >Why do you want to join Code 4 Community?</label
         >
-        <br />
         <textarea id="form-why-join" v-model="whyJoin" />
       </div>
       <div class="form-item">
