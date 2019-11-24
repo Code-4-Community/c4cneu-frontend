@@ -75,10 +75,7 @@ form {
 }
 
 form div.form-item {
-  display: grid;
-  text-align: left;
-  padding: 20px;
-  overflow: hidden;
+  margin: 30px 0 30px 0;
 }
 
 input {
