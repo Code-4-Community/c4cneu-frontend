@@ -15,7 +15,7 @@ export default {
 
 <style>
 /* GLOBAL IMPORTS */
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Public+Sans:100,300,400,400i,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"); /* IMPORT FOR HVR-GROW CLASS, USED ON VARIOUS PAGES */
 
@@ -25,7 +25,7 @@ export default {
  */
 
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "Public Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -36,58 +36,90 @@ export default {
   #TEXT
 \*------------------------------------*/
 p {
-  color: default;
+  font-family: "Public Sans";
+  font-size: 16px;
+  margin: 10px auto 10px auto;
 }
 
 p.error {
   color: red;
 }
 
-h1,
-h2,
-h3 {
-  color: default;
-}
-
 h1 {
-  color: default;
+  font-size: 80px;
+  font-weight: 100;
 }
 
 h2 {
-  color: default;
+  font-size: 30px;
+  font-weight: 300;
 }
 
 h3 {
-  color: default;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+/* TODO: STYLE LINKS */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 /* FORMS AND INPUT */
-.form-layout {
-  margin: auto;
-  background-color: rgb(250, 250, 250);
-  width: 25%;
-  display: grid;
+form {
+  margin: 20px auto 20px auto;
+  padding: 20px 0 20px 0;
+  width: 40%;
+  background-color: #f5f5f5;
 }
 
 form div.form-item {
-  display: grid;
-  text-align: left;
-  padding: 20px;
-  overflow: hidden;
+  margin: 30px 0 30px 0;
 }
 
 input {
+  padding: 8px;
+  font-size: 18px;
+  border: 1px solid #bec2f7;
+}
+
+input[type="text"] {
+  width: 60%;
+}
+
+/*TODO: STYLE RADIO BUTTONS*/
+input[type="radio"] {
   color: default;
 }
 
+textarea {
+  border: 1px solid #bec2f7;
+  width: 60%;
+  height: 200px;
+}
+
+input[type="password"] {
+  padding: 8px;
+  font-size: 18px;
+  width: 60%;
+}
+
 button {
-  color: default;
+  background-color: #bec2f7;
+  border: none;
+  padding: 10px 16px 10px 16px;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
 /* POST TEXT */
 .post-title,
 .post-date {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Public Sans";
 }
 
 .post-desc {
