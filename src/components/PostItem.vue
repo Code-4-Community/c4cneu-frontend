@@ -41,7 +41,7 @@ export default {
       required: true
     },
     date: {
-      type: Date,
+      type: Number,
       required: true
     }
   },
@@ -49,9 +49,10 @@ export default {
   computed: {
     //dateString: converts the date of the post to a readable date string.
     //Needs testing.
-    dateString: function() {
+    dateString() {
       var options = { year: "numeric", month: "short", day: "numeric" };
-      return this.date.toLocaleDateString("en-US", options);
+      var postDate = new Date(this.date * 1000);
+      return postDate.toLocaleDateString("en-US", options);
     }
   },
 
