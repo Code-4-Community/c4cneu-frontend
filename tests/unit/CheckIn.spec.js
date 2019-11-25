@@ -1,5 +1,14 @@
 // import { mount } from "@vue/test-utils";
 // import CheckIn from "../../src/views/CheckIn.vue";
+describe("failing test", () => {
+  test("fail", () => {
+    expect(false).toBe(true);
+  });
+
+  test("pass", () => {
+    expect(true).toBe(true);
+  });
+});
 
 // describe("Checkin.vue", () => {
 //   test("ensure that valid emails will pass the email checker", () => {
