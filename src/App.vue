@@ -262,6 +262,11 @@ th {
   background-position: top center;
 }
 
+.landing {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
 @media only screen and (max-width: 1200px) {
   .parallax {
     height: 80px;
