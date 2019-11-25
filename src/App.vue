@@ -69,7 +69,7 @@ h3 {
   font-weight: 300;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 700px) {
   h1 {
     font-size: 32px;
   }
@@ -152,7 +152,7 @@ button {
   text-transform: uppercase;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 700px) {
   form {
     width: 100%;
   }
@@ -227,7 +227,7 @@ button {
   font-weight: bold;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 700px) {
   .grid-layout {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -267,7 +267,7 @@ th {
   padding-right: 10%;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 700px) {
   .parallax {
     height: 80px;
     padding: 20px;
@@ -417,7 +417,7 @@ figure figcaption {
   display: none;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 700px) {
   #nav {
     width: 100%;
   }
@@ -478,7 +478,7 @@ figure figcaption {
   color: gray;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 700px) {
   .post-item {
     display: block;
     border-bottom: 1px solid #dddddd;
@@ -513,7 +513,7 @@ figure figcaption {
   font-family: "Merriweather", serif;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 700px) {
   .post-header {
     grid-template-columns: repeat(1, 1fr);
   }
