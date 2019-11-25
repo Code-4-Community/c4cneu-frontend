@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="content">
     <!-- TODO: ADD PARALLAX -->
     <h1>Apply to Code 4 Community</h1>
     <form>

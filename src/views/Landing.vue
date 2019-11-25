@@ -1,7 +1,7 @@
 <template>
   <div>
     <section>
-      <div class="parallax" id="plax_1">
+      <div class="parallax landing" id="plax_1">
         <img
           src="../assets/c4c-banner-logo.png"
           style="width:80%;height:100%;"
@@ -11,7 +11,7 @@
     </section>
 
     <section>
-      <div class="parallax" id="plax_2">
+      <div class="parallax landing" id="plax_2">
         <h1>MISSION STATEMENT</h1>
         <p>
           Code 4 Community (C4C) is a student organization at Northeastern
@@ -27,7 +27,7 @@
     </section>
 
     <section>
-      <div class="parallax" id="plax_3">
+      <div class="parallax landing" id="plax_3">
         <h1>OUR PROJECTS</h1>
         <p>
           Code 4 Community is an organization on GitHub with over 20 developers.
@@ -39,7 +39,7 @@
     </section>
 
     <section>
-      <div class="parallax" id="plax_4">
+      <div class="parallax landing" id="plax_4">
         <h1>Get involved today!</h1>
         <p>
           Interested in making an impact with Code4Community? Anyone is welcome
@@ -55,7 +55,7 @@
     </section>
 
     <section>
-      <div class="parallax" id="plax_5">
+      <div class="parallax landing" id="plax_5">
         <h2>MEET THE TEAM</h2>
         <router-link to="/board">
           <button>Our Executive Board</button>

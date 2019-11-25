@@ -75,7 +75,7 @@ h3 {
   }
 
   h2 {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   h3 {
@@ -97,6 +97,8 @@ form {
   margin: 20px auto 20px auto;
   padding: 2% 4% 2% 4%;
   width: 60%;
+  max-width: 800px;
+  min-width: 200px;
 }
 
 form div.form-item {
@@ -170,14 +172,13 @@ button {
   font-family: "Merriweather", serif;
 }
 
-/*VIEWS/POST.VUE*/
-.post-content {
-  font-family: "Merriweather", serif;
-}
-
 /*------------------------------------*\
   #LAYOUT
 \*------------------------------------*/
+
+.content {
+  margin: 5% 7% 0 7%;
+}
 
 .center {
   margin: auto;
@@ -215,6 +216,7 @@ button {
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 600px;
 }
 
 /* The Close Button */
@@ -264,6 +266,12 @@ th {
   .parallax {
     height: 80px;
     padding: 20px;
+  }
+
+  /* LANDING PAGE PARALLAX SHOULD BE FULL HEIGHT */
+  .landing {
+    height: auto;
+    padding: 60px 10% 60px 10%;
   }
 }
 
@@ -411,6 +419,9 @@ figure figcaption {
 
   .hamburger-icon {
     display: inline-block;
+    position: absolute;
+    right: 10%;
+    top: 40px;
   }
 
   .big-menu {
@@ -442,13 +453,11 @@ figure figcaption {
 /* NEWS */
 
 .post-item {
-  width: 80%;
   margin: 30px auto;
   cursor: pointer;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto 1fr;
   grid-gap: 5%;
-  padding: 20px;
 }
 
 .post-item:hover {
@@ -478,26 +487,37 @@ figure figcaption {
 
 /* POST */
 
-.post-layout {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-}
 .post-header {
-  margin: 5px 5%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin-bottom: 5%;
 }
 
 .post-title,
 .post-date {
   text-align: left;
-  margin-top: 10px;
 }
 
 .post-date {
   color: #666666;
+  margin-top: 20px;
 }
 
 .post-content {
   text-align: left;
-  margin: 5%;
+  font-family: "Merriweather", serif;
+}
+
+@media only screen and (max-width: 1200px) {
+  .post-header {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .post-image {
+    grid-row: 1;
+    width: 100%;
+    margin: 0 auto 30px auto;
+    max-width: 400px; /* IN CASE OF LO-RES */
+  }
 }
 </style>

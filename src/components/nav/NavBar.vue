@@ -15,7 +15,7 @@
       @click="toggle"
       src="../../assets/hamburger.png"
     />
-    <router-link @click.native="toggle" to="/">
+    <router-link @click.native="hide" to="/">
       <img src="../../assets/c4c-banner-logo.png" class="mobile-logo" />
     </router-link>
     <div class="mobile-menu" :style="{ display: displayType }">
@@ -46,12 +46,18 @@ export default {
     };
   },
   methods: {
+    //Toggles menu (mobile only)
     toggle: function() {
       if (this.displayType == "none") {
         this.displayType = "inline-block";
       } else {
         this.displayType = "none";
       }
+    },
+
+    //Hides menu, regardless of whether it is showing or not (mobile only)
+    hide: function() {
+      this.displayType = "none";
     }
   }
 };
