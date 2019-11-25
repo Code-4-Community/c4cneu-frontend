@@ -446,10 +446,7 @@ figure figcaption {
 }
 
 .mobile-menu {
-  position: absolute;
-  left: 0;
-  top: 80px;
-  z-index: 5;
+  z-index: 1;
   background-color: white;
   width: 100%;
   height: 100%;
