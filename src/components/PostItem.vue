@@ -1,16 +1,12 @@
 <template>
   <div class="post-item" @click="handleOnClick()">
-    <div class="card">
-      <div class="card-date">
-        <h4 class="post-date">{{ dateString }}</h4>
-      </div>
-      <div class="card-block">
-        <h3 class="card-title">{{ title }}</h3>
-        <p class="card-text">{{ desc }}</p>
-      </div>
-      <div>
-        <img :src="imageUrl" />
-      </div>
+    <div>
+      <img :src="imageUrl" />
+    </div>
+    <div>
+      <p class="post-date">{{ dateString }}</p>
+      <p class="big align-left">{{ title }}</p>
+      <p class="align-left">{{ desc }}</p>
     </div>
   </div>
 </template>

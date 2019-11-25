@@ -5,7 +5,9 @@
         <h1>Executive Board</h1>
       </div>
     </section>
-    <EboardPeople class="eboard" :eboard="eboard" />
+    <div class="content">
+      <EboardPeople class="eboard" :eboard="eboard" />
+    </div>
   </div>
 </template>
 

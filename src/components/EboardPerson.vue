@@ -1,20 +1,18 @@
 <template>
-  <div class="page">
-    <div class="container">
-      <figure>
-        <img :src="person.imageUrl" alt="Member" style="width:100%" />
-        <figcaption>
-          <strong>{{ person.name }}</strong>
-        </figcaption>
-      </figure>
-      <p class="title">{{ person.position }}</p>
-      <p class="linkedin">
-        <a v-bind:href="`mailto:${person.email}`"> {{ person.email }} </a>
-        <br />
-        <a v-bind:href="person.linkedinLink"> LinkedIn </a>
-      </p>
-      <p>{{ person.bio }}</p>
-    </div>
+  <div>
+    <figure>
+      <img :src="person.imageUrl" alt="Member" style="width:100%" />
+      <figcaption>
+        <strong>{{ person.name }}</strong>
+      </figcaption>
+    </figure>
+    <p class="title">{{ person.position }}</p>
+    <p class="linkedin">
+      <a v-bind:href="`mailto:${person.email}`"> {{ person.email }} </a>
+      <br />
+      <a v-bind:href="person.linkedinLink"> LinkedIn </a>
+    </p>
+    <p>{{ person.bio }}</p>
   </div>
 </template>
 
