@@ -55,6 +55,9 @@ export default new Vuex.Store({
         "https://my-json-server.typicode.com/willmt80/demo/events"
       );
       commit("SET_EVENTS", data);
+    },
+    FETCH_POST_BY_ID() {
+      //method for getting individual posts instead of pulling the whole page at once
     }
   }
 });
