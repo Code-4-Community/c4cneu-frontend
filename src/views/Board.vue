@@ -28,7 +28,7 @@ export default {
   computed: {
     ...mapState(["posts"]),
     fullBoard() {
-      return this.$store.getters.BOARD;
+      return this.$store.getters.GET_BOARD;
     }
   },
   methods: {

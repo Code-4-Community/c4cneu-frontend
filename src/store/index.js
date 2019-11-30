@@ -13,16 +13,16 @@ export default new Vuex.Store({
     events: []
   },
   getters: {
-    BOARD: state => {
+    GET_BOARD: state => {
       return state.board;
     },
-    POSTS: state => {
+    GET_POSTS: state => {
       return state.posts;
     },
     GET_POST_BY_ID: state => id => {
       return state.posts.find(post => post.id === id);
     },
-    EVENTS: state => {
+    GET_EVENTS: state => {
       return state.events;
     }
   },

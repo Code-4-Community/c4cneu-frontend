@@ -32,13 +32,13 @@ export default {
     this.FETCH_POSTS();
   },
   computed: {
-    //mediaPosts: grabs all posts.
-    //Needs testing
     ...mapState(["posts"]),
 
+    //mediaPosts: grabs all posts.
+    //Needs testing
     mediaPosts() {
       //Temporary:
-      return this.$store.getters.POSTS;
+      return this.$store.getters.GET_POSTS;
 
       //API call needs to be implemented
     }

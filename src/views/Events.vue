@@ -62,7 +62,7 @@ export default {
 
     //events: returns all of the events from the vuex store
     events() {
-      return this.$store.getters.EVENTS;
+      return this.$store.getters.GET_EVENTS;
     },
 
     //filteredEvents: returns an array of event objects for which the date of the event is later than 24 hours ago
