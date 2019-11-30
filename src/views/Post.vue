@@ -1,19 +1,19 @@
 <template>
   <div>
-    <div class="post-layout" v-if="post">
-      <div>
-        <div class="post-header">
+    <div class="content">
+      <div class="post-header" v-if="post">
+        <div>
           <h1 class="post-title">{{ post.title }}</h1>
           <h2 class="post-date">{{ dateString }}</h2>
         </div>
-        <p class="post-content">{{ post.content }}</p>
+        <img class="post-image" :src="post.imageUrl" />
       </div>
-      <img class="post-image" :src="post.imageUrl" />
-    </div>
-    <div v-if="!post">
-      <p class="error">
-        Oops! We couldn't find the post you requested.
-      </p>
+      <p class="post-content">{{ post.content }}</p>
+      <div v-if="!post">
+        <p class="error">
+          Oops! We couldn't find the post you requested.
+        </p>
+      </div>
     </div>
   </div>
 </template>

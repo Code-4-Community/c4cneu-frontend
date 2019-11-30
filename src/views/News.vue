@@ -2,18 +2,20 @@
   <div>
     <section>
       <div class="parallax" id="plax_2">
-        <h1>Extra Extra!</h1>
+        <h1>Community News</h1>
       </div>
     </section>
-    <div class="posts" v-for="post in mediaPosts" :key="post.id">
-      <post-item
-        :id="post.id"
-        :title="post.title"
-        :imageUrl="post.imageUrl"
-        :desc="post.desc"
-        :url="post.url"
-        :date="post.date"
-      />
+    <div class="content">
+      <div v-for="post in mediaPosts" :key="post.id">
+        <post-item
+          :id="post.id"
+          :title="post.title"
+          :imageUrl="post.imageUrl"
+          :desc="post.desc"
+          :url="post.url"
+          :date="post.date"
+        />
+      </div>
     </div>
   </div>
 </template>

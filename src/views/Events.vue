@@ -1,6 +1,6 @@
 <template>
-  <div class="sidebar-layout">
-    <div class="events">
+  <div>
+    <div>
       <h1>Active Events</h1>
       <checkin-event
         v-on:eventSelected="handleClickInParent"
@@ -11,29 +11,36 @@
         v-bind:key="fe.title"
       ></checkin-event>
     </div>
-    <form v-if="!(activeEventIndex === null)" class="form-layout">
-      <h2>{{ events[activeEventIndex].title }}</h2>
-      <div class="form-item">
-        <label>Enter your code:</label>
-        <input
-          type="text"
-          v-model.number="code"
-          maxlength="4"
-          input-code
-          placeholder="4 digit code"
-        />
+    <div :style="{ display: displayType }" class="popup">
+      <div class="popup-content">
+        <button class="close" @click="close">&times;</button>
+        <h2>{{ name }}</h2>
+        <br />
+        <div class="form-item">
+          <label>Enter your code</label>
+          <br />
+          <input
+            type="text"
+            v-model.number="code"
+            maxlength="4"
+            input-code
+            class="code"
+            placeholder="1234"
+          />
+        </div>
+        <br />
+        <button
+          class="form-item"
+          v-bind:disabled="!codeIsValid"
+          v-on:click="submitCheckIn()"
+        >
+          Submit
+        </button>
+        <p v-if="!codeIsValid" class="error" error-code>
+          Please enter valid 4 digit code
+        </p>
       </div>
-      <button
-        class="form-item"
-        v-bind:disabled="!codeIsValid"
-        v-on:click="submitCheckIn()"
-      >
-        Submit
-      </button>
-      <p v-if="!codeIsValid" class="error" error-code>
-        Please enter valid 4 digit code
-      </p>
-    </form>
+    </div>
   </div>
 </template>
 
@@ -45,7 +52,8 @@ export default {
   data() {
     return {
       activeEventIndex: null,
-      code: null
+      code: null,
+      displayType: "none"
     };
   },
 
@@ -74,6 +82,13 @@ export default {
       );
     },
 
+    name() {
+      if (this.activeEventIndex != null) {
+        return this.events[this.activeEventIndex].title;
+      }
+      return "null";
+    },
+
     //codeIsValid: returns true iff the code is valid.
     //Needs testing
     codeIsValid() {
@@ -87,6 +102,11 @@ export default {
     //handleClickInParent: sets the activeEventIndex to the proper eventId
     handleClickInParent(eventId) {
       this.activeEventIndex = eventId - 1;
+      this.displayType = "block";
+    },
+
+    close() {
+      this.displayType = "none";
     },
 
     //submitCheckIn: submits an attempt to check in to an event
