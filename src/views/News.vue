@@ -33,7 +33,6 @@ export default {
   },
   computed: {
     ...mapState(["posts"]),
-
     //mediaPosts: grabs all posts.
     //Needs testing
     mediaPosts() {
