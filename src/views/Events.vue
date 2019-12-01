@@ -4,7 +4,7 @@
       <h1>Active Events</h1>
       <checkin-event
         v-on:eventSelected="handleClickInParent"
-        v-for="fe in filteredEvents"
+        v-for="fe in events"
         :eventTitle="fe.title"
         :eventDate="fe.date"
         :eventId="fe.id"
@@ -46,12 +46,11 @@
 
 <script>
 import CheckinEvent from "../components/CheckinEvent.vue";
-//import axios from "axios";
+import { mapState, mapActions } from "vuex";
 
 export default {
   data() {
     return {
-      events: this.$store.state.events,
       activeEventIndex: null,
       code: null,
       displayType: "none"
@@ -62,13 +61,24 @@ export default {
     CheckinEvent
   },
 
+  mounted() {
+    this.FETCH_EVENTS();
+  },
+
   computed: {
+    ...mapState(["events"]),
+
+    //events: returns all of the events from the vuex store
+    events() {
+      return this.$store.getters.GET_EVENTS;
+    },
+
     //filteredEvents: returns an array of event objects for which the date of the event is later than 24 hours ago
     //Needs testing
     filteredEvents() {
       var dayInSeconds = 24 * 60 * 60;
       return this.events.filter(
-        event => event.date > Date.now() - dayInSeconds
+        event => this.unixToDate(event.date) > Date.now() - dayInSeconds
       );
     },
 
@@ -88,7 +98,8 @@ export default {
   },
 
   methods: {
-    //handleClickInParent: sets the activeEventIndex to the proper eventId, shows pop up form
+    ...mapActions(["FETCH_EVENTS"]),
+    //handleClickInParent: sets the activeEventIndex to the proper eventId
     handleClickInParent(eventId) {
       this.activeEventIndex = eventId - 1;
       this.displayType = "block";
@@ -103,9 +114,14 @@ export default {
     submitCheckIn() {
       var submittedEvent = this.events[this.activeEventIndex];
       submittedEvent["code"] = this.code;
-      submittedEvent["checkin-time"] = Date.now();
+      submittedEvent["checkin-time"] = Date.now() / 1000;
 
       //TODO: API call needs implementation
+    },
+
+    //unixToDate: converts the given unix timestamp to a javascript date number
+    unixToDate(unix) {
+      return unix * 1000;
     }
   }
 };

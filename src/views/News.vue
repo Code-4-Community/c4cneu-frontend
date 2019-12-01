@@ -22,6 +22,7 @@
 
 <script>
 import PostItem from "../components/PostItem.vue";
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "Media",
@@ -29,16 +30,23 @@ export default {
   components: {
     "post-item": PostItem
   },
-
+  mounted() {
+    this.FETCH_POSTS();
+  },
   computed: {
+    ...mapState(["posts"]),
+
     //mediaPosts: grabs all posts.
     //Needs testing
-    mediaPosts: function() {
+    mediaPosts() {
       //Temporary:
-      return this.$store.state.posts;
+      return this.$store.getters.GET_POSTS;
 
       //API call needs to be implemented
     }
+  },
+  methods: {
+    ...mapActions(["FETCH_POSTS"])
   }
 };
 </script>
