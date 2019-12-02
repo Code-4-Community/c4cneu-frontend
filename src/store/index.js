@@ -40,19 +40,19 @@ export default new Vuex.Store({
   actions: {
     FETCH_BOARD: async ({ commit }) => {
       let { data } = await Axios.get(
-        "https://my-json-server.typicode.com/willmt80/demo/eboard"
+        "https://my-json-server.typicode.com/code-4-community/demo/eboard"
       );
       commit("SET_BOARD", data);
     },
     FETCH_POSTS: async ({ commit }) => {
       let { data } = await Axios.get(
-        "https://my-json-server.typicode.com/willmt80/demo/posts"
+        "https://my-json-server.typicode.com/code-4-community/demo/posts"
       );
       commit("SET_POSTS", data);
     },
     FETCH_EVENTS: async ({ commit }) => {
       let { data } = await Axios.get(
-        "https://my-json-server.typicode.com/willmt80/demo/events"
+        "https://my-json-server.typicode.com/code-4-community/demo/events"
       );
       commit("SET_EVENTS", data);
     },
