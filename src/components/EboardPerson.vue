@@ -2,11 +2,7 @@
   <div class="page">
     <div class="container">
       <figure>
-        <img
-          :src="`require(${person.imageUrl}`"
-          alt="Member"
-          style="width:100%"
-        />
+        <img :src="person.imageUrl" alt="Member" style="width:100%" />
         <figcaption>
           <strong>{{ person.name }}</strong>
         </figcaption>
