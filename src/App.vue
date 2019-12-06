@@ -341,7 +341,7 @@ figure figcaption {
   font-size: 20px;
   text-align: center;
   text-decoration: none;
-  margin: 3vh 5px;
+  margin: 1vh 5px;
   border-radius: 50%;
   color: black;
   background-color: white;

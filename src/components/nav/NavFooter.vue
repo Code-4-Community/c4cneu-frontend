@@ -2,13 +2,13 @@
   <div>
     <footer class="footer">
       <div class="container">
-        <div class="column" align="left">
+        <div class="column1" align="left">
           <h3>Made at</h3>
           <a href="https://www.khoury.northeastern.edu/">
             <img class="khoury-logo" src="../../assets/khoury-logo.png" />
           </a>
         </div>
-        <div class="column" align="left">
+        <div class="column2" align="left">
           <h3>Upcoming events</h3>
           <router-link
             to="../../events"
@@ -18,7 +18,7 @@
             <p>{{ event.title }}</p>
           </router-link>
         </div>
-        <div class="column" align="left">
+        <div class="column3" align="left">
           <h3>Find us on</h3>
           <a
             href="https://www.facebook.com/c4cneu/"
@@ -53,6 +53,9 @@ export default {
     return {
       events: this.$store.state.events
     };
+  },
+  mounted() {
+    this.FETCH_EVENTS();
   }
 };
 </script>
@@ -63,16 +66,35 @@ export default {
   position: relative;
   top: 30px;
 }
-.column {
+.column1,
+.column2,
+.column3 {
+  color: white;
   float: left;
   width: 33.33%;
-}
-.column {
-  color: white;
 }
 .khoury-logo {
   position: relative;
   top: 6px;
   width: 250px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    width: 100%;
+  }
+  .column1,
+  .column2 {
+    display: none;
+  }
+  .column3 {
+    font-size: 150%;
+    width: 100%;
+    float: none;
+    text-align: center;
+  }
+  .column3 h3 {
+    font-size: 100%;
+  }
 }
 </style>
