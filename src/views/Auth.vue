@@ -75,7 +75,6 @@
       </div>
       <button class="form-item" @click="handleSignUp">Sign up!</button>
     </form>
-
     <p v-if="error">
       Please fill out all required fields and ensure everything is correct
     </p>
@@ -184,6 +183,8 @@ export default {
 
       //TODO: implement backend API call
     }
+
+    //TODO: implement button disabling/some error checker using the computed properties below
   },
 
   computed: {
