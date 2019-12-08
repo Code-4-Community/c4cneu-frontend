@@ -1,52 +1,59 @@
 <template>
-  <div class="sidebar-layout">
-    <div class="events">
+  <div>
+    <div>
       <h1>Active Events</h1>
       <checkin-event
         v-on:eventSelected="handleClickInParent"
-        v-for="fe in filteredEvents"
+        v-for="fe in events"
         :eventTitle="fe.title"
         :eventDate="fe.date"
         :eventId="fe.id"
         v-bind:key="fe.title"
       ></checkin-event>
     </div>
-    <form v-if="!(activeEventIndex === null)" class="form-layout">
-      <h2>{{ events[activeEventIndex].title }}</h2>
-      <div class="form-item">
-        <label>Enter your code:</label>
-        <input
-          type="text"
-          v-model.number="code"
-          maxlength="4"
-          input-code
-          placeholder="4 digit code"
-        />
+    <div :style="{ display: displayType }" class="popup">
+      <div class="popup-content">
+        <button class="close" @click="close">&times;</button>
+        <h2>{{ name }}</h2>
+        <br />
+        <div class="form-item">
+          <label>Enter your code</label>
+          <br />
+          <input
+            type="text"
+            v-model.number="code"
+            maxlength="4"
+            input-code
+            class="code"
+            placeholder="1234"
+          />
+        </div>
+        <br />
+        <button
+          class="form-item"
+          v-bind:disabled="!codeIsValid"
+          v-on:click="submitCheckIn()"
+        >
+          Submit
+        </button>
+        <p v-if="!codeIsValid" class="error" error-code>
+          Please enter valid 4 digit code
+        </p>
       </div>
-      <button
-        class="form-item"
-        v-bind:disabled="!codeIsValid"
-        v-on:click="submitCheckIn()"
-      >
-        Submit
-      </button>
-      <p v-if="!codeIsValid" class="error" error-code>
-        Please enter valid 4 digit code
-      </p>
-    </form>
+    </div>
   </div>
 </template>
 
 <script>
 import CheckinEvent from "../components/CheckinEvent.vue";
-//import axios from "axios";
+import { mapState, mapActions } from "vuex";
 
 export default {
   data() {
     return {
-      events: this.$store.state.events,
       activeEventIndex: null,
-      code: null
+      code: null,
+      displayType: "none"
     };
   },
 
@@ -54,14 +61,32 @@ export default {
     CheckinEvent
   },
 
+  mounted() {
+    this.FETCH_EVENTS();
+  },
+
   computed: {
+    ...mapState(["events"]),
+
+    //events: returns all of the events from the vuex store
+    events() {
+      return this.$store.getters.GET_EVENTS;
+    },
+
     //filteredEvents: returns an array of event objects for which the date of the event is later than 24 hours ago
     //Needs testing
     filteredEvents() {
       var dayInSeconds = 24 * 60 * 60;
       return this.events.filter(
-        event => event.date > Date.now() - dayInSeconds
+        event => this.unixToDate(event.date) > Date.now() - dayInSeconds
       );
+    },
+
+    name() {
+      if (this.activeEventIndex != null) {
+        return this.events[this.activeEventIndex].title;
+      }
+      return "null";
     },
 
     //codeIsValid: returns true iff the code is valid.
@@ -73,9 +98,15 @@ export default {
   },
 
   methods: {
+    ...mapActions(["FETCH_EVENTS"]),
     //handleClickInParent: sets the activeEventIndex to the proper eventId
     handleClickInParent(eventId) {
       this.activeEventIndex = eventId - 1;
+      this.displayType = "block";
+    },
+
+    close() {
+      this.displayType = "none";
     },
 
     //submitCheckIn: submits an attempt to check in to an event
@@ -83,9 +114,14 @@ export default {
     submitCheckIn() {
       var submittedEvent = this.events[this.activeEventIndex];
       submittedEvent["code"] = this.code;
-      submittedEvent["checkin-time"] = Date.now();
+      submittedEvent["checkin-time"] = Date.now() / 1000;
 
       //TODO: API call needs implementation
+    },
+
+    //unixToDate: converts the given unix timestamp to a javascript date number
+    unixToDate(unix) {
+      return unix * 1000;
     }
   }
 };

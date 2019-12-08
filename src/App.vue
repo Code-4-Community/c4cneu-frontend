@@ -1,14 +1,17 @@
 <template>
   <div id="app">
-    <NavBar />
+    <NavHeader />
     <router-view />
+    <NavFooter />
   </div>
 </template>
 <script>
-import NavBar from "./components/nav/NavBar";
+import NavHeader from "./components/nav/NavHeader";
+import NavFooter from "./components/nav/NavFooter";
 export default {
   components: {
-    NavBar
+    NavHeader,
+    NavFooter
   }
 };
 </script>
@@ -45,6 +48,15 @@ p.error {
   color: red;
 }
 
+.big {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.align-left {
+  text-align: left;
+}
+
 h1 {
   font-size: 80px;
   font-weight: 100;
@@ -60,6 +72,20 @@ h3 {
   font-weight: 300;
 }
 
+@media only screen and (max-width: 700px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+}
+
 /* TODO: STYLE LINKS */
 a {
   text-decoration: none;
@@ -72,9 +98,10 @@ a:hover {
 /* FORMS AND INPUT */
 form {
   margin: 20px auto 20px auto;
-  padding: 20px 40px 20px 40px;
+  padding: 2% 4% 2% 4%;
   width: 60%;
-  background-color: #f8f8f8;
+  max-width: 800px;
+  min-width: 200px;
 }
 
 form div.form-item {
@@ -91,9 +118,17 @@ input[type="text"] {
   width: 60%;
 }
 
+input[type="file"] {
+  width: 80%;
+}
+
 /*TODO: STYLE RADIO BUTTONS*/
 input[type="radio"] {
   color: default;
+}
+
+input.code {
+  width: 100px;
 }
 
 select {
@@ -120,6 +155,16 @@ button {
   text-transform: uppercase;
 }
 
+@media only screen and (max-width: 700px) {
+  form {
+    width: 100%;
+  }
+
+  input[type="text"] {
+    width: 80%;
+  }
+}
+
 /* POST TEXT */
 .post-title,
 .post-date {
@@ -130,17 +175,20 @@ button {
   font-family: "Merriweather", serif;
 }
 
-/*VIEWS/POST.VUE*/
-.post-content {
-  font-family: "Merriweather", serif;
-}
-
 /*------------------------------------*\
   #LAYOUT
 \*------------------------------------*/
 
+.content {
+  margin: 5% 7% 0 7%;
+}
+
 .center {
   margin: auto;
+}
+
+.hidden {
+  display: none;
 }
 
 /* 3-div grid layout
@@ -150,12 +198,42 @@ button {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
-  padding: 20px;
 }
 
-.sidebar-layout {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+.popup {
+  display: none;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 600px;
+}
+
+/* The Close Button */
+.popup-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 700px) {
+  .grid-layout {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 /* TABLE */
@@ -185,6 +263,24 @@ th {
   -webkit-background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
+}
+
+.landing {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+@media only screen and (max-width: 700px) {
+  .parallax {
+    height: 80px;
+    padding: 20px;
+  }
+
+  /* LANDING PAGE PARALLAX SHOULD BE FULL HEIGHT */
+  .landing {
+    height: auto;
+    padding: 60px 10% 60px 10%;
+  }
 }
 
 /*SETS BACKGROUND IMAGES FOR ALL PARALLAX DIVS*/
@@ -245,7 +341,7 @@ figure figcaption {
   font-size: 20px;
   text-align: center;
   text-decoration: none;
-  margin: 3vh 5px;
+  margin: 1vh 5px;
   border-radius: 50%;
   color: black;
   background-color: white;
@@ -254,6 +350,9 @@ figure figcaption {
 /* NAV */
 #nav {
   padding: 30px;
+}
+
+.big-menu {
   display: flex;
   justify-content: space-between;
   width: 90%;
@@ -311,57 +410,119 @@ figure figcaption {
   color: #5a4f94;
 }
 
+.hamburger-icon {
+  display: none;
+  width: 20px;
+  height: 15px;
+}
+
+.mobile-logo {
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  #nav {
+    width: 100%;
+  }
+
+  .hamburger-icon {
+    display: inline-block;
+    position: absolute;
+    right: 10%;
+    top: 40px;
+  }
+
+  .big-menu {
+    display: none;
+  }
+
+  .mobile-logo {
+    width: 50%;
+    margin: auto;
+    display: inline-block;
+  }
+
+  .nav-item {
+    display: block;
+    margin: 15px auto 15px auto;
+  }
+}
+
+.mobile-menu {
+  z-index: 1;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
 /* NEWS */
 
 .post-item {
-  width: 80%;
   margin: 30px auto;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 5%;
 }
 
-.post-item .card:hover {
-  cursor: pointer;
-  background: #eeeeee;
+.post-item:hover {
+  background: #f8f8f8;
+  transition: 0.5s;
 }
 
 .post-item img {
-  display: inline-block;
-  height: 150px;
+  width: 150px;
 }
 
-.card-title,
-.card-text {
-  text-align: left;
+.post-date {
+  color: gray;
 }
 
-.card {
-  display: grid;
-  grid-template-columns: 1fr 3fr 2fr;
-  height: 100%;
-  padding: 10px;
+@media only screen and (max-width: 700px) {
+  .post-item {
+    display: block;
+    border-bottom: 1px solid #dddddd;
+    padding-bottom: 30px;
+  }
+
+  .post-item img {
+    width: 100%;
+  }
 }
 
 /* POST */
 
-.post-layout {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-}
 .post-header {
-  margin: 5px 5%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin-bottom: 5%;
 }
 
 .post-title,
 .post-date {
   text-align: left;
-  margin-top: 10px;
 }
 
 .post-date {
   color: #666666;
+  margin-top: 20px;
 }
 
 .post-content {
   text-align: left;
-  margin: 5%;
+  font-family: "Merriweather", serif;
+}
+
+@media only screen and (max-width: 700px) {
+  .post-header {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .post-image {
+    grid-row: 1;
+    width: 100%;
+    margin: 0 auto 30px auto;
+    max-width: 400px; /* IN CASE OF LO-RES */
+  }
 }
 </style>
