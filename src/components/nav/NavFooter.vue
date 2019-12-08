@@ -3,7 +3,6 @@
     <footer class="footer">
       <div class="container">
         <div class="column1" align="left">
-          <h3>Made at</h3>
           <a href="https://www.khoury.northeastern.edu/">
             <img class="khoury-logo" src="../../assets/khoury-logo.png" />
           </a>
