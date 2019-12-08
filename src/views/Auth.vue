@@ -28,7 +28,9 @@
           placeholder="Password"
         />
       </div>
-      <button class="form-item" @click="handleSignIn">Sign in</button>
+      <button type="button" class="form-item" @click="handleSignIn">
+        Sign in
+      </button>
     </form>
 
     <form class="form-layout" v-if="!isSigningIn">
@@ -73,11 +75,13 @@
           placeholder="Retype Password"
         />
       </div>
-      <button class="form-item" @click="handleSignUp">Sign up!</button>
+      <button type="button" class="form-item" @click="handleSignUp">
+        Sign up
+      </button>
     </form>
 
-    <p v-if="error">
-      Please fill out all required fields and ensure everything is correct
+    <p v-if="error" class="error">
+      {{ msg }}
     </p>
   </div>
 </template>
@@ -100,7 +104,9 @@ export default {
       submitting: false,
       error: false,
       success: false,
-      isSigningIn: true
+      isSigningIn: true,
+      msg:
+        "Something's not right. Please check that you filled in all the fields."
     };
   },
 
@@ -111,7 +117,7 @@ export default {
       this.submitting = true;
       this.clearStatus();
 
-      if (this.invalidEmail || this.invalidPassword) {
+      if (this.invalidEmail() || this.invalidPassword()) {
         this.error = true;
         return;
       }
@@ -131,9 +137,9 @@ export default {
       this.clearStatus();
 
       if (
-        this.invalidNewEmail ||
-        this.invalidNewName ||
-        this.invalidNewPassword
+        this.invalidNewEmail() ||
+        this.invalidNewName() ||
+        this.invalidNewPassword()
       ) {
         this.error = true;
         return;
@@ -183,27 +189,52 @@ export default {
       newUser;
 
       //TODO: implement backend API call
-    }
-  },
+    },
 
-  computed: {
+    //TODO: Prevent invalid characters from being submitted
     invalidEmail() {
-      return this.user.emailAddress === "";
+      //TODO: Better email validation
+      var valid = this.user.emailAddress !== "";
+      if (!valid) {
+        this.msg = "Your email address is invalid.";
+        return true;
+      }
+      return false;
     },
     invalidPassword() {
-      return this.user.password === "";
+      var valid = this.user.password !== "";
+      if (!valid) {
+        this.msg = "Please enter a password.";
+        return true;
+      }
+      return false;
     },
     invalidNewEmail() {
-      return this.newUser.emailAddress === "";
+      //TODO: Better email validation
+      var valid = this.newUser.emailAddress !== "";
+      if (!valid) {
+        this.msg = "Your email address is invalid.";
+        return true;
+      }
+      return false;
     },
     invalidNewName() {
-      return this.newUser.name === "";
+      var valid = this.newUser.name !== "";
+      if (!valid) {
+        this.msg = "Please enter a name.";
+        return true;
+      }
+      return false;
     },
     invalidNewPassword() {
-      return (
-        !(this.newUser.password === this.newUser.cPassword) ||
-        this.newUser.password === ""
-      );
+      var valid =
+        this.newUser.password === this.newUser.cPassword &&
+        this.newUser.password !== "";
+      if (!valid) {
+        this.msg = "Your passwords do not match.";
+        return true;
+      }
+      return false;
     }
   }
 };
