@@ -62,27 +62,6 @@
         </router-link>
       </div>
     </section>
-
-    <footer class="footer">
-      <a
-        href="https://www.facebook.com/c4cneu/"
-        class="fa fa-facebook hvr-grow"
-      ></a>
-      <a
-        href="https://www.instagram.com/c4cneu/"
-        class="fa fa-instagram hvr-grow"
-      ></a>
-      <a
-        href="https://www.linkedin.com/company/code-4-community/about/"
-        class="fa fa-linkedin hvr-grow"
-      ></a>
-      <a href="https://c4cneu.slack.com/" class="fa fa-slack hvr-grow"></a>
-      <a
-        href="https://github.com/Code-4-Community"
-        class="fa fa-github hvr-grow"
-      ></a>
-      <a href="mailto:c4cneu@gmail.com" class="fa fa-envelope-o hvr-grow"></a>
-    </footer>
   </div>
 </template>
 
