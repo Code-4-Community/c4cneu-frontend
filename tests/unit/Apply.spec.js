@@ -1,9 +1,3 @@
-describe("passing test", () => {
-  test("pass", () => {
-    expect(true).toBe(true);
-  });
-});
-
 import { mount } from "@vue/test-utils";
 import Apply from "../../src/views/Apply.vue";
 
