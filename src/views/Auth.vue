@@ -80,9 +80,7 @@
       </button>
     </form>
 
-    <p v-if="error" class="error">
-      {{ msg }}
-    </p>
+    <p v-if="error" class="error">{{ msg }}</p>
   </div>
 </template>
 
