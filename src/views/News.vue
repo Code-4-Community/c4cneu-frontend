@@ -7,13 +7,12 @@
     </section>
     <div class="content">
       <div v-for="post in mediaPosts" :key="post.id">
-        <post-item
-          :id="post.id"
+        <list-card
           :title="post.title"
+          :subtitle="post.desc"
           :imageUrl="post.imageUrl"
-          :desc="post.desc"
-          :url="post.url"
           :date="post.date"
+          @click.native="onClickPost(`/post/${post.id}`)"
         />
       </div>
     </div>
@@ -28,7 +27,7 @@ export default {
   name: "Media",
 
   components: {
-    "post-item": ListCard
+    ListCard
   },
   mounted() {
     this.FETCH_POSTS();
@@ -41,7 +40,13 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["FETCH_POSTS"])
+    ...mapActions(["FETCH_POSTS"]),
+
+    onClickPost(route) {
+      // eslint-disable-next-line
+      console.log("hello");
+      this.$router.push(route);
+    }
   }
 };
 </script>

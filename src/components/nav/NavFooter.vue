@@ -48,15 +48,19 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   mounted() {
     this.FETCH_EVENTS();
   },
   computed: {
-    //events: returns all of the events from the vuex store
     events() {
       return this.$store.getters.GET_EVENTS;
     }
+  },
+  methods: {
+    ...mapActions(["FETCH_EVENTS"])
   }
 };
 </script>
