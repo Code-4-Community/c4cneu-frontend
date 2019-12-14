@@ -2,14 +2,14 @@
   <div>
     <div>
       <h1>Active Events</h1>
-      <checkin-event
+      <event
         v-on:eventSelected="handleClickInParent"
         v-for="fe in events"
         :eventTitle="fe.title"
         :eventDate="fe.date"
         :eventId="fe.id"
         v-bind:key="fe.title"
-      ></checkin-event>
+      />
     </div>
     <div :style="{ display: displayType }" class="popup">
       <div class="popup-content">
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import CheckinEvent from "../components/CheckinEvent.vue";
+import Event from "../components/Event.vue";
 import { mapState, mapActions } from "vuex";
 
 export default {
@@ -58,7 +58,7 @@ export default {
   },
 
   components: {
-    CheckinEvent
+    Event
   },
 
   mounted() {

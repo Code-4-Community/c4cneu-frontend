@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "PostItem",
+  name: "ListCard",
 
   props: {
     id: {

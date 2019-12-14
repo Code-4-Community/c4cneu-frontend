@@ -5,19 +5,21 @@
         <h1>Executive Board</h1>
       </div>
     </section>
-    <EboardPeople class="eboard" :eboard="fullBoard" />
+    <div class="grid-layout">
+      <Person v-for="person in people" :key="person.id" :person="person" />
+    </div>
   </div>
 </template>
 
 <script>
-import EboardPeople from "../components/EboardPeople";
+import Person from "../components/Person";
 import { mapState, mapActions } from "vuex";
 
 export default {
   name: "eboard",
 
   components: {
-    EboardPeople
+    Person
   },
 
   mounted() {
@@ -27,7 +29,7 @@ export default {
   },
   computed: {
     ...mapState(["posts"]),
-    fullBoard() {
+    people() {
       return this.$store.getters.GET_BOARD;
     }
   },
@@ -36,10 +38,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-/*SETS BACKGROUND IMAGE OF HEADER*/
-/*#plax_1 {
-  background-image: url("../assets/p5.png");
-}*/
-</style>

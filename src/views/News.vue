@@ -21,14 +21,14 @@
 </template>
 
 <script>
-import PostItem from "../components/PostItem.vue";
+import ListCard from "../components/ListCard.vue";
 import { mapState, mapActions } from "vuex";
 
 export default {
   name: "Media",
 
   components: {
-    "post-item": PostItem
+    "post-item": ListCard
   },
   mounted() {
     this.FETCH_POSTS();
@@ -36,13 +36,8 @@ export default {
   computed: {
     ...mapState(["posts"]),
 
-    //mediaPosts: grabs all posts.
-    //Needs testing
     mediaPosts() {
-      //Temporary:
       return this.$store.getters.GET_POSTS;
-
-      //API call needs to be implemented
     }
   },
   methods: {
