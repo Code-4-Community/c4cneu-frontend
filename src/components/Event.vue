@@ -34,7 +34,7 @@ export default {
   methods: {
     //eventClick: signals to parent that the event is selected
     eventClick() {
-      this.$emit("eventSelected", this.eventId);
+      this.$emit("eventSelected", { eventId: this.eventId });
     }
   }
 };

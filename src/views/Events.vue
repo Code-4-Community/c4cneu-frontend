@@ -1,15 +1,18 @@
 <template>
   <div>
     <div>
-      <h1>Active Events</h1>
-      <event
-        v-on:eventSelected="handleClickInParent"
-        v-for="fe in events"
-        :eventTitle="fe.title"
-        :eventDate="fe.date"
-        :eventId="fe.id"
-        v-bind:key="fe.title"
-      />
+      <h1>Upcoming Events</h1>
+      <div class="content">
+        <list-card
+          v-for="event in events"
+          :key="event.title"
+          :title="event.title"
+          :subtitle="event.date"
+          :date="event.date"
+          :imageUrl="event.imageUrl"
+          @click.native="handleClickInParent(event.id)"
+        />
+      </div>
     </div>
     <div :style="{ display: displayType }" class="popup">
       <div class="popup-content">
@@ -45,7 +48,7 @@
 </template>
 
 <script>
-import Event from "../components/Event.vue";
+import ListCard from "../components/ListCard.vue";
 import { mapState, mapActions } from "vuex";
 
 export default {
@@ -58,7 +61,7 @@ export default {
   },
 
   components: {
-    Event
+    ListCard
   },
 
   mounted() {

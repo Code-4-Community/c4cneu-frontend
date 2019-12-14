@@ -6,15 +6,15 @@
       </div>
     </section>
     <div class="content">
-      <div v-for="post in mediaPosts" :key="post.id">
-        <list-card
-          :title="post.title"
-          :subtitle="post.desc"
-          :imageUrl="post.imageUrl"
-          :date="post.date"
-          @click.native="onClickPost(`/post/${post.id}`)"
-        />
-      </div>
+      <list-card
+        v-for="post in mediaPosts"
+        :key="post.title"
+        :title="post.title"
+        :subtitle="post.desc"
+        :date="post.date"
+        :imageUrl="post.imageUrl"
+        @click.native="onClickPost(`/post/${post.id}`)"
+      />
     </div>
   </div>
 </template>

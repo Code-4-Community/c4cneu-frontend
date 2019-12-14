@@ -29,7 +29,7 @@ export default {
       required: true
     },
     date: {
-      type: Number,
+      type: String,
       required: true
     }
   },
@@ -37,7 +37,7 @@ export default {
   computed: {
     dateString() {
       var options = { year: "numeric", month: "short", day: "numeric" };
-      var postDate = new Date(this.date * 1000);
+      var postDate = new Date(this.date);
       return postDate.toLocaleDateString("en-US", options);
     }
   }
