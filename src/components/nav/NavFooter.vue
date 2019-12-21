@@ -48,13 +48,14 @@
 
 <script>
 export default {
-  data() {
-    return {
-      events: this.$store.state.events
-    };
-  },
   mounted() {
     this.FETCH_EVENTS();
+  },
+  computed: {
+    //events: returns all of the events from the vuex store
+    events() {
+      return this.$store.getters.GET_EVENTS;
+    }
   }
 };
 </script>

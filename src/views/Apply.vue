@@ -117,6 +117,7 @@ export default {
     validAreaInterests: function() {
       return this.areaInterests.length > 0;
     },
+    // This computed property is never used
     submitText: function() {
       return this.validForm() ? "Apply!" : "Please complete the form.";
     }
