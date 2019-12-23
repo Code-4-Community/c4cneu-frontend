@@ -5,8 +5,10 @@
         <h1>Executive Board</h1>
       </div>
     </section>
-    <div class="grid-layout">
-      <Person v-for="person in people" :key="person.id" :person="person" />
+    <div class="content">
+      <div class="grid-layout">
+        <Person v-for="person in people" :key="person.id" :person="person" />
+      </div>
     </div>
   </div>
 </template>
