@@ -345,6 +345,7 @@ figure figcaption {
   border-radius: 50%;
   color: black;
   background-color: white;
+  width: 40px;
 }
 
 /* NAV */
