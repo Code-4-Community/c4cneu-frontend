@@ -97,11 +97,18 @@ a:hover {
 
 /* FORMS AND INPUT */
 form {
-  margin: 20px auto 20px auto;
+  margin: 20px 0 20px 0;
+  text-align: left;
   padding: 2% 4% 2% 4%;
   width: 60%;
   max-width: 800px;
   min-width: 200px;
+}
+
+form.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 form div.form-item {
