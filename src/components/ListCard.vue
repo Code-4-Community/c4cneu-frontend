@@ -26,10 +26,10 @@ export default {
     },
     imageUrl: {
       type: String,
-      required: true
+      required: false
     },
     date: {
-      type: String,
+      type: Number,
       required: true
     }
   },
@@ -37,7 +37,7 @@ export default {
   computed: {
     dateString() {
       var options = { year: "numeric", month: "short", day: "numeric" };
-      var postDate = new Date(this.date);
+      var postDate = new Date(this.date * 1000); //multiply by 1000 because unix timestamp is in seconds, whereas Date constructor takes ms
       return postDate.toLocaleDateString("en-US", options);
     }
   }
