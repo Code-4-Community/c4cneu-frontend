@@ -80,7 +80,11 @@ img {
   }
 
   .container {
-    width: 340px;
+    width: auto;
+  }
+
+  .page {
+    padding: 0;
   }
 }
 

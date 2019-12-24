@@ -3,7 +3,7 @@
     <footer class="footer">
       <div class="container">
         <div class="column1" align="left">
-          <h3>Made at</h3>
+          <h3>Created at</h3>
           <a href="https://www.khoury.northeastern.edu/">
             <img class="khoury-logo" src="../../assets/khoury-logo.png" />
           </a>
@@ -19,7 +19,7 @@
           </router-link>
         </div>
         <div class="column3" align="left">
-          <h3>Find us on</h3>
+          <h3>Connect with us</h3>
           <a
             href="https://www.facebook.com/c4cneu/"
             class="fa fa-facebook hvr-grow"
