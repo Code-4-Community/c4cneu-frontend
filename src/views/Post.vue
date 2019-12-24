@@ -8,7 +8,9 @@
         </div>
         <img class="post-image" :src="post.imageUrl" />
       </div>
-      <p class="post-content">{{ post.content }}</p>
+      <p class="post-content">
+        <span style="white-space: pre-wrap;">{{ post.content }}</span>
+      </p>
       <div v-if="!post">
         <p class="error">
           Oops! We couldn't find the post you requested.
