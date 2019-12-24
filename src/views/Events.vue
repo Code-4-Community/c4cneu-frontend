@@ -4,7 +4,15 @@
       <h1>Active Events</h1>
       <checkin-event
         v-on:eventSelected="handleClickInParent"
-        v-for="fe in events"
+        v-for="fe in futureEvents"
+        :eventTitle="fe.title"
+        :eventDate="fe.date"
+        :eventId="fe.id"
+        v-bind:key="fe.title"
+      ></checkin-event>
+      <checkin-event
+        v-on:eventSelected="handleClickInParent"
+        v-for="fe in pastEvents"
         :eventTitle="fe.title"
         :eventDate="fe.date"
         :eventId="fe.id"
@@ -16,29 +24,36 @@
         <button class="close" @click="close">&times;</button>
         <h2>{{ name }}</h2>
         <br />
-        <div class="form-item">
-          <label>Enter your code</label>
+        <p>{{ desc }}</p>
+        <div v-if="futureEvent">
+          <div class="form-item">
+            <label>Enter your code</label>
+            <br />
+            <input
+              type="text"
+              v-model.number="code"
+              maxlength="4"
+              input-code
+              class="code"
+              placeholder="1234"
+            />
+          </div>
           <br />
-          <input
-            type="text"
-            v-model.number="code"
-            maxlength="4"
-            input-code
-            class="code"
-            placeholder="1234"
-          />
+          <button
+            class="form-item"
+            v-bind:disabled="!codeIsValid"
+            v-on:click="submitCheckIn()"
+          >
+            Submit
+          </button>
+          <p v-if="!codeIsValid" class="error" error-code>
+            Please enter valid 4 digit code
+          </p>
         </div>
-        <br />
-        <button
-          class="form-item"
-          v-bind:disabled="!codeIsValid"
-          v-on:click="submitCheckIn()"
-        >
-          Submit
-        </button>
-        <p v-if="!codeIsValid" class="error" error-code>
-          Please enter valid 4 digit code
-        </p>
+        <div v-else>
+          <p>This event occurred on {{ date }}</p>
+          .
+        </div>
       </div>
     </div>
   </div>
@@ -73,18 +88,41 @@ export default {
       return this.$store.getters.GET_EVENTS;
     },
 
-    //filteredEvents: returns an array of event objects for which the date of the event is later than 24 hours ago
+    //futureEvents: returns an array of event objects for which the date of the event is later than 24 hours ago
     //Needs testing
-    filteredEvents() {
+    futureEvents() {
       var dayInSeconds = 24 * 60 * 60;
       return this.events.filter(
         event => this.unixToDate(event.date) > Date.now() - dayInSeconds
       );
     },
 
+    //pastEvents: returns an array of event objects for which the date of the event is earlier than 24 hours ago
+    //Needs testing
+    pastEvents() {
+      var dayInSeconds = 24 * 60 * 60;
+      return this.events.filter(
+        event => this.unixToDate(event.date) <= Date.now() - dayInSeconds
+      );
+    },
+
     name() {
       if (this.activeEventIndex != null) {
         return this.events[this.activeEventIndex].title;
+      }
+      return "null";
+    },
+
+    desc() {
+      if (this.activeEventIndex != null) {
+        return this.events[this.activeEventIndex].desc;
+      }
+      return "null";
+    },
+
+    date() {
+      if (this.activeEventIndex != null) {
+        return this.events[this.activeEventIndex].date;
       }
       return "null";
     },
