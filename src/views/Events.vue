@@ -1,15 +1,18 @@
 <template>
   <div>
     <div>
-      <h1>Active Events</h1>
-      <checkin-event
-        v-on:eventSelected="handleClickInParent"
-        v-for="fe in events"
-        :eventTitle="fe.title"
-        :eventDate="fe.date"
-        :eventId="fe.id"
-        v-bind:key="fe.title"
-      ></checkin-event>
+      <h1>Upcoming Events</h1>
+      <div class="content">
+        <list-card
+          v-for="event in events"
+          :key="event.title"
+          :title="event.title"
+          :subtitle="event.date"
+          :date="event.date"
+          :imageUrl="event.imageUrl"
+          @click.native="handleClickInParent(event.id)"
+        />
+      </div>
     </div>
     <div :style="{ display: displayType }" class="popup">
       <div class="popup-content">
@@ -17,7 +20,7 @@
         <h2>{{ name }}</h2>
         <br />
         <div class="form-item">
-          <label>Enter your code</label>
+          <label>Enter your check-in code</label>
           <br />
           <input
             type="text"
@@ -34,7 +37,7 @@
           v-bind:disabled="!codeIsValid"
           v-on:click="submitCheckIn()"
         >
-          Submit
+          Check in
         </button>
         <p v-if="!codeIsValid" class="error" error-code>
           Please enter valid 4 digit code
@@ -45,7 +48,7 @@
 </template>
 
 <script>
-import CheckinEvent from "../components/CheckinEvent.vue";
+import ListCard from "../components/ListCard.vue";
 import { mapState, mapActions } from "vuex";
 
 export default {
@@ -58,7 +61,7 @@ export default {
   },
 
   components: {
-    CheckinEvent
+    ListCard
   },
 
   mounted() {
