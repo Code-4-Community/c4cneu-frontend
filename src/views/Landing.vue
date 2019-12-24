@@ -3,7 +3,7 @@
     <section>
       <div class="parallax landing" id="plax_1">
         <img
-          src="../assets/c4c-banner-logo.png"
+          src="../assets/c4c-banner-logo.jpeg"
           style="width:80%;height:100%;"
         />
         <h3>Changing the world with software</h3>
