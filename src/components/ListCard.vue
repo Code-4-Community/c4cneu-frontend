@@ -29,7 +29,7 @@ export default {
       required: false
     },
     date: {
-      type: String,
+      type: Number,
       required: true
     }
   },

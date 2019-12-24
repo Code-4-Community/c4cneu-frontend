@@ -1,11 +1,22 @@
 <template>
-  <div>
+  <div @click="handleOutsideClick">
     <div>
-      <h1>Upcoming Events</h1>
+      <h1>Events</h1>
       <div class="content">
+        <h2>Upcoming</h2>
         <list-card
-          v-for="event in events"
-          :key="event.title"
+          v-for="event in futureEvents"
+          :key="event.id"
+          :title="event.title"
+          :subtitle="event.subtitle"
+          :date="event.date"
+          :imageUrl="event.imageUrl"
+          @click.native="handleClickInParent(event.id)"
+        />
+        <h2>Past</h2>
+        <list-card
+          v-for="event in pastEvents"
+          :key="event.id"
           :title="event.title"
           :subtitle="event.subtitle"
           :date="event.date"
@@ -14,61 +25,32 @@
         />
       </div>
     </div>
-    <div :style="{ display: displayType }" class="popup">
-      <div class="popup-content">
-        <button class="close" @click="close">&times;</button>
-        <h2>{{ name }}</h2>
-        <br />
-        <p>{{ desc }}</p>
-        <div v-if="futureEvent">
-          <div class="form-item">
-            <label>Enter your check-in code</label>
-            <br />
-            <input
-              type="text"
-              v-model.number="code"
-              maxlength="4"
-              input-code
-              class="code"
-              placeholder="1234"
-            />
-          </div>
-          <br />
-          <button
-            class="form-item"
-            v-bind:disabled="!codeIsValid"
-            v-on:click="submitCheckIn()"
-          >
-            Check in
-          </button>
-          <p v-if="!codeIsValid" class="error" error-code>
-            Please enter valid 4 digit code
-          </p>
-        </div>
-        <div v-else>
-          <p>This event occurred on {{ date }}</p>
-          .
-        </div>
-      </div>
-    </div>
+    <event-modal
+      :style="{ display: displayType }"
+      :event="activeEvent"
+      :past="activeIsPast"
+    >
+    </event-modal>
   </div>
 </template>
 
 <script>
 import ListCard from "../components/ListCard.vue";
+import EventModal from "../components/EventModal.vue";
 import { mapState, mapActions } from "vuex";
 
 export default {
   data() {
     return {
       activeEventIndex: null,
-      code: null,
-      displayType: "none"
+      displayType: "none",
+      disableOutsideClick: false
     };
   },
 
   components: {
-    ListCard
+    ListCard,
+    EventModal
   },
 
   mounted() {
@@ -86,75 +68,58 @@ export default {
     //futureEvents: returns an array of event objects for which the date of the event is later than 24 hours ago
     //Needs testing
     futureEvents() {
-      var dayInSeconds = 24 * 60 * 60;
-      return this.events.filter(
-        event => this.unixToDate(event.date) > Date.now() - dayInSeconds
-      );
+      return this.events.filter(event => !this.isPast(event.date));
     },
 
     //pastEvents: returns an array of event objects for which the date of the event is earlier than 24 hours ago
     //Needs testing
     pastEvents() {
-      var dayInSeconds = 24 * 60 * 60;
-      return this.events.filter(
-        event => this.unixToDate(event.date) <= Date.now() - dayInSeconds
-      );
+      return this.events.filter(event => this.isPast(event.date));
     },
 
-    name() {
+    activeEvent() {
       if (this.activeEventIndex != null) {
-        return this.events[this.activeEventIndex].title;
+        return this.events[this.activeEventIndex];
       }
-      return "null";
+      return null;
     },
 
-    desc() {
-      if (this.activeEventIndex != null) {
-        return this.events[this.activeEventIndex].desc;
-      }
-      return "null";
-    },
-
-    date() {
-      if (this.activeEventIndex != null) {
-        return this.events[this.activeEventIndex].date;
-      }
-      return "null";
-    },
-
-    //codeIsValid: returns true iff the code is valid.
-    //Needs testing
-    codeIsValid() {
-      //TODO: Use regex to prevent leading zeros?
-      return !isNaN(this.code) && this.code >= 1000 && this.code <= 9999;
+    activeIsPast() {
+      return this.activeEvent ? this.isPast(this.activeEvent.date) : false;
     }
   },
 
   methods: {
     ...mapActions(["FETCH_EVENTS"]),
+
     //handleClickInParent: sets the activeEventIndex to the proper eventId
     handleClickInParent(eventId) {
       this.activeEventIndex = eventId - 1;
       this.displayType = "block";
+      this.disableOutsideClick = true;
     },
 
     close() {
       this.displayType = "none";
     },
 
-    //submitCheckIn: submits an attempt to check in to an event
-    //Needs testing
-    submitCheckIn() {
-      var submittedEvent = this.events[this.activeEventIndex];
-      submittedEvent["code"] = this.code;
-      submittedEvent["checkin-time"] = Date.now() / 1000;
-
-      //TODO: API call needs implementation
-    },
-
     //unixToDate: converts the given unix timestamp to a javascript date number
     unixToDate(unix) {
       return unix * 1000;
+    },
+
+    //Helper function: determines if a given date is more than 24 hours in the past
+    isPast(date) {
+      return this.unixToDate(date) <= Date.now() - 24 * 60 * 60 * 1000; //day in milliseconds
+    },
+
+    handleOutsideClick(event) {
+      var popup = document.getElementById("popup-content");
+      if (!this.disableOutsideClick && !popup.contains(event.target)) {
+        this.close();
+      } else {
+        this.disableOutsideClick = false;
+      }
     }
   }
 };
