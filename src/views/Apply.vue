@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <!-- TODO: ADD PARALLAX -->
-    <h1>Apply to Code 4 Community</h1>
+    <h1>Apply to Code4Community</h1>
     <form>
       <div class="form-item">
         <label for="form-name">Name</label>
@@ -40,9 +40,9 @@
         />
       </div>
       <div class="form-item">
-        <label for="areaInterests">
-          What part of Code 4 Community are you most interested in?
-        </label>
+        <label for="areaInterests"
+          >What part of Code4Community are you most interested in?</label
+        >
         <br />
         <select v-model="areaInterests" id="areaInterests">
           <option value="frontend">Frontend</option>
@@ -62,9 +62,9 @@
         <textarea id="form-prior-involvement" v-model="priorInvolvement" />
       </div>
       <div class="form-item">
-        <label for="form-why-join">
-          Why do you want to join Code 4 Community?
-        </label>
+        <label for="form-why-join"
+          >Why do you want to join Code 4 Community?</label
+        >
         <br />
         <textarea id="form-why-join" v-model="whyJoin" />
       </div>
