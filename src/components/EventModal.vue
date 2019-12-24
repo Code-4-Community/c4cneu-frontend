@@ -71,15 +71,15 @@ export default {
 
     //title, desc, date: return the respective property of the active event
     title() {
-      return this.event ? this.event.title : null;
+      return this.event?.title;
     },
 
     desc() {
-      return this.event ? this.event.desc : null;
+      return this.event?.desc;
     },
 
     date() {
-      return this.event ? this.event.date : null;
+      return this.event?.date;
     },
 
     //codeIsValid: returns true iff the code is valid.
@@ -105,4 +105,34 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.popup {
+  display: none;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 600px;
+}
+
+/* The Close Button */
+.popup-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+</style>

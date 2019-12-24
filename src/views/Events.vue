@@ -8,7 +8,8 @@
           v-for="event in futureEvents"
           :key="event.id"
           :title="event.title"
-          :subtitle="event.desc"
+          :subtitle="event.subtitle"
+          :desc="event.desc"
           :date="event.date"
           :imageUrl="event.imageUrl"
           @click.native="handleClickInParent(event.id)"
@@ -18,7 +19,8 @@
           v-for="event in pastEvents"
           :key="event.id"
           :title="event.title"
-          :subtitle="event.desc"
+          :subtitle="event.subtitle"
+          :desc="event.desc"
           :date="event.date"
           :imageUrl="event.imageUrl"
           @click.native="handleClickInParent(event.id)"
@@ -43,8 +45,8 @@ export default {
   data() {
     return {
       activeEventIndex: null,
-      displayType: "none",
-      disableOutsideClick: false
+      displayType: "none", //"block" to display the modal, "none" to hide it
+      disableOutsideClick: false //see method handleOutsideClick() for explanation
     };
   },
 
@@ -77,6 +79,7 @@ export default {
       return this.events.filter(event => this.isPast(event.date));
     },
 
+    //activeEvent: returns the current active event
     activeEvent() {
       if (this.activeEventIndex != null) {
         return this.events[this.activeEventIndex];
@@ -84,8 +87,9 @@ export default {
       return null;
     },
 
+    //activeIsPast: returns true if the active event is in the past
     activeIsPast() {
-      return this.activeEvent ? this.isPast(this.activeEvent.date) : false;
+      return this.isPast(this.activeEvent?.date);
     }
   },
 
@@ -113,8 +117,15 @@ export default {
       return this.unixToDate(date) <= Date.now() - 24 * 60 * 60 * 1000; //day in milliseconds
     },
 
+    //handleOutsideClick: handles a click anywhere on the page with the intention of closing the modal if not on the modal
     handleOutsideClick(event) {
-      var popup = document.getElementById("popup-content");
+      var popup = document.getElementById("popup-content"); //get the element that contains the popup
+      /* disableOutsideClick: when clicking on an element, the event handlers are called in the order CHILD -> PARENT
+         this means that when you click on an event to show the modal, the handleClickInParent() method is called BEFORE handleOutsideClick()
+         Because of this, this function will CLOSE() the modal right after it is opened because both functions will be called, so the modal cannot open
+         Our solution is to set disableOutsideClick to true when the modal is first opened, and make it false the first time this method is called
+         The next time this method is called, disableOutsideClick will be false, and we can close the modal
+      */
       if (!this.disableOutsideClick && !popup.contains(event.target)) {
         this.close();
       } else {
