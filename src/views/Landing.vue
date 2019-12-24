@@ -45,11 +45,9 @@
           Interested in making an impact with Code4Community? Anyone is welcome
           to join our Slack workspace at
           <a href="https://c4cneu.slack.com/">c4cneu.slack.com</a>
-          using an @husky.neu.edu email address.
-        </p>
-        <p>
-          There, you will find all announcements about upcoming events and can
-          reach out to anyone on the executive board with questions!
+          using an @husky.neu.edu email address. There, you will find all
+          announcements about upcoming events and can reach out to anyone on the
+          executive board with questions!
         </p>
       </div>
     </section>

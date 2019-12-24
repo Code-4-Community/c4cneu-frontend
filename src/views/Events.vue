@@ -7,7 +7,7 @@
           v-for="event in events"
           :key="event.title"
           :title="event.title"
-          :subtitle="event.date"
+          :subtitle="event.subtitle"
           :date="event.date"
           :imageUrl="event.imageUrl"
           @click.native="handleClickInParent(event.id)"

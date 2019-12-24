@@ -29,12 +29,14 @@
       <router-link to="/board" @click.native="toggle" class="nav-item"
         >Board</router-link
       >
+      <!-- TODO: Hiding these until they are fully-functional 
       <router-link to="/apply" @click.native="toggle" class="nav-item"
         >Apply</router-link
       >
       <router-link to="/auth" @click.native="toggle" class="nav-item"
         >Sign In</router-link
       >
+      -->
     </div>
   </div>
 </template>

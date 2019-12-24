@@ -187,7 +187,7 @@ button {
 \*------------------------------------*/
 
 .content {
-  margin: 5% 7% 0 7%;
+  margin: 5% 7% 5% 7%;
 }
 
 .center {
@@ -277,6 +277,10 @@ th {
   padding-right: 10%;
 }
 
+.landing p {
+  font-size: 20px;
+}
+
 @media only screen and (max-width: 700px) {
   .parallax {
     height: 80px;
@@ -287,6 +291,10 @@ th {
   .landing {
     height: auto;
     padding: 60px 10% 60px 10%;
+  }
+
+  .landing p {
+    font-size: 16px;
   }
 }
 
@@ -519,6 +527,7 @@ figure figcaption {
 .post-content {
   text-align: left;
   font-family: "Merriweather", serif;
+  margin: 0 10% 0 0;
 }
 
 @media only screen and (max-width: 700px) {
