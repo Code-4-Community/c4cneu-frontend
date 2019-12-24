@@ -20,7 +20,7 @@
         <h2>{{ name }}</h2>
         <br />
         <div class="form-item">
-          <label>Enter your code</label>
+          <label>Enter your check-in code</label>
           <br />
           <input
             type="text"
@@ -37,7 +37,7 @@
           v-bind:disabled="!codeIsValid"
           v-on:click="submitCheckIn()"
         >
-          Submit
+          Check in
         </button>
         <p v-if="!codeIsValid" class="error" error-code>
           Please enter valid 4 digit code

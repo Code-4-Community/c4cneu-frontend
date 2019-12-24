@@ -5,7 +5,7 @@
     <button @click="openSignUp">Sign up</button>
 
     <!-- TODO: ADD LABEL-FOR TO MAKE LABELS WORK -->
-    <form v-if="isSigningIn">
+    <form v-if="isSigningIn" class="center">
       <h1>Sign in</h1>
       <div class="form-item">
         <label>Email</label>
@@ -33,7 +33,7 @@
       </button>
     </form>
 
-    <form class="form-layout" v-if="!isSigningIn">
+    <form class="form-layout center" v-if="!isSigningIn">
       <h1>Sign up</h1>
       <div class="form-item">
         <label>Name</label>

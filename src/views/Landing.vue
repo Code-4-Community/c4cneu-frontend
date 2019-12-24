@@ -12,7 +12,7 @@
 
     <section>
       <div class="parallax landing" id="plax_2">
-        <h1>MISSION STATEMENT</h1>
+        <h1>Mission Statement</h1>
         <p>
           Code 4 Community (C4C) is a student organization at Northeastern
           University focused on developing and maintaining software solutions
@@ -28,7 +28,7 @@
 
     <section>
       <div class="parallax landing" id="plax_3">
-        <h1>OUR PROJECTS</h1>
+        <h1>Our Projects</h1>
         <p>
           Code 4 Community is an organization on GitHub with over 20 developers.
           Here, you can find the source code to our project frontends and
@@ -40,7 +40,7 @@
 
     <section>
       <div class="parallax landing" id="plax_4">
-        <h1>GET INVOLVED TODAY</h1>
+        <h1>Get Involved Today</h1>
         <p>
           Interested in making an impact with Code4Community? Anyone is welcome
           to join our Slack workspace at
@@ -56,7 +56,7 @@
 
     <section>
       <div class="parallax landing" id="plax_5">
-        <h1>MEET THE TEAM</h1>
+        <h1>Meet the Team</h1>
         <router-link to="/board">
           <button>Our Executive Board</button>
         </router-link>
