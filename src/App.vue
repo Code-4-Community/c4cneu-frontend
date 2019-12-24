@@ -479,6 +479,7 @@ figure figcaption {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-gap: 5%;
+  max-width: 1000px;
 }
 
 .post-item:hover {
