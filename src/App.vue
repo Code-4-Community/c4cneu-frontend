@@ -207,36 +207,6 @@ button {
   grid-gap: 20px;
 }
 
-.popup {
-  display: none;
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-}
-
-.popup-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  max-width: 600px;
-}
-
-/* The Close Button */
-.popup-close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
 @media only screen and (max-width: 700px) {
   .grid-layout {
     grid-template-columns: repeat(1, 1fr);
@@ -479,6 +449,7 @@ figure figcaption {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-gap: 5%;
+  max-width: 1000px;
 }
 
 .post-item:hover {
