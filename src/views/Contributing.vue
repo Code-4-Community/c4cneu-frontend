@@ -4,15 +4,84 @@
       <div class="parallax" id="plax_6">
         <h1>The Contributing Members</h1>
         <nav>
-          <button class="nav-item cont">Eboard</button>
-          <button class="nav-item cont">Development</button>
-          <button class="nav-item cont">Testing & Security</button>
-          <button class="nav-item cont">Design</button>
+          <button
+            class="nav-item cont"
+            @click="changeView('1')"
+            @active="isEboard"
+          >
+            Eboard
+          </button>
+          <button class="nav-item cont" @click="changeView('2')">
+            Development
+          </button>
+          <button class="nav-item cont" @click="changeView('3')">
+            Testing & Security
+          </button>
+          <button class="nav-item cont" @click="changeView('4')">Design</button>
         </nav>
       </div>
     </section>
+
+    <section v-show="isEboard">
+      <h1>1</h1>
+    </section>
+
+    <section v-show="isDev">
+      <h1>2</h1>
+    </section>
+
+    <section v-show="isTS">
+      <h1>3</h1>
+    </section>
+
+    <section v-show="isDesign">
+      <h1>4</h1>
+    </section>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      isEboard: true,
+      isDev: false,
+      isTS: false,
+      isDesign: false
+    };
+  },
+
+  methods: {
+    changeView: function(num) {
+      if (num === "1") {
+        this.isEboard = true;
+        this.isDev = false;
+        this.isTS = false;
+        this.isDesign = false;
+        return;
+      } else if (num === "2") {
+        this.isEboard = false;
+        this.isDev = true;
+        this.isTS = false;
+        this.isDesign = false;
+        return;
+      } else if (num === "3") {
+        this.isEboard = false;
+        this.isDev = false;
+        this.isTS = true;
+        this.isDesign = false;
+        return;
+      } else if (num === "4") {
+        this.isEboard = false;
+        this.isDev = false;
+        this.isTS = false;
+        this.isDesign = true;
+        return;
+      }
+    }
+  }
+};
+</script>
 
 <style scoped>
 button:focus {
@@ -37,27 +106,8 @@ nav {
   color: rgb(175, 172, 172);
 }
 
-.nav-item:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
+.cont:before {
   background: white;
-  height: 1px;
-  z-index: -1;
-  left: 51%;
-  right: 51%;
-  -webkit-transition-property: left, right;
-  transition-property: left, right;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.nav-item:hover:before,
-.nav-item:focus:before,
-.nav-item:active:before {
-  left: 0;
-  right: 0;
 }
 
 .nav-item.router-link-exact-active {
