@@ -15,6 +15,10 @@
 </template>
 
 <style scoped>
+button:focus {
+  outline: 0;
+}
+
 nav {
   background: transparent;
   position: absolute;
