@@ -314,6 +314,9 @@ th {
 #plax_5 {
   background-image: url("assets/p5.png");
 }
+#plax_6 {
+  background-image: url("assets/team.png");
+}
 
 .parallax p {
   color: white;
