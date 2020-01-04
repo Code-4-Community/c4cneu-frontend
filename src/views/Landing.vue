@@ -55,8 +55,8 @@
     <section>
       <div class="parallax landing" id="plax_5">
         <h1>Meet the Team</h1>
-        <router-link to="/board">
-          <button>Our Executive Board</button>
+        <router-link to="/contributing-team">
+          <button>Our Contributing Members</button>
         </router-link>
       </div>
     </section>

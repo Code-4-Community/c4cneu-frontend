@@ -17,7 +17,11 @@
     </section>
 
     <section v-show="isEboard">
-      <h1>1</h1>
+      <div class="content">
+        <div class="grid-layout">
+          <Person v-for="person in people" :key="person.id" :person="person" />
+        </div>
+      </div>
     </section>
 
     <section v-show="isDev">
@@ -35,7 +39,15 @@
 </template>
 
 <script>
+import Person from "../components/Person";
+import { mapState, mapActions } from "vuex";
+
 export default {
+  name: "eboard",
+
+  components: {
+    Person
+  },
   data() {
     return {
       isEboard: true,
@@ -45,7 +57,22 @@ export default {
     };
   },
 
+  mounted() {
+    this.FETCH_BOARD();
+    //makes it so that when taken to page from router, it goes to the top
+    window.scrollTo(0, 0);
+  },
+
+  computed: {
+    ...mapState(["posts"]),
+    people() {
+      return this.$store.getters.GET_BOARD;
+    }
+  },
+
   methods: {
+    ...mapActions(["FETCH_BOARD"]),
+
     changeView: function(num) {
       if (num === "1") {
         this.isEboard = true;
@@ -94,6 +121,8 @@ nav {
 .cont {
   background: transparent;
   color: white;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 .cont:hover {
