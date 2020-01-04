@@ -4,13 +4,7 @@
       <div class="parallax" id="plax_6">
         <h1>The Contributing Members</h1>
         <nav>
-          <button
-            class="nav-item cont"
-            @click="changeView('1')"
-            @active="isEboard"
-          >
-            Eboard
-          </button>
+          <button class="nav-item cont" @click="changeView('1')">Eboard</button>
           <button class="nav-item cont" @click="changeView('2')">
             Development
           </button>
