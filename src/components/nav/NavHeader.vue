@@ -28,7 +28,10 @@
       <router-link to="/events" @click.native="toggle" class="nav-item"
         >Events</router-link
       >
-      <router-link to="/board" @click.native="toggle" class="nav-item"
+      <router-link
+        to="/contributing-team"
+        @click.native="toggle"
+        class="nav-item"
         >Board</router-link
       >
       <!-- TODO: Hiding these until they are fully-functional 
