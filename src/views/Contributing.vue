@@ -35,6 +35,13 @@
     <section v-show="isDesign">
       <h1>4</h1>
     </section>
+
+    <section class="becomeMember">
+      <h1>
+        If you are interested in becoming a contributing member go here to
+        apply!
+      </h1>
+    </section>
   </div>
 </template>
 
@@ -150,5 +157,9 @@ nav {
   -webkit-background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
+}
+
+.becomeMember {
+  background: lightgrey;
 }
 </style>
