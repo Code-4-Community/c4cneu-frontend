@@ -29,6 +29,10 @@ export default {
       required: false
     },
     date: {
+      type: Number,
+      required: true
+    },
+    desc: {
       type: String,
       required: true
     }
