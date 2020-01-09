@@ -17,7 +17,6 @@ describe("dummy test", () => {
 /*
 describe("Events.vue", () => {
 
-  test("Check logic of events modal", () => {
     const wrapper = mount(Events, { Store, localVue });
     const event = wrapper.find("list-card");
     const modal = wrapper.find("event-modal");

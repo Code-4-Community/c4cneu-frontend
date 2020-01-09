@@ -414,8 +414,8 @@ figure figcaption {
   .hamburger-icon {
     display: inline-block;
     position: absolute;
-    right: 10%;
-    top: 40px;
+    right: 6%;
+    top: 45px;
   }
 
   .big-menu {
@@ -423,7 +423,7 @@ figure figcaption {
   }
 
   .mobile-logo {
-    width: 50%;
+    width: 80%;
     margin: auto;
     display: inline-block;
   }
@@ -431,6 +431,7 @@ figure figcaption {
   .nav-item {
     display: block;
     margin: 15px auto 15px auto;
+    font-size: 24px;
   }
 }
 
