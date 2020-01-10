@@ -155,9 +155,10 @@ input[type="password"] {
 }
 
 button {
-  background-color: #ffffff;
+  background-color: #f0f0f0;
   border: none;
   padding: 15px 20px 14px 20px;
+  margin: 0 10px 0 10px;
   font-size: 18px;
   text-transform: uppercase;
   border-radius: 1px;
