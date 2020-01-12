@@ -6,29 +6,28 @@
       </div>
     </section>
     <div class="content">
-      <div v-for="post in mediaPosts" :key="post.id">
-        <post-item
-          :id="post.id"
-          :title="post.title"
-          :imageUrl="post.imageUrl"
-          :desc="post.desc"
-          :url="post.url"
-          :date="post.date"
-        />
-      </div>
+      <list-card
+        v-for="post in mediaPosts"
+        :key="post.title"
+        :title="post.title"
+        :subtitle="post.desc"
+        :date="post.date"
+        :imageUrl="post.imageUrl"
+        @click.native="onClickPost(`/post/${post.id}`)"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import PostItem from "../components/PostItem.vue";
+import ListCard from "../components/ListCard.vue";
 import { mapState, mapActions } from "vuex";
 
 export default {
   name: "Media",
 
   components: {
-    "post-item": PostItem
+    ListCard
   },
   mounted() {
     this.FETCH_POSTS();
@@ -36,17 +35,18 @@ export default {
   computed: {
     ...mapState(["posts"]),
 
-    //mediaPosts: grabs all posts.
-    //Needs testing
     mediaPosts() {
-      //Temporary:
       return this.$store.getters.GET_POSTS;
-
-      //API call needs to be implemented
     }
   },
   methods: {
-    ...mapActions(["FETCH_POSTS"])
+    ...mapActions(["FETCH_POSTS"]),
+
+    onClickPost(route) {
+      // eslint-disable-next-line
+      console.log("hello");
+      this.$router.push(route);
+    }
   }
 };
 </script>

@@ -97,11 +97,18 @@ a:hover {
 
 /* FORMS AND INPUT */
 form {
-  margin: 20px auto 20px auto;
+  margin: 20px 0 20px 0;
+  text-align: left;
   padding: 2% 4% 2% 4%;
   width: 60%;
   max-width: 800px;
   min-width: 200px;
+}
+
+form.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 form div.form-item {
@@ -180,7 +187,7 @@ button {
 \*------------------------------------*/
 
 .content {
-  margin: 5% 7% 0 7%;
+  margin: 5% 7% 5% 7%;
 }
 
 .center {
@@ -198,36 +205,6 @@ button {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
-}
-
-.popup {
-  display: none;
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-}
-
-.popup-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  max-width: 600px;
-}
-
-/* The Close Button */
-.popup-close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
 }
 
 @media only screen and (max-width: 700px) {
@@ -270,6 +247,10 @@ th {
   padding-right: 10%;
 }
 
+.landing p {
+  font-size: 20px;
+}
+
 @media only screen and (max-width: 700px) {
   .parallax {
     height: 80px;
@@ -280,6 +261,10 @@ th {
   .landing {
     height: auto;
     padding: 60px 10% 60px 10%;
+  }
+
+  .landing p {
+    font-size: 16px;
   }
 }
 
@@ -345,6 +330,7 @@ figure figcaption {
   border-radius: 50%;
   color: black;
   background-color: white;
+  width: 40px;
 }
 
 /* NAV */
@@ -428,8 +414,8 @@ figure figcaption {
   .hamburger-icon {
     display: inline-block;
     position: absolute;
-    right: 10%;
-    top: 40px;
+    right: 6%;
+    top: 45px;
   }
 
   .big-menu {
@@ -437,7 +423,7 @@ figure figcaption {
   }
 
   .mobile-logo {
-    width: 50%;
+    width: 80%;
     margin: auto;
     display: inline-block;
   }
@@ -445,6 +431,7 @@ figure figcaption {
   .nav-item {
     display: block;
     margin: 15px auto 15px auto;
+    font-size: 24px;
   }
 }
 
@@ -463,6 +450,7 @@ figure figcaption {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-gap: 5%;
+  max-width: 1000px;
 }
 
 .post-item:hover {
@@ -511,6 +499,7 @@ figure figcaption {
 .post-content {
   text-align: left;
   font-family: "Merriweather", serif;
+  margin: 0 10% 0 0;
 }
 
 @media only screen and (max-width: 700px) {

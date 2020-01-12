@@ -42,21 +42,6 @@ p {
   line-height: 25px;
 }
 
-/*
-figure {
-  position: relative;
-}
-
-figure figcaption {
-    position: absolute;
-    bottom: 5px;
-    left: 0;
-    background: rgba(0,0,0,0.6);
-    text-align: center;
-    color: #fff; 
-    padding: 10px;
-} */
-
 .title {
   color: grey;
   font-style: italic;
@@ -95,7 +80,11 @@ img {
   }
 
   .container {
-    width: 340px;
+    width: auto;
+  }
+
+  .page {
+    padding: 0;
   }
 }
 

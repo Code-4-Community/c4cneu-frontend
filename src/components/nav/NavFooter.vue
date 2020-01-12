@@ -18,7 +18,7 @@
           </router-link>
         </div>
         <div class="column3" align="left">
-          <h3>Find us on</h3>
+          <h3>Connect with us</h3>
           <a
             href="https://www.facebook.com/c4cneu/"
             class="fa fa-facebook hvr-grow"
@@ -47,15 +47,19 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   mounted() {
     this.FETCH_EVENTS();
   },
   computed: {
-    //events: returns all of the events from the vuex store
     events() {
       return this.$store.getters.GET_EVENTS;
     }
+  },
+  methods: {
+    ...mapActions(["FETCH_EVENTS"])
   }
 };
 </script>
