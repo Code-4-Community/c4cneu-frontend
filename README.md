@@ -11,7 +11,29 @@ npm install
 npm install -g @vue/cli
 ```
 
-### Common commands
+## GitHub Workflow
+Large features will be developed on their own independent branches.\
+The format for new a new branch is: `[YourName]_[ID]_[TicketName]`\
+Create a new branch in the command line using `git checkout -b [branch_name]`\
+Commits to branches must be submitted through pull requests.\
+Commit to your branch using `git add *` and then `git commit -m "Your message"`\
+Pull requests should have a description of the changes made and a link to a Trello ticket.\
+If a pull request receives comments, please fix them and then resolve the comment.
+
+## Repository structure
+#### The root folder 
+Contains the config and lock files for the various packages that are used in this project such as babel and yarn. It also has the README.md and the Docker configuration. Besides that it contains the public, src and tests folders.
+
+#### The public folder 
+Contains the `favicon.ico` file, the icon used in browser tabs, and the index file, which mainly serves to specify settings and import stylesheets.
+
+#### The src folder 
+Contains all the content of the website. The assets folder contains all the images used on the website. The components folder contains several components that are used across the website, such as the header and footer on every page. The router folder contains a JavaScript file specifying the different routes across the website. The store folder has a JavaScript file that fetches and gets elements of the website that are loaded from elsewhere, such as our e-board page or our upcoming events. The views folder contains the `.vue` file of every page. The `App.vue` file in the src folder contains must of the styling for the website and sets up the basic structure of every page. 
+
+#### The tests folder 
+Contains two folders, `e2e` and `unit`. The e2e folder contains our end-to-end tests and the unit folder contains our unit tests, all written in JavaScript.
+
+## Common commands
 #### Compiles and hot-reloads for development
 ```
 npm run serve
@@ -40,27 +62,3 @@ npm run test:e2e
 ```
 npm run test:unit
 ```
-
-## GitHub Workflow
-Large features will be developed on their own independent branches.
-
-The format for new a new branch is: `[YourName]_[ID]_[TicketName]`
-
-Commits to branches must be submitted through pull requests.
-
-Pull requests should have a description of the changes made and a link to a Trello ticket.
-
-If a pull request receives comments, please fix them and then resolve the comment.
-
-## Repository structure
-#### The root folder 
-Contains the config and lock files for the various packages that are used in this project such as babel and yarn. It also has the README.md and the Docker configuration. Besides that it contains the public, src and tests folders.
-
-#### The public folder 
-Contains the `favicon.ico` file, the icon used in browser tabs, and the index file, which mainly serves to specify settings and import stylesheets.
-
-#### The src folder 
-Contains all the content of the website. The assets folder contains all the images used on the website. The components folder contains several components that are used across the website, such as the header and footer on every page. The router folder contains a JavaScript file specifying the different routes across the website. The store folder has a JavaScript file that fetches and gets elements of the website that are loaded from elsewhere, such as our e-board page or our upcoming events. The views folder contains the `.vue` file of every page. The `App.vue` file in the src folder contains must of the styling for the website and sets up the basic structure of every page. 
-
-#### The tests folder 
-Contains two folders, `e2e` and `unit`. The e2e folder contains our end-to-end tests and the unit folder contains our unit tests, all written in JavaScript.
