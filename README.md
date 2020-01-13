@@ -1,10 +1,15 @@
-# Code For Community Frontend Development
+<img src="src/assets/c4c-banner-logo.jpeg" align="center">
 
->Disclaimer: All *npm* commands can be substitued for *yarn* commands
+# Frontend for www.c4cneu.com
+This repository contains the contains the code for the website www.c4cneu.com. 
+
 
 ## Project setup
+>To set up the project locally on your machine run the following commands in the terminal. Make sure you're in the desired folder.
 ```
+git clone https://github.com/Code-4-Community/c4cneu-frontend.git
 npm install
+npm install -g @vue/cli
 ```
 
 ### Compiles and hot-reloads for development
@@ -36,6 +41,3 @@ npm run test:e2e
 ```
 npm run test:unit
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
