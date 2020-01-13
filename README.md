@@ -12,6 +12,15 @@ npm install
 npm install -g @vue/cli
 ```
 
+## GitHub Workflow
+```
+Large features will be developed on their own independent branches.
+The format for new a new branch is: [YourName]_[ID]_[TicketName]
+Commits to branches must be submitted through pull requests.
+Pull requests should have a description of the changes made and a link to a Trello ticket.
+If a pull request receives comments, please fix them and then resolve the comment.
+```
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
