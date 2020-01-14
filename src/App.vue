@@ -155,11 +155,13 @@ input[type="password"] {
 }
 
 button {
-  background-color: #bec2f7;
+  background-color: #f0f0f0;
   border: none;
-  padding: 10px 16px 10px 16px;
-  font-size: 16px;
+  padding: 15px 20px 14px 20px;
+  margin: 0 10px 0 10px;
+  font-size: 18px;
   text-transform: uppercase;
+  border-radius: 1px;
 }
 
 @media only screen and (max-width: 700px) {

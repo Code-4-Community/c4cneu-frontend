@@ -36,15 +36,18 @@ export default {
     ...mapState(["posts"]),
 
     mediaPosts() {
-      return this.$store.getters.GET_POSTS;
+      var posts = this.$store.getters.GET_POSTS;
+      //Sorting function should return less than 0 when post1's date is before (<) post2's date:
+      posts.sort((post1, post2) => {
+        return post1.date - post2.date;
+      });
+      return posts;
     }
   },
   methods: {
     ...mapActions(["FETCH_POSTS"]),
 
     onClickPost(route) {
-      // eslint-disable-next-line
-      console.log("hello");
       this.$router.push(route);
     }
   }

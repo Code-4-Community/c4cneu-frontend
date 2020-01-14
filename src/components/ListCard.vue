@@ -34,7 +34,7 @@ export default {
     },
     desc: {
       type: String,
-      required: true
+      required: false
     }
   },
 

@@ -1,6 +1,5 @@
 <template>
   <div class="content">
-    <!-- TODO: MAKE TABS INSTEAD OF BUTTONS -->
     <button @click="openSignIn">Sign in</button>
     <button @click="openSignUp">Sign up</button>
 

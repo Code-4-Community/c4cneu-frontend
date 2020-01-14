@@ -6,12 +6,7 @@
       <div class="form-item">
         <label for="form-name">Name</label>
         <br />
-        <input
-          type="text"
-          id="form-name"
-          v-model="name"
-          placeholder="Enter your name"
-        />
+        <input type="text" id="form-name" v-model="name" />
       </div>
       <div class="form-item">
         <label for="year">Year</label>
