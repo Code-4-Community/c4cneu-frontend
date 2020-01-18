@@ -25,22 +25,36 @@
     </section>
 
     <section v-show="isDev">
-      <h1>2</h1>
+      <div class="content">
+        <div class="grid-layout-4">
+          <Person v-for="person in people" :key="person.id" :person="person" />
+        </div>
+      </div>
     </section>
 
     <section v-show="isTS">
-      <h1>3</h1>
+      <div class="content">
+        <div class="grid-layout-4">
+          <Person v-for="person in people" :key="person.id" :person="person" />
+        </div>
+      </div>
     </section>
 
     <section v-show="isDesign">
-      <h1>4</h1>
+      <div class="content">
+        <div class="grid-layout-4">
+          <Person v-for="person in people" :key="person.id" :person="person" />
+        </div>
+      </div>
     </section>
 
     <section class="becomeMember">
-      <h1>
-        If you are interested in becoming a contributing member go here to
-        apply!
-      </h1>
+      <div>
+        <h1 class="interestedIn">Interested in becoming a member?</h1>
+
+        <h2 class="applyHere">Sumbit an application here</h2>
+        <button class="applyButton">Apply Here</button>
+      </div>
     </section>
   </div>
 </template>
@@ -161,5 +175,27 @@ nav {
 
 .becomeMember {
   background: lightgrey;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.interestedIn {
+  margin: auto;
+  width: 60%;
+  float: left;
+}
+
+.applyHere {
+  margin: auto;
+}
+
+.applyButton {
+  background-color: rgb(5, 179, 179);
+}
+
+.grid-layout-4 {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 20px;
 }
 </style>
