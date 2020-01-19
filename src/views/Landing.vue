@@ -42,8 +42,9 @@
       <div class="parallax landing" id="plax_4">
         <h1>Get Involved Today</h1>
         <p>
-          Interested in making an impact with Code4Community? Anyone is welcome
-          to join our Slack workspace at
+          Interested in making an impact with Code4Community?
+          <a href="/apply">Apply now</a> to become a contributing member!
+          Additionaly, anyone is welcome to join our Slack workspace at
           <a href="https://c4cneu.slack.com/">c4cneu.slack.com</a>
           using an @husky.neu.edu email address. There, you will find all
           announcements about upcoming events and can reach out to anyone on the
