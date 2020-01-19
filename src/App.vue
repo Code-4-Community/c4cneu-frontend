@@ -286,6 +286,15 @@ th {
 #plax_5 {
   background-image: url("assets/p5.png");
 }
+#plax_6 {
+  background-image: url("assets/p6.png");
+}
+#plax_7 {
+  background-image: url("assets/p7.png");
+}
+#plax_8 {
+  background-image: url("assets/p8.png");
+}
 
 .parallax p {
   color: white;

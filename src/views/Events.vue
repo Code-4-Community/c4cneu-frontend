@@ -1,9 +1,12 @@
 <template>
   <div @click="handleOutsideClick">
+    <section>
+      <div class="parallax" id="plax_6">
+        <h1>Upcoming Events</h1>
+      </div>
+    </section>
     <div>
-      <h1>Events</h1>
       <div class="content">
-        <h2>Upcoming</h2>
         <list-card
           v-for="event in futureEvents"
           :key="event.id"
