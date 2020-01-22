@@ -21,7 +21,12 @@
 <script>
 export default {
   name: "person",
-  props: ["person"]
+  props: {
+    person: {
+      type: Object,
+      required: true
+    }
+  }
 };
 </script>
 

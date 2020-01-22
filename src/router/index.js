@@ -1,11 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Landing from "../views/Landing.vue";
+import LandingView from "../views/LandingView.vue";
 import Auth from "../views/Auth.vue";
 import Events from "../views/Events.vue";
 import EventsAdmin from "../views/EventsAdmin.vue";
-import Board from "../views/Board.vue";
-import News from "../views/News.vue";
+import EBoardView from "../views/EBoardView.vue";
+import NewsView from "../views/NewsView.vue";
 import Post from "../views/Post.vue";
 import Apply from "../views/Apply.vue";
 
@@ -15,20 +15,18 @@ const routes = [
   {
     path: "/",
     name: "landing",
-    component: Landing
+    component: LandingView
   },
   {
     path: "/auth",
     name: "auth",
     component: Auth
   },
-
   {
     path: "/board",
     name: "board",
-    component: Board
+    component: EBoardView
   },
-
   {
     path: "/events",
     name: "events",
@@ -42,7 +40,7 @@ const routes = [
   {
     path: "/news",
     name: "news",
-    component: News
+    component: NewsView
   },
   {
     path: "/post/:id",

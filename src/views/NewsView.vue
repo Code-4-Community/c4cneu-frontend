@@ -24,8 +24,7 @@ import ListCard from "../components/ListCard.vue";
 import { mapState, mapActions } from "vuex";
 
 export default {
-  name: "Media",
-
+  name: "news-view",
   components: {
     ListCard
   },

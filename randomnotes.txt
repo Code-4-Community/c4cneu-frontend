@@ -1,0 +1,6 @@
+Random Notes (YAY)
+
+1. Make the footer stick to the bottom on routes /events
+2. Generally, we shouldn't be storing images in files because it makes the bundle
+    pretty big. This will be fixed once s3 is up and running, but depending on loading
+    speed, we might just want to keep them in the assets folder.

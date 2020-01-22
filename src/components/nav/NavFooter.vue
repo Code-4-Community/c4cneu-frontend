@@ -10,9 +10,11 @@
         </div>
         <div class="column2" align="left">
           <h3>Upcoming events</h3>
+          <!-- If this is supposed to go to /events, change this to to={name: 'events'} which 
+          pushes the router to the url at the of the route which is named events -->
           <router-link
             to="../../events"
-            v-for="event in events.slice(0, 3)"
+            v-for="event in shownEvents"
             :key="event.title"
           >
             <p>{{ event.title }}</p>
@@ -48,15 +50,17 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
-  mounted() {
+  name: "nav-footer",
+  created() {
     this.FETCH_EVENTS();
   },
   computed: {
-    events() {
-      return this.$store.getters.GET_EVENTS;
+    ...mapGetters(["GET_EVENTS"]),
+    shownEvents() {
+      return this.GET_EVENTS.slice(0, 3);
     }
   },
   methods: {

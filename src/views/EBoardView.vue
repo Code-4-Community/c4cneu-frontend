@@ -18,15 +18,14 @@ import Person from "../components/Person";
 import { mapState, mapActions } from "vuex";
 
 export default {
-  name: "eboard",
-
+  name: "eboard-view",
   components: {
     Person
   },
-
   mounted() {
     this.FETCH_BOARD();
     //makes it so that when taken to page from router, it goes to the top
+    // I believe that it automatically scrolls to the top
     window.scrollTo(0, 0);
   },
   computed: {

@@ -19,7 +19,9 @@
     <router-link @click.native="hide" to="/">
       <img src="../../assets/c4c-banner-logo.png" class="mobile-logo" />
     </router-link>
+    <!-- Should this just be a v-if instead of inline styling hiding -->
     <div class="mobile-menu" :style="{ display: displayType }">
+      <!-- Can someone explain this inline block toggle thing? -->
       <router-link to="/news" @click.native="toggle" class="nav-item"
         >News</router-link
       >
@@ -49,6 +51,7 @@ export default {
     };
   },
   methods: {
+    // I think we should just use v-ifs instead of this logic, but let me know if theres a reason not to
     //Toggles menu (mobile only)
     toggle: function() {
       if (this.displayType == "none") {
@@ -65,5 +68,3 @@ export default {
   }
 };
 </script>
-
-<style scoped></style>
