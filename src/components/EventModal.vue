@@ -8,7 +8,8 @@
       <div v-if="past">
         <p>This event occurred on {{ dateString }}.</p>
       </div>
-      <div v-else>
+      <!-- TODO: This false statement disables the check-in from showing, because it's not functional -->
+      <div v-else-if="false">
         <div class="form-item">
           <label>Enter your check-in code:</label>
           <br />
