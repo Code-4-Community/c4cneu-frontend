@@ -16,7 +16,7 @@
           :imageUrl="event.imageUrl"
           @click.native="handleClickInParent(event.id)"
         />
-        <h2>Past</h2>
+        <h2>Past Events</h2>
         <list-card
           v-for="event in pastEvents"
           :key="event.id"
