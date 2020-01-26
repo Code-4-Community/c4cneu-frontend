@@ -195,7 +195,8 @@ nav {
 
 .grid-layout-4 {
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: start;
   grid-gap: 20px;
 }
 </style>
