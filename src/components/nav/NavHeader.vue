@@ -6,7 +6,7 @@
       </router-link>
       <router-link to="/news" class="nav-item">News</router-link>
       <router-link to="/events" class="nav-item">Events</router-link>
-      <router-link to="/contributing-team" class="nav-item"
+      <router-link to="/members" class="nav-item"
         >Contributing Team</router-link
       >
       <!-- TODO: Hiding these until they are fully-functional -->

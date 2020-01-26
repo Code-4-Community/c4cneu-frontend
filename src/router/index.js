@@ -8,7 +8,7 @@ import Board from "../views/Board.vue";
 import News from "../views/News.vue";
 import Post from "../views/Post.vue";
 import Apply from "../views/Apply.vue";
-import Contributing from "../views/Contributing.vue";
+import Members from "../views/Members.vue";
 
 Vue.use(VueRouter);
 
@@ -31,9 +31,9 @@ const routes = [
   },
 
   {
-    path: "/contributing-team",
-    name: "contributing-team",
-    component: Contributing
+    path: "/members",
+    name: "members",
+    component: Members
   },
 
   {

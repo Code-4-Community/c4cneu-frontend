@@ -1,7 +1,7 @@
 <template>
   <div>
     <section>
-      <div class="parallax" id="plax_6">
+      <div class="parallax" id="plax_9">
         <h1>The Contributing Members</h1>
         <nav>
           <button class="nav-item cont" @click="changeView('1')">Eboard</button>
@@ -45,15 +45,6 @@
         <div class="grid-layout-4">
           <Person v-for="person in people" :key="person.id" :person="person" />
         </div>
-      </div>
-    </section>
-
-    <section class="becomeMember">
-      <div>
-        <h1 class="interestedIn">Interested in becoming a member?</h1>
-
-        <h2 class="applyHere">Sumbit an application here</h2>
-        <button class="applyButton">Apply Here</button>
       </div>
     </section>
   </div>
