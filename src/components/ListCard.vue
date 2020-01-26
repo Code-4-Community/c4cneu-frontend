@@ -29,8 +29,12 @@ export default {
       required: false
     },
     date: {
-      type: String,
+      type: Number,
       required: true
+    },
+    desc: {
+      type: String,
+      required: false
     }
   },
 

@@ -155,11 +155,13 @@ input[type="password"] {
 }
 
 button {
-  background-color: #bec2f7;
+  background-color: #f0f0f0;
   border: none;
-  padding: 10px 16px 10px 16px;
-  font-size: 16px;
+  padding: 15px 20px 14px 20px;
+  margin: 0 10px 0 10px;
+  font-size: 18px;
   text-transform: uppercase;
+  border-radius: 1px;
 }
 
 @media only screen and (max-width: 700px) {
@@ -205,36 +207,6 @@ button {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
-}
-
-.popup {
-  display: none;
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-}
-
-.popup-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  max-width: 600px;
-}
-
-/* The Close Button */
-.popup-close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
 }
 
 @media only screen and (max-width: 700px) {
@@ -315,7 +287,13 @@ th {
   background-image: url("assets/p5.png");
 }
 #plax_6 {
-  background-image: url("assets/team.png");
+  background-image: url("assets/p6.png");
+}
+#plax_7 {
+  background-image: url("assets/p7.png");
+}
+#plax_8 {
+  background-image: url("assets/p8.png");
 }
 
 .parallax p {
@@ -447,8 +425,8 @@ figure figcaption {
   .hamburger-icon {
     display: inline-block;
     position: absolute;
-    right: 10%;
-    top: 40px;
+    right: 6%;
+    top: 45px;
   }
 
   .big-menu {
@@ -456,7 +434,7 @@ figure figcaption {
   }
 
   .mobile-logo {
-    width: 50%;
+    width: 80%;
     margin: auto;
     display: inline-block;
   }
@@ -464,6 +442,7 @@ figure figcaption {
   .nav-item {
     display: block;
     margin: 15px auto 15px auto;
+    font-size: 24px;
   }
 }
 
@@ -482,6 +461,7 @@ figure figcaption {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-gap: 5%;
+  max-width: 1000px;
 }
 
 .post-item:hover {
