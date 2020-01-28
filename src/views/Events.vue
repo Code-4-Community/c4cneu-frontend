@@ -7,6 +7,7 @@
     </section>
     <div>
       <div class="content">
+        <h2 v-if="hasFuture">Upcoming Events</h2>
         <list-card
           v-for="event in futureEvents"
           :key="event.id"
@@ -16,7 +17,7 @@
           :imageUrl="event.imageUrl"
           @click.native="handleClickInParent(event.id)"
         />
-        <h2>Past Events</h2>
+        <h2 v-if="hasPast">Past Events</h2>
         <list-card
           v-for="event in pastEvents"
           :key="event.id"
@@ -78,6 +79,16 @@ export default {
     //Needs testing
     pastEvents() {
       return this.events.filter(event => this.isPast(event.date));
+    },
+
+    //hasFuture: returns true if futureEvents returns an array of length >= 1
+    hasFuture() {
+      return this.futureEvents?.length > 0;
+    },
+
+    //hasFuture: returns true if futureEvents returns an array of length >= 1
+    hasPast() {
+      return this.pastEvents?.length > 0;
     },
 
     //activeEvent: returns the current active event
