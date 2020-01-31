@@ -6,6 +6,16 @@
       </div>
     </section>
     <div class="content">
+      <p>
+        Use the form below to apply to become a contributing member.
+        Contributing members are split up into four teams: Testing & Security,
+        Outreach & Mentorship, Design or Development. Once accepted you will be
+        placed into a team that most closely matches your skills and interests.
+        Most teams will expect their members to have 10 hours available each
+        week to work on C4C related projects and meet once a week to discuss
+        progress and plan work, so make sure you are willing and able to take on
+        that responsibility.
+      </p>
       <form>
         <div class="form-item">
           <label for="form-name">Name</label>
