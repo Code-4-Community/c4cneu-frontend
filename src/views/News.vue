@@ -28,16 +28,20 @@
 <script>
 import ListCard from "../components/ListCard.vue";
 import { mapState, mapActions } from "vuex";
+import Loading from "vue-loading-overlay";
 
 export default {
   name: "Media",
 
   components: {
-    ListCard
+    ListCard,
+    Loading
   },
+
   mounted() {
     this.FETCH_POSTS();
   },
+
   computed: {
     ...mapState(["posts"]),
 

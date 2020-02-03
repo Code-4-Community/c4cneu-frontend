@@ -22,12 +22,14 @@
 <script>
 import Person from "../components/Person";
 import { mapState, mapActions } from "vuex";
+import Loading from "vue-loading-overlay";
 
 export default {
   name: "eboard",
 
   components: {
-    Person
+    Person,
+    Loading
   },
 
   mounted() {
