@@ -8,9 +8,9 @@ Vue.use(VueAxios, Axios);
 
 export default new Vuex.Store({
   state: {
-    board: [],
-    posts: [],
-    events: []
+    board: { boardArray: [], isLoading: true },
+    posts: { postArray: [], isLoading: true },
+    events: { eventArray: [], isLoading: true }
   },
   getters: {
     GET_BOARD: state => {
@@ -20,7 +20,7 @@ export default new Vuex.Store({
       return state.posts;
     },
     GET_POST_BY_ID: state => id => {
-      return state.posts.find(post => post.id === id);
+      return state.posts.postArray.find(post => post.id === id);
     },
     GET_EVENTS: state => {
       return state.events;
@@ -28,13 +28,16 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_BOARD(state, eboard) {
-      state.board = eboard;
+      state.board.isLoading = false;
+      state.board.boardArray = eboard;
     },
     SET_POSTS(state, posts) {
-      state.posts = posts;
+      state.posts.isLoading = false;
+      state.posts.postArray = posts;
     },
     SET_EVENTS(state, events) {
-      state.events = events;
+      state.events.isLoading = false;
+      state.events.eventArray = events;
     }
   },
   actions: {

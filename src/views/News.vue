@@ -1,5 +1,11 @@
 <template>
   <div>
+    <loading
+      :active.sync="postsLoading"
+      :can-cancel="true"
+      :on-cancel="onCancel"
+      :is-full-page="fullPage"
+    ></loading>
     <section>
       <div class="parallax" id="plax_2">
         <h1>Community News</h1>
@@ -35,8 +41,12 @@ export default {
   computed: {
     ...mapState(["posts"]),
 
+    postsLoading() {
+      return this.$store.getters.GET_POSTS.isloading;
+    },
+
     mediaPosts() {
-      var posts = this.$store.getters.GET_POSTS;
+      var posts = this.$store.getters.GET_POSTS.postArray;
       //Sorting function should return less than 0 when post1's date is before (<) post2's date:
       posts.sort((post1, post2) => {
         return post1.date - post2.date;

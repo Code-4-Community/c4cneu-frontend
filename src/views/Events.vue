@@ -1,5 +1,11 @@
 <template>
   <div @click="handleOutsideClick">
+    <loading
+      :active.sync="eventsLoading"
+      :can-cancel="true"
+      :on-cancel="onCancel"
+      :is-full-page="fullPage"
+    ></loading>
     <section>
       <div class="parallax" id="plax_6">
         <h1>Upcoming Events</h1>
@@ -33,8 +39,7 @@
       :style="{ display: displayType }"
       :event="activeEvent"
       :past="activeIsPast"
-    >
-    </event-modal>
+    ></event-modal>
   </div>
 </template>
 
@@ -42,19 +47,22 @@
 import ListCard from "../components/ListCard.vue";
 import EventModal from "../components/EventModal.vue";
 import { mapState, mapActions } from "vuex";
+import Loading from "vue-loading-overlay";
 
 export default {
   data() {
     return {
       activeEventIndex: null,
       displayType: "none", //"block" to display the modal, "none" to hide it
-      disableOutsideClick: false //see method handleOutsideClick() for explanation
+      disableOutsideClick: false, //see method handleOutsideClick() for explanation
+      isLoading: true
     };
   },
 
   components: {
     ListCard,
-    EventModal
+    EventModal,
+    Loading
   },
 
   mounted() {
@@ -66,7 +74,11 @@ export default {
 
     //events: returns all of the events from the vuex store
     events() {
-      return this.$store.getters.GET_EVENTS;
+      return this.$store.getters.GET_EVENTS.eventArray;
+    },
+
+    eventsLoading() {
+      return this.$store.getters.GET_EVENTS.isLoading;
     },
 
     //futureEvents: returns an array of event objects for which the date of the event is later than 24 hours ago

@@ -1,5 +1,11 @@
 <template>
   <div>
+    <loading
+      :active.sync="boardLoading"
+      :can-cancel="true"
+      :on-cancel="onCancel"
+      :is-full-page="fullPage"
+    ></loading>
     <section>
       <div class="parallax" id="plax_5">
         <h1>Executive Board</h1>
@@ -30,9 +36,14 @@ export default {
     window.scrollTo(0, 0);
   },
   computed: {
-    ...mapState(["posts"]),
+    ...mapState(["board"]),
+
     people() {
-      return this.$store.getters.GET_BOARD;
+      return this.$store.getters.GET_BOARD.boardArray;
+    },
+
+    boardLoading() {
+      return this.$store.getters.GET_BOARD.isLoading;
     }
   },
   methods: {
