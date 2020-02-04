@@ -155,11 +155,13 @@ input[type="password"] {
 }
 
 button {
-  background-color: #bec2f7;
+  background-color: #f0f0f0;
   border: none;
-  padding: 10px 16px 10px 16px;
-  font-size: 16px;
+  padding: 15px 20px 14px 20px;
+  margin: 0 10px 0 10px;
+  font-size: 18px;
   text-transform: uppercase;
+  border-radius: 1px;
 }
 
 @media only screen and (max-width: 700px) {
@@ -283,6 +285,15 @@ th {
 }
 #plax_5 {
   background-image: url("assets/p5.png");
+}
+#plax_6 {
+  background-image: url("assets/p6.png");
+}
+#plax_7 {
+  background-image: url("assets/p7.png");
+}
+#plax_8 {
+  background-image: url("assets/p8.png");
 }
 
 .parallax p {

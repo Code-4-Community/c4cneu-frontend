@@ -1,86 +1,92 @@
 <template>
-  <div class="content">
-    <!-- TODO: MAKE TABS INSTEAD OF BUTTONS -->
-    <button @click="openSignIn">Sign in</button>
-    <button @click="openSignUp">Sign up</button>
+  <div>
+    <section>
+      <div class="parallax" id="plax_8">
+        <h1>Sign In / Sign Up</h1>
+      </div>
+    </section>
+    <div class="content">
+      <button @click="openSignIn">Sign in</button>
+      <button @click="openSignUp">Sign up</button>
 
-    <!-- TODO: ADD LABEL-FOR TO MAKE LABELS WORK -->
-    <form v-if="isSigningIn" class="center">
-      <h1>Sign in</h1>
-      <div class="form-item">
-        <label>Email</label>
-        <br />
-        <input
-          ref="first"
-          type="text"
-          v-model="user.emailAddress"
-          @focus="clearStatus"
-          placeholder="Email"
-        />
-      </div>
-      <div class="form-item">
-        <label>Password</label>
-        <br />
-        <input
-          type="password"
-          v-model="user.password"
-          @focus="clearStatus"
-          placeholder="Password"
-        />
-      </div>
-      <button type="button" class="form-item" @click="handleSignIn">
-        Sign in
-      </button>
-    </form>
+      <!-- TODO: ADD LABEL-FOR TO MAKE LABELS WORK -->
+      <form v-if="isSigningIn" class="center">
+        <h1>Sign in</h1>
+        <div class="form-item">
+          <label>Email</label>
+          <br />
+          <input
+            ref="first"
+            type="text"
+            v-model="user.emailAddress"
+            @focus="clearStatus"
+            placeholder="Email"
+          />
+        </div>
+        <div class="form-item">
+          <label>Password</label>
+          <br />
+          <input
+            type="password"
+            v-model="user.password"
+            @focus="clearStatus"
+            placeholder="Password"
+          />
+        </div>
+        <button type="button" class="form-item" @click="handleSignIn">
+          Sign in
+        </button>
+      </form>
 
-    <form class="form-layout center" v-if="!isSigningIn">
-      <h1>Sign up</h1>
-      <div class="form-item">
-        <label>Name</label>
-        <br />
-        <input
-          type="text"
-          v-model="newUser.name"
-          @focus="clearStatus"
-          placeholder="Full Name"
-        />
-      </div>
-      <div class="form-item">
-        <label>Email</label>
-        <br />
-        <input
-          type="text"
-          v-model="newUser.emailAddress"
-          @focus="clearStatus"
-          placeholder="Email"
-        />
-      </div>
-      <div class="form-item">
-        <label>Password</label>
-        <br />
-        <input
-          type="password"
-          v-model="newUser.password"
-          @focus="clearStatus"
-          placeholder="Password"
-        />
-      </div>
-      <div class="form-item">
-        <label>Confirm password</label>
-        <br />
-        <input
-          type="password"
-          v-model="newUser.cPassword"
-          @focus="clearStatus"
-          placeholder="Retype Password"
-        />
-      </div>
-      <button type="button" class="form-item" @click="handleSignUp">
-        Sign up
-      </button>
-    </form>
+      <form class="form-layout center" v-if="!isSigningIn">
+        <h1>Sign up</h1>
+        <div class="form-item">
+          <label>Name</label>
+          <br />
+          <input
+            type="text"
+            v-model="newUser.name"
+            @focus="clearStatus"
+            placeholder="Full Name"
+          />
+        </div>
+        <div class="form-item">
+          <label>Email</label>
+          <br />
+          <input
+            type="text"
+            v-model="newUser.emailAddress"
+            @focus="clearStatus"
+            placeholder="Email"
+          />
+        </div>
+        <div class="form-item">
+          <label>Password</label>
+          <br />
+          <input
+            type="password"
+            v-model="newUser.password"
+            @focus="clearStatus"
+            placeholder="Password"
+          />
+        </div>
+        <div class="form-item">
+          <label>Confirm password</label>
+          <br />
+          <input
+            type="password"
+            v-model="newUser.cPassword"
+            @focus="clearStatus"
+            placeholder="Retype Password"
+          />
+        </div>
+        <button type="button" class="form-item" @click="handleSignUp">
+          Sign up
+        </button>
+      </form>
 
-    <p v-if="error" class="error">{{ msg }}</p>
+      <p v-if="error" class="error">{{ msg }}</p>
+    </div>
   </div>
 </template>
 
