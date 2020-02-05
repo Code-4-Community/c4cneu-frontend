@@ -7,30 +7,36 @@
     </section>
     <div class="row">
       <div class="column">
+        <h1>Apply</h1>
         <form>
           <div class="form-item">
-            <label for="form-name">Name</label>
-            <br />
-            <input type="text" id="form-name" v-model="name" />
+            <input
+              type="text"
+              id="form-name"
+              placeholder="Name"
+              v-model="name"
+            />
           </div>
           <div class="form-item">
-            <label for="year">Year</label>
-            <br />
+            <input
+              type="text"
+              id="form-major"
+              placeholder="Major"
+              v-model="major"
+            />
+          </div>
+          <div class="form-item">
             <select v-model="year" id="year">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
+              <option value="" disabled selected hidden>Year</option>
+              <option value="1">First</option>
+              <option value="2">Second</option>
+              <option value="3">Third</option>
+              <option value="4">Fourth</option>
+              <option value="5">Fifth</option>
             </select>
           </div>
           <div class="form-item">
-            <label for="form-major">Major</label>
-            <br />
-            <input type="text" id="form-major" v-model="major" />
-          </div>
-          <div class="form-item">
-            <label for="form-resume">Resume</label>
+            <label for="form-resume">Please upload your resume</label>
             <br />
             <input
               type="file"
@@ -45,6 +51,7 @@
             >
             <br />
             <select v-model="areaInterests" id="areaInterests">
+              <option value="" disabled selected hidden>Options</option>
               <option value="frontend">Frontend</option>
               <option value="backend">Backend</option>
               <option value="testing">Testing</option>
@@ -63,7 +70,7 @@
           </div>
           <div class="form-item">
             <label for="form-why-join"
-              >Why do you want to join Code 4 Community?</label
+              >Why do you want to join Code4Community?</label
             >
             <br />
             <textarea id="form-why-join" v-model="whyJoin" />
@@ -80,16 +87,18 @@
         </form>
       </div>
       <div class="column">
-        <p>
-          Use the form below to apply to become a contributing member.
+        <h1>Information</h1>
+        <h5>
+          Apply to become a contributing member using the form on this page.
           Contributing members are split up into four teams: Testing & Security,
           Outreach & Mentorship, Design or Development. Once accepted you will
-          be placed into a team that most closely matches your skills and
+          be placed into a team that most closely matches your skill set and
           interests. Most teams will expect their members to have 10 hours
           available each week to work on C4C related projects and meet once a
           week to discuss progress and plan work, so make sure you are willing
-          and able to take on that responsibility.
-        </p>
+          and able to take on that responsibility. If you have any questions
+          feel free to reach out using any of the links at the bottom of page!
+        </h5>
       </div>
     </div>
   </div>
@@ -171,6 +180,7 @@ export default {
 <style scoped>
 .row {
   display: flex;
+  width: 100%;
 }
 
 .column {
@@ -179,8 +189,57 @@ export default {
 }
 
 form {
-  padding: 0 0;
+  padding: 10px auto;
   text-align: center;
   width: 100%;
+}
+
+form label {
+  text-align: left;
+}
+
+label {
+  width: 80%;
+}
+
+input {
+  padding: 8px;
+  font-size: 18px;
+  border: 1px solid #bec2f7;
+}
+
+button {
+  background-color: #f0f0f0;
+  width: 80%;
+  border: none;
+  padding: 15px 20px 14px 20px;
+  margin: 0 0 0 0;
+  font-size: 18px;
+  text-transform: uppercase;
+  border-radius: 1px;
+}
+
+select {
+  border: 1px solid #bec2f7;
+  font-size: 18px;
+  width: 80%;
+}
+
+form div.form-item {
+  margin: 10px 0 0 0;
+}
+
+input[type="text"] {
+  width: 80%;
+}
+
+textarea {
+  height: 100px;
+  padding: 1px 5px;
+}
+
+h5 {
+  margin: 30px 0px;
+  line-height: 1.7em;
 }
 </style>
