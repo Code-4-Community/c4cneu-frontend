@@ -28,14 +28,12 @@
 <script>
 import ListCard from "../components/ListCard.vue";
 import { mapState, mapActions } from "vuex";
-import Loading from "vue-loading-overlay";
 
 export default {
   name: "Media",
 
   components: {
-    ListCard,
-    Loading
+    ListCard
   },
 
   mounted() {
@@ -45,12 +43,8 @@ export default {
   computed: {
     ...mapState(["posts"]),
 
-    postsLoading() {
-      return this.$store.getters.GET_POSTS.isloading;
-    },
-
     mediaPosts() {
-      var posts = this.$store.getters.GET_POSTS.postArray;
+      var posts = this.$store.getters.GET_POSTS;
       //Sorting function should return less than 0 when post1's date is before (<) post2's date:
       posts.sort((post1, post2) => {
         return post1.date - post2.date;

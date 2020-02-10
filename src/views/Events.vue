@@ -47,22 +47,19 @@
 import ListCard from "../components/ListCard.vue";
 import EventModal from "../components/EventModal.vue";
 import { mapState, mapActions } from "vuex";
-import Loading from "vue-loading-overlay";
 
 export default {
   data() {
     return {
       activeEventIndex: null,
       displayType: "none", //"block" to display the modal, "none" to hide it
-      disableOutsideClick: false, //see method handleOutsideClick() for explanation
-      isLoading: true
+      disableOutsideClick: false //see method handleOutsideClick() for explanation
     };
   },
 
   components: {
     ListCard,
-    EventModal,
-    Loading
+    EventModal
   },
 
   mounted() {
@@ -74,11 +71,7 @@ export default {
 
     //events: returns all of the events from the vuex store
     events() {
-      return this.$store.getters.GET_EVENTS.eventArray;
-    },
-
-    eventsLoading() {
-      return this.$store.getters.GET_EVENTS.isLoading;
+      return this.$store.getters.GET_EVENTS;
     },
 
     //futureEvents: returns an array of event objects for which the date of the event is later than 24 hours ago
