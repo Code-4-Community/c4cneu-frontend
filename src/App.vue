@@ -272,28 +272,28 @@ th {
 
 /*SETS BACKGROUND IMAGES FOR ALL PARALLAX DIVS*/
 #plax_1 {
-  background-image: url("assets/p1.png");
+  background-image: url("https://c4cneu-public.s3.us-east-2.amazonaws.com/Paralax/p1.png");
 }
 #plax_2 {
-  background-image: url("assets/p3.png");
+  background-image: url("https://c4cneu-public.s3.us-east-2.amazonaws.com/Paralax/p2.png");
 }
 #plax_3 {
-  background-image: url("assets/p2.png");
+  background-image: url("https://c4cneu-public.s3.us-east-2.amazonaws.com/Paralax/p3.png");
 }
 #plax_4 {
-  background-image: url("assets/p4.png");
+  background-image: url("https://c4cneu-public.s3.us-east-2.amazonaws.com/Paralax/p4.png");
 }
 #plax_5 {
-  background-image: url("assets/p5.png");
+  background-image: url("https://c4cneu-public.s3.us-east-2.amazonaws.com/Paralax/p5.png");
 }
 #plax_6 {
-  background-image: url("assets/p6.png");
+  background-image: url("https://c4cneu-public.s3.us-east-2.amazonaws.com/Paralax/p6.png");
 }
 #plax_7 {
-  background-image: url("assets/p7.png");
+  background-image: url("https://c4cneu-public.s3.us-east-2.amazonaws.com/Paralax/p7.png");
 }
 #plax_8 {
-  background-image: url("assets/p8.png");
+  background-image: url("https://c4cneu-public.s3.us-east-2.amazonaws.com/Paralax/p8.png");
 }
 
 .parallax p {
