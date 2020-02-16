@@ -49,6 +49,7 @@
           announcements about upcoming events and can reach out to anyone on the
           executive board with questions!
         </p>
+        <router-link to="/emailsignup">Join our mailing list!</router-link>
       </div>
     </section>
 

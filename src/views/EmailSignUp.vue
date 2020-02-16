@@ -1,6 +1,7 @@
 <template>
   <div>
     <form class="form-layout center">
+      <h3>Join our mailing list to get updates on C4C!</h3>
       <div class="form-item">
         <label for="email">Email</label>
         <br />
