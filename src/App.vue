@@ -129,6 +129,10 @@ input[type="file"] {
   width: 80%;
 }
 
+.required {
+  color: red;
+}
+
 /*TODO: STYLE RADIO BUTTONS*/
 input[type="radio"] {
   color: default;

@@ -49,7 +49,11 @@
           announcements about upcoming events and can reach out to anyone on the
           executive board with questions!
         </p>
-        <router-link to="/emailsignup">Join our mailing list!</router-link>
+        <a
+          href="https://c4cneu.us4.list-manage.com/subscribe?u=4b534cd2e8fe8be8150d03977&id=b1915b8b8b"
+        >
+          Join our mailing list!
+        </a>
       </div>
     </section>
 
