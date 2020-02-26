@@ -10,7 +10,8 @@ export default new Vuex.Store({
   state: {
     board: [],
     posts: [],
-    events: []
+    events: [],
+    gallery: []
   },
   getters: {
     GET_BOARD: state => {
@@ -24,6 +25,9 @@ export default new Vuex.Store({
     },
     GET_EVENTS: state => {
       return state.events;
+    },
+    GET_GALLERY: state => {
+      return state.gallery;
     }
   },
   mutations: {
@@ -35,6 +39,9 @@ export default new Vuex.Store({
     },
     SET_EVENTS(state, events) {
       state.events = events;
+    },
+    SET_GALLERY(state, gallery) {
+      state.gallery = gallery;
     }
   },
   actions: {
@@ -52,6 +59,10 @@ export default new Vuex.Store({
     },
     FETCH_POST_BY_ID() {
       //method for getting individual posts instead of pulling the whole page at once
+    },
+    FETCH_GALLERY: async ({ commit }) => {
+      let { data } = await Axios.get(process.env.VUE_APP_GALLERY_ENDPOINT);
+      commit("SET_GALLERY", data);
     }
   }
 });
