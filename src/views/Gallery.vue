@@ -1,5 +1,6 @@
 <template>
   <div class="gallery-container">
+    <!--
     <div class="gallery autoplay items-3">
       <div id="item-1" class="control-operator"></div>
       <div id="item-2" class="control-operator"></div>
@@ -23,150 +24,49 @@
         <a href="#item-3" class="control-button">•</a>
       </div>
     </div>
+    -->
 
     <div>
-      <div class="grid-gallery">
-        <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
-          <img
-            src="https://www.w3schools.com/css/img_5terre.jpg"
-            alt="Cinque Terre"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">Add a description of the image here</div>
-      </div>
-
-      <div class="grid-gallery">
-        <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
-          <img
-            src="https://www.w3schools.com/css/img_5terre.jpg"
-            alt="Forest"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">Add a description of the image here</div>
-      </div>
-
-      <div class="grid-gallery">
-        <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
-          <img
-            src="https://www.w3schools.com/css/img_5terre.jpg"
-            alt="Mountains"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">Add a description of the image here</div>
-      </div>
-
-      <div class="grid-gallery">
-        <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
-          <img
-            src="https://www.w3schools.com/css/img_5terre.jpg"
-            alt="Mountains"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">Add a description of the image here</div>
-      </div>
-
-      <div class="grid-gallery">
-        <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
-          <img
-            src="https://www.w3schools.com/css/img_5terre.jpg"
-            alt="Mountains"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">Add a description of the image here</div>
-      </div>
-
-      <div class="grid-gallery">
-        <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
-          <img
-            src="https://www.w3schools.com/css/img_5terre.jpg"
-            alt="Mountains"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">Add a description of the image here</div>
-      </div>
-
-      <div class="grid-gallery">
-        <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
-          <img
-            src="https://www.w3schools.com/css/img_5terre.jpg"
-            alt="Mountains"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">Add a description of the image here</div>
-      </div>
-
-      <div class="grid-gallery">
-        <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
-          <img
-            src="https://www.w3schools.com/css/img_5terre.jpg"
-            alt="Mountains"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">Add a description of the image here</div>
-      </div>
-
-      <div class="grid-gallery">
-        <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
-          <img
-            src="https://www.w3schools.com/css/img_5terre.jpg"
-            alt="Mountains"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">Add a description of the image here</div>
-      </div>
-
-      <div class="grid-gallery">
-        <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
-          <img
-            src="https://www.w3schools.com/css/img_5terre.jpg"
-            alt="Mountains"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">Add a description of the image here</div>
-      </div>
-
-      <div class="grid-gallery">
-        <a target="_blank" href="https://www.w3schools.com/css/img_5terre.jpg">
-          <img
-            src="https://www.w3schools.com/css/img_5terre.jpg"
-            alt="Mountains"
-            width="600"
-            height="400"
-          />
-        </a>
-        <div class="desc">Add a description of the image here</div>
-      </div>
+      <GalleryCard
+        v-for="galleryCard in gallery"
+        :key="galleryCard.url"
+        :galleryCard="galleryCard"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import GalleryCard from "../components/GalleryCard";
+import { mapState, mapActions } from "vuex";
+
 export default {
-  name: "Gallery"
+  name: "Gallery",
+
+  components: {
+    GalleryCard
+  },
+
+  mounted() {
+    this.FETCH_GALLERY();
+    //makes it so that when taken to page from router, it goes to the top
+    window.scrollTo(0, 0);
+  },
+
+  computed: {
+    ...mapState(["gallery"]),
+    gallery() {
+      return this.$store.getters.GET_GALLERY;
+    }
+  },
+
+  methods: {
+    ...mapActions(["FETCH_GALLERY"])
+  }
 };
 </script>
 
-<style scoped>
+<style>
 @import url("https://s3.amazonaws.com/gallery-css/gallery.prefixed.css");
 
 .gallery {
@@ -185,22 +85,5 @@ export default {
   align-content: center;
   flex-wrap: wrap;
   padding: 1%;
-}
-
-div.grid-gallery {
-  margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 180px;
-}
-
-div.grid-gallery img {
-  width: 100%;
-  height: auto;
-}
-
-div.desc {
-  padding: 15px;
-  text-align: center;
 }
 </style>
