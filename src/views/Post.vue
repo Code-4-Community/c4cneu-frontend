@@ -36,7 +36,7 @@ export default {
   computed: {
     ...mapState(["posts"]),
     dateString() {
-      var postDate = new Date(this.post.date * 1000);
+      var postDate = new Date(this.post.date);
       return postDate.toLocaleDateString();
     }
   },
