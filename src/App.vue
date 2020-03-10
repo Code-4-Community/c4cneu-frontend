@@ -48,6 +48,10 @@ p.error {
   color: red;
 }
 
+p.success {
+  color: green;
+}
+
 .big {
   font-size: 24px;
   font-weight: 300;

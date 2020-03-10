@@ -86,11 +86,14 @@
       </form>
 
       <p v-if="error" class="error">{{ msg }}</p>
+      <p v-if="success" class="success">{{ msg }}</p>
     </div>
   </div>
 </template>
 
 <script>
+import Axios from "axios";
+
 export default {
   name: "signin",
   data() {
@@ -181,8 +184,16 @@ export default {
     //Needs testing
     signIn(user) {
       //Temporary:
-      user;
-
+      Axios.post(process.env.VUE_APP_LOGIN_ENDPOINT, user).then(
+        response => {
+          this.success = true;
+          this.msg = response;
+        },
+        error => {
+          error = true;
+          this.msg = error;
+        }
+      );
       //TODO: implement backend API call
     },
 
@@ -190,8 +201,16 @@ export default {
     //Needs testing
     signUp(newUser) {
       //Temporary:
-      newUser;
-
+      Axios.post(process.env.VUE_APP_SIGNUP_ENDPOINT, newUser).then(
+        response => {
+          this.success = true;
+          this.msg = response;
+        },
+        error => {
+          error = true;
+          this.msg = error;
+        }
+      );
       //TODO: implement backend API call
     },
 
