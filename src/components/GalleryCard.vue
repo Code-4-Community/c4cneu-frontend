@@ -1,9 +1,10 @@
 <template>
-  <div class="grid-gallery">
-    <img :src="galleryCard.imageUrl" :alt="galleryCard.title" />
-
-    <div class="desc">{{ galleryCard.title }}</div>
-  </div>
+  <figure>
+    <img :src="galleryCard.imageUrl" alt="Gallery Card" />
+    <figcaption>
+      <strong>{{ galleryCard.title }}</strong>
+    </figcaption>
+  </figure>
 </template>
 
 <script>
@@ -14,20 +15,14 @@ export default {
 </script>
 
 <style scoped>
-div.grid-gallery {
-  margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 180px;
-}
-
-div.grid-gallery img {
-  width: 100%;
-  height: 100%;
-}
-
-div.desc {
-  padding: 15px;
-  text-align: center;
+figure {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #000000;
+  height: 470px;
+  border-radius: 5%;
 }
 </style>
