@@ -1,37 +1,13 @@
 <template>
-  <div class="gallery-container">
-    <!--
-    <div class="gallery autoplay items-3">
-      <div id="item-1" class="control-operator"></div>
-      <div id="item-2" class="control-operator"></div>
-      <div id="item-3" class="control-operator"></div>
-
-      <figure class="item">
-        <img src="https://www.w3schools.com/bootstrap/chicago.jpg" />
-      </figure>
-
-      <figure class="item">
-        <img src="https://www.w3schools.com/bootstrap/la.jpg" />
-      </figure>
-
-      <figure class="item">
-        <img src="https://www.w3schools.com/bootstrap/ny.jpg" />
-      </figure>
-
-      <div class="controls">
-        <a href="#item-1" class="control-button">•</a>
-        <a href="#item-2" class="control-button">•</a>
-        <a href="#item-3" class="control-button">•</a>
+  <div>
+    <div class="content">
+      <div class="grid-layout">
+        <GalleryCard
+          v-for="galleryCard in gallery"
+          :key="galleryCard.url"
+          :galleryCard="galleryCard"
+        />
       </div>
-    </div>
-    -->
-
-    <div>
-      <GalleryCard
-        v-for="galleryCard in gallery"
-        :key="galleryCard.url"
-        :galleryCard="galleryCard"
-      />
     </div>
   </div>
 </template>
@@ -69,6 +45,7 @@ export default {
 <style>
 @import url("https://s3.amazonaws.com/gallery-css/gallery.prefixed.css");
 
+/*
 .gallery {
   width: 50%;
   margin: auto;
@@ -77,7 +54,7 @@ export default {
 .item img {
   width: 100%;
   height: 100%;
-}
+} */
 
 .gallery-container {
   display: flex;
