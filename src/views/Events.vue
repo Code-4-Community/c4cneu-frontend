@@ -10,7 +10,7 @@
         <list-card
           v-for="event in futureEvents"
           :key="event.id"
-          :name="event.name"
+          :title="event.name"
           :subtitle="event.subtitle"
           :date="event.date"
           :imageUrl="event.imageUrl"
@@ -20,7 +20,7 @@
         <list-card
           v-for="event in pastEvents"
           :key="event.id"
-          :name="event.name"
+          :title="event.name"
           :subtitle="event.subtitle"
           :date="event.date"
           :imageUrl="event.imageUrl"

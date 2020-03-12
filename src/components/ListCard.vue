@@ -5,7 +5,7 @@
     </div>
     <div>
       <p class="post-date">{{ dateString }}</p>
-      <p class="big align-left">{{ name }}</p>
+      <p class="big align-left">{{ title }}</p>
       <p class="align-left">{{ subtitle }}</p>
     </div>
   </div>
@@ -16,7 +16,7 @@ export default {
   name: "ListCard",
 
   props: {
-    name: {
+    title: {
       type: String,
       required: true
     },
