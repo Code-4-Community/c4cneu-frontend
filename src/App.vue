@@ -299,6 +299,9 @@ th {
 #plax_8 {
   background-image: url("https://c4cneu-public.s3.us-east-2.amazonaws.com/Paralax/p8.png");
 }
+#plax_9 {
+  background-image: url("assets/p9.png");
+}
 
 .parallax p {
   color: white;
