@@ -125,6 +125,10 @@ input[type="text"] {
   width: 60%;
 }
 
+input[type="email"] {
+  width: 60%;
+}
+
 input[type="file"] {
   width: 80%;
 }
