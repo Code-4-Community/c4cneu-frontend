@@ -36,8 +36,9 @@ export default {
   computed: {
     ...mapState(["posts"]),
     dateString() {
+      var options = { year: "numeric", month: "short", day: "numeric" };
       var postDate = new Date(this.post.date);
-      return postDate.toLocaleDateString();
+      return postDate.toLocaleDateString("en-US", options);
     }
   },
   methods: {
