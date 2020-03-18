@@ -10,7 +10,8 @@ export default new Vuex.Store({
   state: {
     board: [],
     posts: [],
-    events: []
+    events: [],
+    apply: []
   },
   getters: {
     GET_BOARD: state => {
@@ -24,6 +25,9 @@ export default new Vuex.Store({
     },
     GET_EVENTS: state => {
       return state.events;
+    },
+    GET_APPLY: state => {
+      return state.apply;
     }
   },
   mutations: {
@@ -35,6 +39,9 @@ export default new Vuex.Store({
     },
     SET_EVENTS(state, events) {
       state.events = events;
+    },
+    SET_APPLY(state, apply) {
+      state.apply = apply;
     }
   },
   actions: {
@@ -52,6 +59,10 @@ export default new Vuex.Store({
     },
     FETCH_POST_BY_ID() {
       //method for getting individual posts instead of pulling the whole page at once
+    },
+    FETCH_APPLY: async ({ commit }) => {
+      let { data } = await Axios.get(process.env.VUE_APP_APPLY_ENDPOINT);
+      commit("SET_APPLY", data);
     }
   }
 });

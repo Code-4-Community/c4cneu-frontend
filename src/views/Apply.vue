@@ -105,6 +105,9 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex";
+import axios from "axios";
+
 export default {
   name: "Apply",
   data() {
@@ -115,10 +118,16 @@ export default {
       resume: null,
       priorInvolvement: "",
       whyJoin: "",
-      areaInterests: []
+      areaInterests: [],
+      errors: [],
+      applicants: []
     };
   },
+  mounted() {
+    this.FETCH_APPLY();
+  },
   computed: {
+    ...mapState(["apply"]),
     validName: function() {
       return this.name.trim() !== "";
     },
@@ -146,6 +155,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(["FETCH_APPLY"]),
     handleFileUpload() {
       this.resume = this.$refs.resume.files.item(0);
     },
@@ -171,6 +181,22 @@ export default {
         formData.append("priorInvolvement", this.priorInvolvement);
         formData.append("whyJoin", this.whyJoin);
         formData.append("areaInterests", this.areaInterests);
+        axios
+          .post("https://api.c4cneu.com/applicants", {
+            name: this.name,
+            year: this.year,
+            major: this.major,
+            resume: "TEMPORARY RESUME",
+            priorInvolvement: this.priorInvolvement,
+            whyJoin: this.whyJoin,
+            areaInterests: this.areaInterests
+          })
+          .then(response => {
+            this.applicants = response.data;
+          })
+          .catch(e => {
+            this.errors.push(e);
+          });
       }
     }
   }
