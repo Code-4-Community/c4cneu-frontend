@@ -18,7 +18,7 @@
           <input
             ref="first"
             type="text"
-            v-model="user.emailAddress"
+            v-model="user.email"
             @focus="clearStatus"
             placeholder="Email"
           />
@@ -99,7 +99,7 @@ export default {
   data() {
     return {
       user: {
-        emailAddress: "",
+        email: "",
         password: ""
       },
       newUser: {
@@ -132,7 +132,7 @@ export default {
       this.signIn(this.user);
 
       this.user = {
-        emailAddress: "",
+        email: "",
         password: ""
       };
     },
@@ -184,7 +184,15 @@ export default {
     //Needs testing
     signIn(user) {
       //Temporary:
-      Axios.post(process.env.VUE_APP_LOGIN_ENDPOINT, user).then(
+      let data = JSON.stringify({
+        email: user.email,
+        password: user.password
+      });
+      Axios.post(process.env.VUE_APP_LOGIN_ENDPOINT, data, {
+        headers: {
+          "content-type": "text/json"
+        }
+      }).then(
         response => {
           this.success = true;
           this.msg = response;
@@ -194,14 +202,22 @@ export default {
           this.msg = error;
         }
       );
-      //TODO: implement backend API call
     },
 
     //signUp: sends sign up request to backend
     //Needs testing
     signUp(newUser) {
-      //Temporary:
-      Axios.post(process.env.VUE_APP_SIGNUP_ENDPOINT, newUser).then(
+      let data = JSON.stringify({
+        name: newUser.name,
+        emailAddress: newUser.emailAddress,
+        password: newUser.password,
+        cPassword: newUser.cPassword
+      });
+      Axios.post(process.env.VUE_APP_SIGNUP_ENDPOINT, data, {
+        headers: {
+          "content-type": "text/json"
+        }
+      }).then(
         response => {
           this.success = true;
           this.msg = response;
@@ -217,7 +233,7 @@ export default {
     //TODO: Prevent invalid characters from being submitted
     invalidEmail() {
       //TODO: Better email validation
-      var valid = this.user.emailAddress !== "";
+      var valid = this.user.email !== "";
       if (!valid) {
         this.msg = "Your email address is invalid.";
         return true;
