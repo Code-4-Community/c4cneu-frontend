@@ -59,10 +59,6 @@ export default new Vuex.Store({
     },
     FETCH_POST_BY_ID() {
       //method for getting individual posts instead of pulling the whole page at once
-    },
-    FETCH_APPLY: async ({ commit }) => {
-      let { data } = await Axios.get(process.env.VUE_APP_APPLY_ENDPOINT);
-      commit("SET_APPLY", data);
     }
   }
 });

@@ -8,8 +8,8 @@
     <div class="row">
       <div class="column">
         <h1>Apply</h1>
-        <form>
-          <div class="form-item">
+        <form id="applyForm">
+          <div @submit.prevent="onSubmit">
             <input
               type="text"
               id="form-name"
@@ -123,11 +123,11 @@ export default {
       applicants: []
     };
   },
-  mounted() {
-    this.FETCH_APPLY();
-  },
   computed: {
     ...mapState(["apply"]),
+    applied() {
+      return this.$store.getters.GET_APPLY;
+    },
     validName: function() {
       return this.name.trim() !== "";
     },
@@ -182,7 +182,7 @@ export default {
         formData.append("whyJoin", this.whyJoin);
         formData.append("areaInterests", this.areaInterests);
         axios
-          .post("https://api.c4cneu.com/applicants", {
+          .post(process.env.VUE_APP_APPLY_ENDPOINT, {
             name: this.name,
             year: this.year,
             major: this.major,
@@ -197,6 +197,7 @@ export default {
           .catch(e => {
             this.errors.push(e);
           });
+        this.$store.mutations.SET_APPLY(this.$store.state, formData);
       }
     }
   }
