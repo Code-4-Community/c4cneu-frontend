@@ -54,11 +54,73 @@
           <label>Email</label>
           <br />
           <input
-            type="text"
+            type="email"
             v-model="newUser.emailAddress"
             @focus="clearStatus"
             placeholder="Email"
           />
+        </div>
+        <div class="form-item">
+          <label>Year of graduation</label>
+          <br />
+          <input
+            type="text"
+            v-model="newUser.yog"
+            @focus="clearStatus"
+            placeholder="Year of graduation"
+          />
+        </div>
+        <div class="form-item">
+          <label>College</label>
+          <br />
+          <select name="College" v-model="newUser.college">
+            <option value="College of Arts, Media and Design">CAMD</option>
+            <option value="D’Amore-McKim School of Business">DMSB</option>
+            <option value="Khoury College of Computer Sciences">CCIS</option>
+            <option value="College of Engineering">COE</option>
+            <option value="Bouvé College of Health Sciences">Bouvé</option>
+            <option value="College of Social Sciences and Humanities"
+              >CSSH</option
+            >
+            <option value="College of Professional Studies">CPS</option>
+            <option value="College of Science">COS</option>
+            <option value="School of Law">NUSL</option>
+          </select>
+        </div>
+        <div class="form-item">
+          <label>Major</label>
+          <br />
+          <input
+            type="text"
+            v-model="newUser.major"
+            @focus="clearStatus"
+            placeholder="Major"
+          />
+        </div>
+        <div class="form-item">
+          <label>Gender</label>
+          <br />
+          <input
+            type="radio"
+            value="male"
+            v-model="newUser.gender"
+            @focus="clearStatus"
+          />
+          Male
+          <input
+            type="radio"
+            value="female"
+            v-model="newUser.gender"
+            @focus="clearStatus"
+          />
+          Female
+          <input
+            type="radio"
+            value="other"
+            v-model="newUser.gender"
+            @focus="clearStatus"
+          />
+          Other<br />
         </div>
         <div class="form-item">
           <label>Password</label>
@@ -77,7 +139,7 @@
             type="password"
             v-model="newUser.cPassword"
             @focus="clearStatus"
-            placeholder="Retype Password"
+            placeholder="Re-enter Password"
           />
         </div>
         <button type="button" class="form-item" @click="handleSignUp">
@@ -105,6 +167,10 @@ export default {
       newUser: {
         name: "",
         emailAddress: "",
+        yog: "",
+        college: "",
+        major: "",
+        gender: "",
         password: "",
         cPassword: ""
       },
@@ -144,8 +210,12 @@ export default {
       this.clearStatus();
 
       if (
-        this.invalidNewEmail() ||
         this.invalidNewName() ||
+        this.invalidNewEmail() ||
+        this.invalidNewYOG() ||
+        this.invalidNewCollege() ||
+        this.invalidNewMajor() ||
+        this.invalidNewGender() ||
         this.invalidNewPassword()
       ) {
         this.error = true;
@@ -157,6 +227,10 @@ export default {
       this.newUser = {
         name: "",
         emailAddress: "",
+        yog: "",
+        college: "",
+        major: "",
+        gender: "",
         password: "",
         cPassword: ""
       };
@@ -245,6 +319,38 @@ export default {
       var valid = this.newUser.name !== "";
       if (!valid) {
         this.msg = "Please enter a name.";
+        return true;
+      }
+      return false;
+    },
+    invalidNewYOG() {
+      var valid = this.newUser.yog !== "";
+      if (!valid) {
+        this.msg = "Please enter a year of graduation.";
+        return true;
+      }
+      return false;
+    },
+    invalidNewCollege() {
+      var valid = this.newUser.college !== "";
+      if (!valid) {
+        this.msg = "Please select a college.";
+        return true;
+      }
+      return false;
+    },
+    invalidNewMajor() {
+      var valid = this.newUser.major !== "";
+      if (!valid) {
+        this.msg = "Please enter a major.";
+        return true;
+      }
+      return false;
+    },
+    invalidNewGender() {
+      var valid = this.newUser.gender !== "";
+      if (!valid) {
+        this.msg = "Please select a gender.";
         return true;
       }
       return false;

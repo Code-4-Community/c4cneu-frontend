@@ -38,6 +38,10 @@ describe("Auth.vue", () => {
       newUser: {
         name: "will",
         emailAddress: "222@eee.com",
+        yog: "2023",
+        college: "College of Science",
+        major: "Science",
+        gender: "male",
         password: "1234",
         cPassword: "abcd"
       }

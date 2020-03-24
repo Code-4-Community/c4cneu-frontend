@@ -54,6 +54,20 @@
     </section>
 
     <section>
+      <div class="parallax landing" id="plax_9">
+        <h1>Work With Us</h1>
+        <p>
+          Code4Community is dedicated to helping non-profit organizations. If
+          you would like to contact us about partnering to create a custom
+          software solution for your non-profit please email
+          <a href="mailto:c4cneu@gmail.com">c4cneu@gmail.com</a>. Alternatively,
+          if you would like to sponsor us so that we can keep the servers
+          running, please also contact the previously mentioned email address.
+        </p>
+      </div>
+    </section>
+
+    <section>
       <div class="parallax landing" id="plax_5">
         <h1>Meet the Team</h1>
         <router-link to="/board">
