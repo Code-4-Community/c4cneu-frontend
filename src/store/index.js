@@ -20,7 +20,7 @@ export default new Vuex.Store({
       return state.posts;
     },
     GET_POST_BY_ID: state => id => {
-      return state.posts.find(post => post.id === id);
+      return state.posts.find(post => post.id == id);
     },
     GET_EVENTS: state => {
       return state.events;
