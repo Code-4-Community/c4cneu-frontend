@@ -54,7 +54,7 @@
     </section>
 
     <section>
-      <div class="parallax landing" id="plax_9">
+      <div class="parallax landing" id="plax_6">
         <h1>Work With Us</h1>
         <p>
           Code4Community is dedicated to helping non-profit organizations. If
