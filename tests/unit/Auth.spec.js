@@ -3,7 +3,11 @@
 
 // TODO: edit auth tests since data structures have changed
 
-// describe("Auth.vue", () => {
+describe("dummy test", () => {
+  test("pass", () => {
+    expect(true).toBe(true);
+  });
+});
 //   //TODO: Test changing between sign in and sign up once functionality has been changed to tabs
 //   //No class/id for different buttons, unable to distinguish for testing
 //   //test("check that sign in and sign up buttons can switch between forms", () => {
