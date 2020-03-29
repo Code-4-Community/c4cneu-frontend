@@ -54,11 +54,84 @@
           <label>Email</label>
           <br />
           <input
-            type="text"
-            v-model="newUser.emailAddress"
+            type="email"
+            v-model="newUser.email"
             @focus="clearStatus"
             placeholder="Email"
           />
+        </div>
+        <div class="form-item">
+          <label>Current Year</label>
+          <br />
+          <select v-model="newUser.currentYear">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5+</option>
+          </select>
+        </div>
+        <div class="form-item">
+          <label>Year of graduation</label>
+          <br />
+          <input
+            type="number"
+            v-model="newUser.yog"
+            @focus="clearStatus"
+            placeholder="Year of graduation"
+          />
+        </div>
+        <div class="form-item">
+          <label>College</label>
+          <br />
+          <select name="College" v-model="newUser.college">
+            <option value="College of Arts, Media and Design">CAMD</option>
+            <option value="D’Amore-McKim School of Business">DMSB</option>
+            <option value="Khoury College of Computer Sciences">CCIS</option>
+            <option value="College of Engineering">COE</option>
+            <option value="Bouvé College of Health Sciences">Bouvé</option>
+            <option value="College of Social Sciences and Humanities"
+              >CSSH</option
+            >
+            <option value="College of Professional Studies">CPS</option>
+            <option value="College of Science">COS</option>
+            <option value="School of Law">NUSL</option>
+          </select>
+        </div>
+        <div class="form-item">
+          <label>Major</label>
+          <br />
+          <input
+            type="text"
+            v-model="newUser.major"
+            @focus="clearStatus"
+            placeholder="Major"
+          />
+        </div>
+        <div class="form-item">
+          <label>Gender</label>
+          <br />
+          <input
+            type="radio"
+            value="male"
+            v-model="newUser.gender"
+            @focus="clearStatus"
+          />
+          Male
+          <input
+            type="radio"
+            value="female"
+            v-model="newUser.gender"
+            @focus="clearStatus"
+          />
+          Female
+          <input
+            type="radio"
+            value="other"
+            v-model="newUser.gender"
+            @focus="clearStatus"
+          />
+          Other<br />
         </div>
         <div class="form-item">
           <label>Password</label>
@@ -77,7 +150,7 @@
             type="password"
             v-model="newUser.cPassword"
             @focus="clearStatus"
-            placeholder="Retype Password"
+            placeholder="Re-enter Password"
           />
         </div>
         <button type="button" class="form-item" @click="handleSignUp">
@@ -103,8 +176,14 @@ export default {
         password: ""
       },
       newUser: {
-        name: "",
-        emailAddress: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        currentYear: null,
+        yog: null,
+        college: "",
+        major: "",
+        gender: "",
         password: "",
         cPassword: ""
       },
@@ -144,8 +223,14 @@ export default {
       this.clearStatus();
 
       if (
+        this.invalidNewFirstName() ||
+        this.invalidNewLastName() ||
         this.invalidNewEmail() ||
-        this.invalidNewName() ||
+        this.invalidNewCurrentYear() ||
+        this.invalidNewYOG() ||
+        this.invalidNewCollege() ||
+        this.invalidNewMajor() ||
+        this.invalidNewGender() ||
         this.invalidNewPassword()
       ) {
         this.error = true;
@@ -155,8 +240,13 @@ export default {
       this.signUp(this.newUser);
 
       this.newUser = {
-        name: "",
-        emailAddress: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        yog: "",
+        college: "",
+        major: "",
+        gender: "",
         password: "",
         cPassword: ""
       };
@@ -190,7 +280,7 @@ export default {
       });
       Axios.post(process.env.VUE_APP_LOGIN_ENDPOINT, data, {
         headers: {
-          "content-type": "text/json"
+          "content-type": "application/json"
         }
       }).then(
         response => {
@@ -208,14 +298,19 @@ export default {
     //Needs testing
     signUp(newUser) {
       let data = JSON.stringify({
-        name: newUser.name,
-        emailAddress: newUser.emailAddress,
-        password: newUser.password,
-        cPassword: newUser.cPassword
+        firstName: newUser.firstName,
+        lastName: newUser.lastName,
+        email: newUser.email,
+        currentYear: newUser.currentYear,
+        yog: newUser.yog,
+        college: newUser.college,
+        major: newUser.major,
+        gender: newUser.gender,
+        password: newUser.password
       });
       Axios.post(process.env.VUE_APP_SIGNUP_ENDPOINT, data, {
         headers: {
-          "content-type": "text/json"
+          "content-type": "application/json"
         }
       }).then(
         response => {
@@ -227,7 +322,6 @@ export default {
           this.msg = error;
         }
       );
-      //TODO: implement backend API call
     },
 
     //TODO: Prevent invalid characters from being submitted
@@ -250,17 +344,63 @@ export default {
     },
     invalidNewEmail() {
       //TODO: Better email validation
-      var valid = this.newUser.emailAddress !== "";
+      var valid = this.newUser.email !== "";
       if (!valid) {
         this.msg = "Your email address is invalid.";
         return true;
       }
       return false;
     },
-    invalidNewName() {
-      var valid = this.newUser.name !== "";
+    invalidNewFirstName() {
+      var valid = this.newUser.firstName !== "";
       if (!valid) {
-        this.msg = "Please enter a name.";
+        this.msg = "Please enter a first name.";
+        return true;
+      }
+      return false;
+    },
+    invalidNewLastName() {
+      var valid = this.newUser.lastName !== "";
+      if (!valid) {
+        this.msg = "Please enter a last name.";
+        return true;
+      }
+      return false;
+    },
+    invalidNewCurrentYear() {
+      var valid = !!this.newUser.currentYear;
+      if (!valid) {
+        this.msg = "Please select a current year.";
+      }
+    },
+    invalidNewYOG() {
+      var valid = this.newUser.yog !== "";
+      if (!valid) {
+        this.msg = "Please enter a year of graduation.";
+        return true;
+      }
+      return false;
+    },
+    invalidNewCollege() {
+      var valid = this.newUser.college !== "";
+      if (!valid) {
+        this.msg = "Please select a college.";
+        return true;
+      }
+      return false;
+    },
+    invalidNewMajor() {
+      var valid = this.newUser.major !== "";
+      if (!valid) {
+        this.msg = "Please enter a major.";
+        return true;
+      }
+      return false;
+    },
+    invalidNewGender() {
+      var valid = this.newUser.gender !== "";
+      if (!valid) {
+        this.msg = "Please select a gender.";
         return true;
       }
       return false;
