@@ -8,6 +8,7 @@ import Board from "../views/Board.vue";
 import News from "../views/News.vue";
 import Post from "../views/Post.vue";
 import Apply from "../views/Apply.vue";
+import EmailSignUp from "../views/EmailSignUp.vue";
 
 Vue.use(VueRouter);
 
@@ -53,6 +54,11 @@ const routes = [
     path: "/apply",
     name: "apply",
     component: Apply
+  },
+  {
+    path: "/emailsignup",
+    name: "signup",
+    component: EmailSignUp
   }
 ];
 

@@ -11,7 +11,7 @@
         <list-card
           v-for="event in futureEvents"
           :key="event.id"
-          :title="event.title"
+          :title="event.name"
           :subtitle="event.subtitle"
           :date="event.date"
           :imageUrl="event.imageUrl"
@@ -21,7 +21,7 @@
         <list-card
           v-for="event in pastEvents"
           :key="event.id"
-          :title="event.title"
+          :title="event.name"
           :subtitle="event.subtitle"
           :date="event.date"
           :imageUrl="event.imageUrl"
@@ -119,14 +119,9 @@ export default {
       this.displayType = "none";
     },
 
-    //unixToDate: converts the given unix timestamp to a javascript date number
-    unixToDate(unix) {
-      return unix * 1000;
-    },
-
     //Helper function: determines if a given date is more than 24 hours in the past
     isPast(date) {
-      return this.unixToDate(date) <= Date.now() - 24 * 60 * 60 * 1000; //day in milliseconds
+      return new Date(date) <= Date.now() - 24 * 60 * 60 * 1000;
     },
 
     //handleOutsideClick: handles a click anywhere on the page with the intention of closing the modal if not on the modal
