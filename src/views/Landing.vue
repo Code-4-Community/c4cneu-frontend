@@ -50,11 +50,16 @@
           announcements about upcoming events and can reach out to anyone on the
           executive board with questions!
         </p>
+        <a
+          href="https://c4cneu.us4.list-manage.com/subscribe?u=4b534cd2e8fe8be8150d03977&id=b1915b8b8b"
+        >
+          Join our mailing list!
+        </a>
       </div>
     </section>
 
     <section>
-      <div class="parallax landing" id="plax_9">
+      <div class="parallax landing" id="plax_6">
         <h1>Work With Us</h1>
         <p>
           Code4Community is dedicated to helping non-profit organizations. If

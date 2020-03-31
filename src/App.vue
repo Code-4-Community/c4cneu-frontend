@@ -137,6 +137,10 @@ input[type="file"] {
   width: 80%;
 }
 
+.required {
+  color: red;
+}
+
 /*TODO: STYLE RADIO BUTTONS*/
 input[type="radio"] {
   color: default;
@@ -301,10 +305,7 @@ th {
   background-image: url("https://c4cneu-public.s3.us-east-2.amazonaws.com/Paralax/p7.png");
 }
 #plax_8 {
-  background-image: url("https://c4cneu-public.s3.us-east-2.amazonaws.com/Paralax/p8.png");
-}
-#plax_9 {
-  background-image: url("assets/p9.png");
+  background-image: url("https://c4cneu-public.s3.us-east-2.amazonaws.com/Paralax/p8.jpg");
 }
 
 .parallax p {
