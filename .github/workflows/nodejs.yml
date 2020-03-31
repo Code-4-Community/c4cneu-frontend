@@ -23,5 +23,7 @@ jobs:
         npm run build --if-present
         npm run lint --fix
         npm run test:unit
+        npm run test:e2e
       env:
         CI: true
+
