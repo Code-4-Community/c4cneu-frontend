@@ -1,78 +1,106 @@
 <template>
-  <div class="content">
-    <!-- TODO: ADD PARALLAX -->
-    <h1>Apply to Code4Community</h1>
-    <form>
-      <div class="form-item">
-        <label for="form-name">Name</label>
-        <br />
-        <input type="text" id="form-name" v-model="name" />
+  <div>
+    <section>
+      <div class="parallax" id="plax_7">
+        <h1>Apply to Code4Community</h1>
       </div>
-      <div class="form-item">
-        <label for="year">Year</label>
-        <br />
-        <select v-model="year" id="year">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
+    </section>
+    <div class="row">
+      <div class="column">
+        <h1>Apply</h1>
+        <form>
+          <div class="form-item">
+            <input
+              type="text"
+              id="form-name"
+              placeholder="Name"
+              v-model="name"
+            />
+          </div>
+          <div class="form-item">
+            <input
+              type="text"
+              id="form-major"
+              placeholder="Major"
+              v-model="major"
+            />
+          </div>
+          <div class="form-item">
+            <select v-model="year" id="year">
+              <option value="" disabled selected hidden>Year</option>
+              <option value="1">First</option>
+              <option value="2">Second</option>
+              <option value="3">Third</option>
+              <option value="4">Fourth</option>
+              <option value="5">Fifth</option>
+            </select>
+          </div>
+          <div class="form-item">
+            <label for="form-resume">Please upload your resume</label>
+            <br />
+            <input
+              type="file"
+              id="form-resume"
+              ref="resume"
+              v-on:change="handleFileUpload()"
+            />
+          </div>
+          <div class="form-item">
+            <label for="areaInterests"
+              >What part of Code4Community are you most interested in?</label
+            >
+            <br />
+            <select v-model="areaInterests" id="areaInterests">
+              <option value="" disabled selected hidden>Options</option>
+              <option value="frontend">Frontend</option>
+              <option value="backend">Backend</option>
+              <option value="testing">Testing</option>
+              <option value="security">Security</option>
+              <option value="design">Design</option>
+              <option value="outreach">Outreach</option>
+            </select>
+          </div>
+          <div class="form-item">
+            <label for="form-prior-involvement">
+              Have you had any prior involvement with C4C (e.g. attending
+              workshops)? If so, explain.
+            </label>
+            <br />
+            <textarea id="form-prior-involvement" v-model="priorInvolvement" />
+          </div>
+          <div class="form-item">
+            <label for="form-why-join"
+              >Why do you want to join Code4Community?</label
+            >
+            <br />
+            <textarea id="form-why-join" v-model="whyJoin" />
+          </div>
+          <div class="form-item">
+            <button
+              type="submit"
+              :disabled="!validForm()"
+              v-on:click="handleSubmit($event)"
+            >
+              Apply
+            </button>
+          </div>
+        </form>
       </div>
-      <div class="form-item">
-        <label for="form-major">Major</label>
-        <br />
-        <input type="text" id="form-major" v-model="major" />
+      <div class="column">
+        <h1>Information</h1>
+        <h5>
+          Apply to become a contributing member using the form on this page.
+          Contributing members are split up into four teams: Testing & Security,
+          Outreach & Mentorship, Design or Development. Once accepted you will
+          be placed into a team that most closely matches your skill set and
+          interests. Most teams will expect their members to have 10 hours
+          available each week to work on C4C related projects and meet once a
+          week to discuss progress and plan work, so make sure you are willing
+          and able to take on that responsibility. If you have any questions
+          feel free to reach out using any of the links at the bottom of page!
+        </h5>
       </div>
-      <div class="form-item">
-        <label for="form-resume">Resume</label>
-        <br />
-        <input
-          type="file"
-          id="form-resume"
-          ref="resume"
-          v-on:change="handleFileUpload()"
-        />
-      </div>
-      <div class="form-item">
-        <label for="areaInterests"
-          >What part of Code4Community are you most interested in?</label
-        >
-        <br />
-        <select v-model="areaInterests" id="areaInterests">
-          <option value="frontend">Frontend</option>
-          <option value="backend">Backend</option>
-          <option value="testing">Testing</option>
-          <option value="security">Security</option>
-          <option value="design">Design</option>
-          <option value="outreach">Outreach</option>
-        </select>
-      </div>
-      <div class="form-item">
-        <label for="form-prior-involvement">
-          Have you had any prior involvement with C4C (e.g. attending
-          workshops)? If so, explain.
-        </label>
-        <br />
-        <textarea id="form-prior-involvement" v-model="priorInvolvement" />
-      </div>
-      <div class="form-item">
-        <label for="form-why-join"
-          >Why do you want to join Code 4 Community?</label
-        >
-        <br />
-        <textarea id="form-why-join" v-model="whyJoin" />
-      </div>
-      <div class="form-item">
-        <button
-          type="submit"
-          :disabled="!validForm()"
-          v-on:click="handleSubmit($event)"
-        >
-          Apply
-        </button>
-      </div>
-    </form>
+    </div>
   </div>
 </template>
 
@@ -149,4 +177,69 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.column {
+  flex: 50%;
+  padding: 2%;
+}
+
+form {
+  padding: 10px auto;
+  text-align: center;
+  width: 100%;
+}
+
+form label {
+  text-align: left;
+}
+
+label {
+  width: 80%;
+}
+
+input {
+  padding: 8px;
+  font-size: 18px;
+  border: 1px solid #bec2f7;
+}
+
+button {
+  background-color: #f0f0f0;
+  width: 80%;
+  border: none;
+  padding: 15px 20px 14px 20px;
+  margin: 0 0 0 0;
+  font-size: 18px;
+  text-transform: uppercase;
+  border-radius: 1px;
+}
+
+select {
+  border: 1px solid #bec2f7;
+  font-size: 18px;
+  width: 80%;
+}
+
+form div.form-item {
+  margin: 10px 0 0 0;
+}
+
+input[type="text"] {
+  width: 80%;
+}
+
+textarea {
+  height: 100px;
+  padding: 1px 5px;
+}
+
+h5 {
+  margin: 30px 0px;
+  line-height: 1.7em;
+}
+</style>

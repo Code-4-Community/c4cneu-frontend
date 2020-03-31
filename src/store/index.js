@@ -20,7 +20,7 @@ export default new Vuex.Store({
       return state.posts;
     },
     GET_POST_BY_ID: state => id => {
-      return state.posts.find(post => post.id === id);
+      return state.posts.find(post => post.id == id);
     },
     GET_EVENTS: state => {
       return state.events;
@@ -39,21 +39,15 @@ export default new Vuex.Store({
   },
   actions: {
     FETCH_BOARD: async ({ commit }) => {
-      let { data } = await Axios.get(
-        "https://my-json-server.typicode.com/code-4-community/demo/eboard"
-      );
+      let { data } = await Axios.get(process.env.VUE_APP_EBOARD_ENDPOINT);
       commit("SET_BOARD", data);
     },
     FETCH_POSTS: async ({ commit }) => {
-      let { data } = await Axios.get(
-        "https://my-json-server.typicode.com/code-4-community/demo/posts"
-      );
+      let { data } = await Axios.get(process.env.VUE_APP_POSTS_ENDPOINT);
       commit("SET_POSTS", data);
     },
     FETCH_EVENTS: async ({ commit }) => {
-      let { data } = await Axios.get(
-        "https://my-json-server.typicode.com/code-4-community/demo/events"
-      );
+      let { data } = await Axios.get(process.env.VUE_APP_EVENTS_ENDPOINT);
       commit("SET_EVENTS", data);
     },
     FETCH_POST_BY_ID() {

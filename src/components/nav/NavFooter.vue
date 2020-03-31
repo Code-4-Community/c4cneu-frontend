@@ -5,7 +5,10 @@
         <div class="column1" align="left">
           <h3>Created at</h3>
           <a href="https://www.khoury.northeastern.edu/">
-            <img class="khoury-logo" src="../../assets/khoury-logo.png" />
+            <img
+              class="khoury-logo"
+              src="https://c4cneu-public.s3.us-east-2.amazonaws.com/Icons/Khoury-Logo.png"
+            />
           </a>
         </div>
         <div class="column2" align="left">

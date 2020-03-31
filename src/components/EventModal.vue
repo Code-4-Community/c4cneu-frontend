@@ -10,7 +10,8 @@
       <div v-if="past">
         <p>This event occurred on {{ dateString }}.</p>
       </div>
-      <div v-else>
+      <!-- TODO: This false statement disables the check-in from showing, because it's not functional -->
+      <div v-else-if="false">
         <div class="form-item">
           <label>Enter your check-in code:</label>
           <!-- Same as above -->
@@ -68,16 +69,17 @@ export default {
   computed: {
     dateString() {
       var options = { year: "numeric", month: "short", day: "numeric" };
-      var postDate = new Date(this.date * 1000); //multiply by 1000 because unix timestamp is in seconds, whereas Date constructor takes ms
+      var postDate = new Date(this.date);
       return postDate.toLocaleDateString("en-US", options);
     },
-    //title, desc, date: return the respective property of the active event
+
+    //title, description, date: return the respective property of the active event
     title() {
-      return this.event?.title;
+      return this.event?.name;
     },
 
     desc() {
-      return this.event?.desc;
+      return this.event?.description;
     },
 
     date() {

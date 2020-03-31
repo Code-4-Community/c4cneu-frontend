@@ -2,7 +2,10 @@
   <div id="nav">
     <div class="big-menu">
       <router-link to="/" class="nav-home-link">
-        <img src="../../assets/c4c-banner-logo.png" class="home-nav" />
+        <img
+          class="home-nav"
+          src="https://c4cneu-public.s3.us-east-2.amazonaws.com/Icons/C4C-Banner_Nav.png"
+        />
       </router-link>
       <router-link to="/news" class="nav-item">News</router-link>
       <router-link to="/events" class="nav-item">Events</router-link>
@@ -14,10 +17,13 @@
     <img
       class="hamburger-icon"
       @click="toggle"
-      src="../../assets/hamburger.png"
+      src="https://c4cneu-public.s3.us-east-2.amazonaws.com/Icons/Hamburger.png"
     />
     <router-link @click.native="hide" to="/">
-      <img src="../../assets/c4c-banner-logo.png" class="mobile-logo" />
+      <img
+        class="mobile-logo"
+        src="https://c4cneu-public.s3.us-east-2.amazonaws.com/Icons/C4C-Banner_Nav.png"
+      />
     </router-link>
     <!-- Should this just be a v-if instead of inline styling hiding -->
     <div class="mobile-menu" :style="{ display: displayType }">

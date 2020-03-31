@@ -10,7 +10,7 @@
         v-for="post in mediaPosts"
         :key="post.title"
         :title="post.title"
-        :subtitle="post.desc"
+        :subtitle="post.description"
         :date="post.date"
         :imageUrl="post.imageUrl"
         @click.native="onClickPost(`/post/${post.id}`)"

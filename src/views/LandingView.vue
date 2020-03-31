@@ -3,7 +3,7 @@
     <section>
       <div class="parallax landing" id="plax_1">
         <img
-          src="../assets/c4c-banner-logo.jpeg"
+          src="https://c4cneu-public.s3.us-east-2.amazonaws.com/Icons/C4C-Banner_Landing.jpeg"
           style="width:80%;height:100%;"
         />
         <h3>Changing the world with software</h3>
@@ -48,6 +48,20 @@
           using an @husky.neu.edu email address. There, you will find all
           announcements about upcoming events and can reach out to anyone on the
           executive board with questions!
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="parallax landing" id="plax_9">
+        <h1>Work With Us</h1>
+        <p>
+          Code4Community is dedicated to helping non-profit organizations. If
+          you would like to contact us about partnering to create a custom
+          software solution for your non-profit please email
+          <a href="mailto:c4cneu@gmail.com">c4cneu@gmail.com</a>. Alternatively,
+          if you would like to sponsor us so that we can keep the servers
+          running, please also contact the previously mentioned email address.
         </p>
       </div>
     </section>

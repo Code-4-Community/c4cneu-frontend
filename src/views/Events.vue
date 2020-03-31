@@ -1,23 +1,27 @@
 <template>
   <div @click="handleOutsideClick">
+    <section>
+      <div class="parallax" id="plax_6">
+        <h1>Upcoming Events</h1>
+      </div>
+    </section>
     <div>
-      <h1>Events</h1>
       <div class="content">
-        <h2>Upcoming</h2>
+        <h2 v-if="hasFuture">Upcoming Events</h2>
         <list-card
           v-for="event in futureEvents"
           :key="event.id"
-          :title="event.title"
+          :title="event.name"
           :subtitle="event.subtitle"
           :date="event.date"
           :imageUrl="event.imageUrl"
           @click.native="handleClickInParent(event.id)"
         />
-        <h2>Past</h2>
+        <h2 v-if="hasPast">Past Events</h2>
         <list-card
           v-for="event in pastEvents"
           :key="event.id"
-          :title="event.title"
+          :title="event.name"
           :subtitle="event.subtitle"
           :date="event.date"
           :imageUrl="event.imageUrl"
@@ -77,6 +81,16 @@ export default {
       return this.events.filter(event => this.isPast(event.date));
     },
 
+    //hasFuture: returns true if futureEvents returns an array of length >= 1
+    hasFuture() {
+      return this.futureEvents?.length > 0;
+    },
+
+    //hasFuture: returns true if futureEvents returns an array of length >= 1
+    hasPast() {
+      return this.pastEvents?.length > 0;
+    },
+
     //activeEvent: returns the current active event
     activeEvent() {
       if (this.activeEventIndex != null) {
@@ -105,14 +119,9 @@ export default {
       this.displayType = "none";
     },
 
-    //unixToDate: converts the given unix timestamp to a javascript date number
-    unixToDate(unix) {
-      return unix * 1000;
-    },
-
     //Helper function: determines if a given date is more than 24 hours in the past
     isPast(date) {
-      return this.unixToDate(date) <= Date.now() - 24 * 60 * 60 * 1000; //day in milliseconds
+      return new Date(date) <= Date.now() - 24 * 60 * 60 * 1000;
     },
 
     //handleOutsideClick: handles a click anywhere on the page with the intention of closing the modal if not on the modal
