@@ -18,7 +18,7 @@
           <input
             ref="first"
             type="text"
-            v-model="user.emailAddress"
+            v-model="user.email"
             @focus="clearStatus"
             placeholder="Email"
           />
@@ -55,16 +55,27 @@
           <br />
           <input
             type="email"
-            v-model="newUser.emailAddress"
+            v-model="newUser.email"
             @focus="clearStatus"
             placeholder="Email"
           />
         </div>
         <div class="form-item">
+          <label>Current Year</label>
+          <br />
+          <select v-model="newUser.currentYear">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5+</option>
+          </select>
+        </div>
+        <div class="form-item">
           <label>Year of graduation</label>
           <br />
           <input
-            type="text"
+            type="number"
             v-model="newUser.yog"
             @focus="clearStatus"
             placeholder="Year of graduation"
@@ -161,13 +172,15 @@ export default {
   data() {
     return {
       user: {
-        emailAddress: "",
+        email: "",
         password: ""
       },
       newUser: {
-        name: "",
-        emailAddress: "",
-        yog: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        currentYear: null,
+        yog: null,
         college: "",
         major: "",
         gender: "",
@@ -198,7 +211,7 @@ export default {
       this.signIn(this.user);
 
       this.user = {
-        emailAddress: "",
+        email: "",
         password: ""
       };
     },
@@ -210,8 +223,10 @@ export default {
       this.clearStatus();
 
       if (
-        this.invalidNewName() ||
+        this.invalidNewFirstName() ||
+        this.invalidNewLastName() ||
         this.invalidNewEmail() ||
+        this.invalidNewCurrentYear() ||
         this.invalidNewYOG() ||
         this.invalidNewCollege() ||
         this.invalidNewMajor() ||
@@ -225,8 +240,9 @@ export default {
       this.signUp(this.newUser);
 
       this.newUser = {
-        name: "",
-        emailAddress: "",
+        firstName: "",
+        lastName: "",
+        email: "",
         yog: "",
         college: "",
         major: "",
@@ -258,7 +274,15 @@ export default {
     //Needs testing
     signIn(user) {
       //Temporary:
-      Axios.post(process.env.VUE_APP_LOGIN_ENDPOINT, user).then(
+      let data = JSON.stringify({
+        email: user.email,
+        password: user.password
+      });
+      Axios.post(process.env.VUE_APP_LOGIN_ENDPOINT, data, {
+        headers: {
+          "content-type": "application/json"
+        }
+      }).then(
         response => {
           this.success = true;
           this.msg = response;
@@ -268,14 +292,27 @@ export default {
           this.msg = error;
         }
       );
-      //TODO: implement backend API call
     },
 
     //signUp: sends sign up request to backend
     //Needs testing
     signUp(newUser) {
-      //Temporary:
-      Axios.post(process.env.VUE_APP_SIGNUP_ENDPOINT, newUser).then(
+      let data = JSON.stringify({
+        firstName: newUser.firstName,
+        lastName: newUser.lastName,
+        email: newUser.email,
+        currentYear: newUser.currentYear,
+        yog: newUser.yog,
+        college: newUser.college,
+        major: newUser.major,
+        gender: newUser.gender,
+        password: newUser.password
+      });
+      Axios.post(process.env.VUE_APP_SIGNUP_ENDPOINT, data, {
+        headers: {
+          "content-type": "application/json"
+        }
+      }).then(
         response => {
           this.success = true;
           this.msg = response;
@@ -285,13 +322,12 @@ export default {
           this.msg = error;
         }
       );
-      //TODO: implement backend API call
     },
 
     //TODO: Prevent invalid characters from being submitted
     invalidEmail() {
       //TODO: Better email validation
-      var valid = this.user.emailAddress !== "";
+      var valid = this.user.email !== "";
       if (!valid) {
         this.msg = "Your email address is invalid.";
         return true;
@@ -308,20 +344,34 @@ export default {
     },
     invalidNewEmail() {
       //TODO: Better email validation
-      var valid = this.newUser.emailAddress !== "";
+      var valid = this.newUser.email !== "";
       if (!valid) {
         this.msg = "Your email address is invalid.";
         return true;
       }
       return false;
     },
-    invalidNewName() {
-      var valid = this.newUser.name !== "";
+    invalidNewFirstName() {
+      var valid = this.newUser.firstName !== "";
       if (!valid) {
-        this.msg = "Please enter a name.";
+        this.msg = "Please enter a first name.";
         return true;
       }
       return false;
+    },
+    invalidNewLastName() {
+      var valid = this.newUser.lastName !== "";
+      if (!valid) {
+        this.msg = "Please enter a last name.";
+        return true;
+      }
+      return false;
+    },
+    invalidNewCurrentYear() {
+      var valid = !!this.newUser.currentYear;
+      if (!valid) {
+        this.msg = "Please select a current year.";
+      }
     },
     invalidNewYOG() {
       var valid = this.newUser.yog !== "";
