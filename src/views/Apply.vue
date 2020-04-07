@@ -105,7 +105,6 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
 import axios from "axios";
 
 export default {
@@ -124,7 +123,6 @@ export default {
     };
   },
   computed: {
-    ...mapState(["apply"]),
     applied() {
       return this.$store.getters.GET_APPLY;
     },
@@ -155,7 +153,6 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["FETCH_APPLY"]),
     handleFileUpload() {
       this.resume = this.$refs.resume.files.item(0);
     },

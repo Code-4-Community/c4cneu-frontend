@@ -10,8 +10,7 @@ export default new Vuex.Store({
   state: {
     board: [],
     posts: [],
-    events: [],
-    apply: []
+    events: []
   },
   getters: {
     GET_BOARD: state => {
@@ -25,9 +24,6 @@ export default new Vuex.Store({
     },
     GET_EVENTS: state => {
       return state.events;
-    },
-    GET_APPLY: state => {
-      return state.apply;
     }
   },
   mutations: {
@@ -39,9 +35,6 @@ export default new Vuex.Store({
     },
     SET_EVENTS(state, events) {
       state.events = events;
-    },
-    SET_APPLY(state, apply) {
-      state.apply = apply;
     }
   },
   actions: {
