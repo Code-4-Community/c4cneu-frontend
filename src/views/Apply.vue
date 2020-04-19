@@ -8,8 +8,8 @@
     <div class="row">
       <div class="column">
         <h1>Apply</h1>
-        <form>
-          <div class="form-item">
+        <form id="applyForm">
+          <div @submit.prevent="onSubmit">
             <input
               type="text"
               id="form-name"
@@ -105,6 +105,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Apply",
   data() {
@@ -115,10 +117,15 @@ export default {
       resume: null,
       priorInvolvement: "",
       whyJoin: "",
-      areaInterests: []
+      areaInterests: [],
+      errors: [],
+      applicants: []
     };
   },
   computed: {
+    applied() {
+      return this.$store.getters.GET_APPLY;
+    },
     validName: function() {
       return this.name.trim() !== "";
     },
@@ -171,6 +178,23 @@ export default {
         formData.append("priorInvolvement", this.priorInvolvement);
         formData.append("whyJoin", this.whyJoin);
         formData.append("areaInterests", this.areaInterests);
+        axios
+          .post(process.env.VUE_APP_APPLY_ENDPOINT, {
+            name: this.name,
+            year: this.year,
+            major: this.major,
+            resume: "TEMPORARY RESUME",
+            priorInvolvement: this.priorInvolvement,
+            whyJoin: this.whyJoin,
+            areaInterests: this.areaInterests
+          })
+          .then(response => {
+            this.applicants = response.data;
+          })
+          .catch(e => {
+            this.errors.push(e);
+          });
+        this.$store.mutations.SET_APPLY(this.$store.state, formData);
       }
     }
   }
