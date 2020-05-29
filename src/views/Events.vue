@@ -116,7 +116,7 @@ export default {
     //sorts the given "events" by date. The latests events first
     sortInOrder(events) {
       return events.sort(function(a, b) {
-        return b.date - a.date;
+        return new Date(b.date) - new Date(a.date);
       });
     },
 
