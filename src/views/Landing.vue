@@ -6,15 +6,14 @@
           src="https://c4cneu-public.s3.us-east-2.amazonaws.com/Icons/C4C-Banner_Landing.jpeg"
           style="width:80%;height:100%;"
         />
-        <h3>Changing the world with software</h3>
       </div>
     </section>
 
     <section>
       <div class="parallax landing" id="plax_2">
-        <h1>Mission Statement</h1>
+        <h1>Our Mission</h1>
         <p>
-          Code 4 Community (C4C) is a student organization at Northeastern
+          Code4Community (C4C) is a student organization at Northeastern
           University focused on developing and maintaining software solutions
           for non-profit organizations within Boston. We empower our members via
           mentoring and workshops, while enabling them to connect with, give
@@ -30,9 +29,8 @@
       <div class="parallax landing" id="plax_3">
         <h1>Our Projects</h1>
         <p>
-          Code 4 Community is an organization on GitHub with over 20 developers.
-          Here, you can find the source code to our project frontends and
-          backends (such as this website!)
+          To get a sense of the types of projects we work on, take a look at our
+          GitHub below!
         </p>
         <a href="https://github.com/Code-4-Community">Follow C4C on GitHub</a>
       </div>
