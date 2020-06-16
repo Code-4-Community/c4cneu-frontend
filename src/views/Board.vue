@@ -3,6 +3,7 @@
     <section>
       <div class="parallax" id="plax_5">
         <h1>Executive Board</h1>
+        <h4>2019-2020 Academic Year</h4>
       </div>
     </section>
     <div class="content">

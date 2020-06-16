@@ -26,17 +26,6 @@
     </section>
 
     <section>
-      <div class="parallax landing" id="plax_3">
-        <h1>Our Projects</h1>
-        <p>
-          To get a sense of the types of projects we work on, take a look at our
-          GitHub below!
-        </p>
-        <a href="https://github.com/Code-4-Community">Follow C4C on GitHub</a>
-      </div>
-    </section>
-
-    <section>
       <div class="parallax landing" id="plax_4">
         <h1>Get Involved Today</h1>
         <p>
@@ -52,6 +41,17 @@
         >
           Join our mailing list!
         </a>
+      </div>
+    </section>
+
+    <section>
+      <div class="parallax landing" id="plax_3">
+        <h1>Our Projects</h1>
+        <p>
+          To get a sense of the types of projects we work on, take a look at our
+          GitHub below!
+        </p>
+        <a href="https://github.com/Code-4-Community">Follow C4C on GitHub</a>
       </div>
     </section>
 
