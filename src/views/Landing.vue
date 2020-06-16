@@ -29,12 +29,17 @@
       <div class="parallax landing" id="plax_4">
         <h1>Get Involved Today</h1>
         <p>
-          Interested in making an impact with Code4Community? Anyone is welcome
-          to join our Slack workspace at
-          <a href="https://c4cneu.slack.com/">c4cneu.slack.com</a>
-          using an @husky.neu.edu email address. There, you will find all
-          announcements about upcoming events and can reach out to anyone on the
-          executive board with questions!
+          Interested in making an impact with Code4Community? Apply to be a
+          developer
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeHQwdpesED4eZ4D3kLsxYMIP1B1qwWuwJsqmDQDMtbYILRPw/viewform"
+            >here</a
+          >. Apply to be a designer
+          <a
+            href="https://docs.google.com/forms/u/1/d/e/1FAIpQLSfH4K7WDWwGUePHR5D46kIS5yFcr0gJ1wLKrwInr5gpqgtOwg/viewform?usp=send_form"
+          >
+            here.</a
+          >
         </p>
         <a
           href="https://c4cneu.us4.list-manage.com/subscribe?u=4b534cd2e8fe8be8150d03977&id=b1915b8b8b"
