@@ -66,7 +66,8 @@ export default {
 
     //events: returns all of the events from the vuex store
     events() {
-      return this.$store.getters.GET_EVENTS;
+      // return this.$store.getters.GET_EVENTS;
+      return this.sortInOrder(this.$store.getters.GET_EVENTS);
     },
 
     //futureEvents: returns an array of event objects for which the date of the event is later than 24 hours ago
@@ -94,7 +95,11 @@ export default {
     //activeEvent: returns the current active event
     activeEvent() {
       if (this.activeEventIndex != null) {
-        return this.events[this.activeEventIndex];
+        for (let i = 0; i < this.events.length; ++i) {
+          if (this.events[i].id === this.activeEventIndex) {
+            return this.events[i];
+          }
+        }
       }
       return null;
     },
@@ -108,9 +113,16 @@ export default {
   methods: {
     ...mapActions(["FETCH_EVENTS"]),
 
+    //sorts the given "events" by date. The latests events first
+    sortInOrder(events) {
+      return events.sort(function(a, b) {
+        return new Date(b.date) - new Date(a.date);
+      });
+    },
+
     //handleClickInParent: sets the activeEventIndex to the proper eventId
     handleClickInParent(eventId) {
-      this.activeEventIndex = eventId - 1;
+      this.activeEventIndex = eventId;
       this.displayType = "block";
       this.disableOutsideClick = true;
     },
