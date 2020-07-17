@@ -7,6 +7,7 @@ import News from "../views/News.vue";
 import Post from "../views/Post.vue";
 import Apply from "../views/Apply.vue";
 import EmailSignUp from "../views/EmailSignUp.vue";
+import Gallery from "../views/Gallery";
 
 export default [
   {
@@ -45,6 +46,11 @@ export default [
     path: "/post/:id",
     name: "post",
     component: Post
+  },
+  {
+    path: "/gallery",
+    name: "gallery",
+    component: Gallery
   },
   {
     path: "/apply",
